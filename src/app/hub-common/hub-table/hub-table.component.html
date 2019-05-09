@@ -1,5 +1,5 @@
 <app-select [label]="'Columns'" [items]="table.header" ></app-select>
-<app-multiple-select [label]="'Columns'" [items]="table.header" ></app-multiple-select>
+<app-multiple-select [label]="'Columns'" [items]="table.header" (selectionChange)="columnsSelected($event)"></app-multiple-select>
 
 <table>
   <tr>

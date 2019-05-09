@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {HubTable} from '../model/HubTable';
+import {Header, HubTable} from '../model/HubTable';
 
 const TestData: any[][] = [
   ['col1', 'col2', 'random'],
@@ -24,5 +24,12 @@ export class HubTableComponent implements OnInit {
 
   ngOnInit() {}
 
-  selectColumn(name: string) {}
+  columnsSelected(headers: Header[]) {
+    this.table.header.forEach(
+      h =>
+        (h.active = headers.some(
+          selectedHeader => selectedHeader.name === h.name
+        ))
+    );
+  }
 }
