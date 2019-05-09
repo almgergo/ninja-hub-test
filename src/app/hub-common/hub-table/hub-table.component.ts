@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {HubTable} from './HubTable';
+import {HubTable} from '../model/HubTable';
 
 const TestData: any[][] = [
   ['col1', 'col2', 'random'],
@@ -10,7 +10,7 @@ const TestData: any[][] = [
 @Component({
   selector: 'app-hub-table',
   templateUrl: './hub-table.component.html',
-  styleUrls: ['./hub-table.component.css']
+  styleUrls: ['./hub-table.component.scss']
 })
 export class HubTableComponent implements OnInit {
   table: HubTable;

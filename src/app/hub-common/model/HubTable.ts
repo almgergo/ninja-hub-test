@@ -1,10 +1,20 @@
-export class Header {
+import {Selectable} from './Selectable';
+
+export class Header implements Selectable {
   name: string;
   active: boolean;
 
   constructor(name: string, active: boolean) {
     this.name = name;
     this.active = active;
+  }
+
+  getLabel(): any {
+    return this;
+  }
+
+  getValue(): string {
+    return this.name;
   }
 }
 
