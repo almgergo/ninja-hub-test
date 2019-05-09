@@ -1,18 +1,11 @@
 import {Component, OnInit} from '@angular/core';
+import {HubTable} from './HubTable';
 
-export interface TableData<T> {
-  // header: TableRow<string>;
-  columns: TableColumn<T>[];
-}
-
-// interface TableRow<T> {
-//   data: T[];
-// }
-
-interface TableColumn<T> {
-  name: string;
-  data: T[];
-}
+const TestData: any[][] = [
+  ['col1', 'col2', 'random'],
+  ['1', 'test', '123'],
+  ['992', 'test2', '55.6']
+];
 
 @Component({
   selector: 'app-hub-table',
@@ -20,9 +13,16 @@ interface TableColumn<T> {
   styleUrls: ['./hub-table.component.css']
 })
 export class HubTableComponent implements OnInit {
-  activeColumns: string[] = ['test', 'mariska', 'victor'];
+  table: HubTable;
 
-  constructor() {}
+  constructor() {
+    this.table = new HubTable(TestData);
+    this.table.header.forEach(h =>
+      this.table.changeColumnActivity(h.name, true)
+    );
+  }
 
   ngOnInit() {}
+
+  selectColumn(name: string) {}
 }
