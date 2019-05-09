@@ -1,0 +1,6 @@
+<mat-form-field>
+  <mat-label>{{label}}</mat-label>
+  <mat-select [(ngModel)]="selectedValues" (selectionChange)="itemSelected()" multiple>
+    <mat-option *ngFor="let item of items" [value]="item.getValue()">{{item.getLabel()}}</mat-option>
+  </mat-select>
+</mat-form-field>

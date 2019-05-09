@@ -9,12 +9,12 @@ export class Header implements Selectable {
     this.active = active;
   }
 
-  getLabel(): any {
-    return this;
+  getLabel(): string {
+    return this.name;
   }
 
-  getValue(): string {
-    return this.name;
+  getValue(): any {
+    return this;
   }
 }
 
