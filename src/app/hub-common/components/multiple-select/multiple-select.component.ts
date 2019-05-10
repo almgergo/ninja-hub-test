@@ -14,7 +14,9 @@ export class MultipleSelectComponent implements OnInit {
 
   selectedValues: Selectable[];
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.selectedValues = this.items.filter(i => i.isSelected());
+  }
 
   itemSelected() {
     this.selectionChange.emit(this.selectedValues);

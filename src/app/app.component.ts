@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {registerLocaleData} from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,8 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
   title = 'ninja-hub';
+
+  constructor() {
+    console.log(navigator.language);
+  }
 }

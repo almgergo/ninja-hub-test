@@ -5,11 +5,22 @@ import {SelectComponent} from './components/select/select.component';
 import {MatSelectModule} from '@angular/material/select';
 import {FormsModule} from '@angular/forms';
 import {MultipleSelectComponent} from './components/multiple-select/multiple-select.component';
-import {MatOptionModule} from '@angular/material';
+import {
+  MatTableModule,
+  MatSortModule,
+  MatPaginatorModule
+} from '@angular/material';
 
 @NgModule({
   declarations: [HubTableComponent, SelectComponent, MultipleSelectComponent],
   exports: [HubTableComponent],
-  imports: [CommonModule, FormsModule, MatSelectModule]
+  imports: [
+    CommonModule,
+    FormsModule,
+    MatSelectModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule
+  ]
 })
 export class HubCommonModule {}
