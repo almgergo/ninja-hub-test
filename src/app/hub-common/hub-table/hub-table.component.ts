@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {TableHeader} from '../model/TableHeader';
 import {MatTableDataSource, MatPaginator, MatSort} from '@angular/material';
+import {SelectionModel} from '@angular/cdk/collections';
 
 interface TestDataType {
   col1: string;
@@ -75,21 +76,28 @@ const TestData: TestDataType[] = [
 })
 export class HubTableComponent implements OnInit {
   dataSource: MatTableDataSource<TestDataType>;
+  selection = new SelectionModel<TestDataType>(true, []);
 
-  header: TableHeader[];
+  selectionHeader = new TableHeader('select', true);
+  headers: TableHeader[];
   // return the currently active headers
   get displayedColumns(): string[] {
-    return this.header.filter(h => h.active).map(h => h.name);
+    return this.headers.filter(h => h.active).map(h => h.name);
+  }
+
+  getColumns(): string[] {
+    return [this.selectionHeader.name].concat(this.displayedColumns);
   }
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
   constructor() {
-    this.header = Object.keys(TestData[0]).map(
+    this.headers = Object.keys(TestData[0]).map(
       key => new TableHeader(key, Math.random() <= 1)
     );
 
+    console.log({header: this.headers});
     this.dataSource = new MatTableDataSource(TestData);
   }
 
@@ -99,12 +107,34 @@ export class HubTableComponent implements OnInit {
   }
 
   columnsSelected(headers: TableHeader[]) {
-    this.header.forEach(
+    this.headers.forEach(
       h =>
         (h.active = headers.some(
           selectedHeader => selectedHeader.name === h.name
         ))
     );
+  }
+
+  /** Whether the number of selected elements matches the total number of rows. */
+  isAllSelected() {
+    const numSelected = this.selection.selected.length;
+    const numRows = this.dataSource.data.length;
+    return numSelected === numRows;
+  }
+
+  /** Selects all rows if they are not all selected; otherwise clear selection. */
+  masterToggle() {
+    this.isAllSelected()
+      ? this.selection.clear()
+      : this.dataSource.data.forEach(row => this.selection.select(row));
+  }
+
+  /** The label for the checkbox on the passed row */
+  checkboxLabel(row?: TestDataType): string {
+    if (!row) {
+      return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
+    }
+    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row`;
   }
 
   isNumber(element: any) {

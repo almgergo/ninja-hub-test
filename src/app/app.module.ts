@@ -6,6 +6,7 @@ import {HubCommonModule} from './hub-common/hub-common.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {registerLocaleData} from '@angular/common';
 import localeDe from '@angular/common/locales/de';
+import {MatButtonModule, MatIconModule} from '@angular/material';
 
 export function LocaleFactory() {
   return 'en';
@@ -15,7 +16,12 @@ registerLocaleData(localeDe, 'de');
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, BrowserAnimationsModule, HubCommonModule],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    HubCommonModule,
+    MatIconModule
+  ],
   providers: [{provide: LOCALE_ID, useFactory: LocaleFactory}],
   bootstrap: [AppComponent]
 })

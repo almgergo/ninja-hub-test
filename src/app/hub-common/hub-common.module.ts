@@ -8,7 +8,11 @@ import {MultipleSelectComponent} from './components/multiple-select/multiple-sel
 import {
   MatTableModule,
   MatSortModule,
-  MatPaginatorModule
+  MatPaginatorModule,
+  MatCheckboxModule,
+  MatInputModule,
+  MatButtonModule,
+  MatIconModule
 } from '@angular/material';
 
 @NgModule({
@@ -20,7 +24,11 @@ import {
     MatSelectModule,
     MatTableModule,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatCheckboxModule,
+    MatInputModule,
+    MatIconModule,
+    MatButtonModule
   ]
 })
 export class HubCommonModule {}
