@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {TableHeader} from '../model/TableHeader';
 import {MatTableDataSource, MatPaginator, MatSort} from '@angular/material';
 import {SelectionModel} from '@angular/cdk/collections';
@@ -75,6 +75,8 @@ const TestData: TestDataType[] = [
   styleUrls: ['./hub-table.component.scss']
 })
 export class HubTableComponent implements OnInit {
+  @Input() tableName: string;
+
   dataSource: MatTableDataSource<TestDataType>;
   selection = new SelectionModel<TestDataType>(true, []);
 
@@ -85,7 +87,7 @@ export class HubTableComponent implements OnInit {
     return this.headers.filter(h => h.active).map(h => h.name);
   }
 
-  getColumns(): string[] {
+  get columns(): string[] {
     return [this.selectionHeader.name].concat(this.displayedColumns);
   }
 
@@ -93,11 +95,8 @@ export class HubTableComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
   constructor() {
-    this.headers = Object.keys(TestData[0]).map(
-      key => new TableHeader(key, Math.random() <= 1)
-    );
+    this.loadHeader();
 
-    console.log({header: this.headers});
     this.dataSource = new MatTableDataSource(TestData);
   }
 
@@ -113,6 +112,8 @@ export class HubTableComponent implements OnInit {
           selectedHeader => selectedHeader.name === h.name
         ))
     );
+
+    this.persistHeader();
   }
 
   /** Whether the number of selected elements matches the total number of rows. */
@@ -147,5 +148,25 @@ export class HubTableComponent implements OnInit {
 
   isString(element: any) {
     return typeof element === 'string';
+  }
+
+  private persistHeader() {
+    localStorage.setItem(
+      this.tableName + '_header',
+      JSON.stringify(this.headers.filter(h => h.active).map(h => h.name))
+    );
+  }
+
+  private loadHeader() {
+    const parsedHeader: string[] = JSON.parse(
+      localStorage.getItem(this.tableName + '_header')
+    );
+    this.headers = Object.keys(TestData[0]).map(
+      key =>
+        new TableHeader(
+          key,
+          parsedHeader && parsedHeader.some(ph => ph === key)
+        )
+    );
   }
 }
