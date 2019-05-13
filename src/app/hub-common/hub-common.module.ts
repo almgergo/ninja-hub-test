@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {HubTableComponent} from './hub-table/hub-table.component';
+import {HubTableComponent} from './components/hub-table/hub-table.component';
 import {SelectComponent} from './components/select/select.component';
 import {MatSelectModule} from '@angular/material/select';
 import {FormsModule} from '@angular/forms';
@@ -16,8 +16,7 @@ import {
 } from '@angular/material';
 
 @NgModule({
-  declarations: [HubTableComponent, SelectComponent, MultipleSelectComponent],
-  exports: [HubTableComponent],
+  declarations: [SelectComponent, MultipleSelectComponent, HubTableComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -29,6 +28,7 @@ import {
     MatInputModule,
     MatIconModule,
     MatButtonModule
-  ]
+  ],
+  exports: [HubTableComponent]
 })
 export class HubCommonModule {}

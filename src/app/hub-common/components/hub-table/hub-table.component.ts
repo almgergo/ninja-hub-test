@@ -1,5 +1,5 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
-import {TableHeader} from '../model/TableHeader';
+import {TableHeader} from '../../model/TableHeader';
 import {MatTableDataSource, MatPaginator, MatSort} from '@angular/material';
 import {SelectionModel} from '@angular/cdk/collections';
 

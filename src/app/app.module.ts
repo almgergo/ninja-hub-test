@@ -7,6 +7,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {registerLocaleData} from '@angular/common';
 import localeDe from '@angular/common/locales/de';
 import {MatButtonModule, MatIconModule} from '@angular/material';
+import {TestModule} from './test/test.module';
 
 export function LocaleFactory() {
   return 'en';
@@ -20,6 +21,7 @@ registerLocaleData(localeDe, 'de');
     BrowserModule,
     BrowserAnimationsModule,
     HubCommonModule,
+    TestModule,
     MatIconModule
   ],
   providers: [{provide: LOCALE_ID, useFactory: LocaleFactory}],
