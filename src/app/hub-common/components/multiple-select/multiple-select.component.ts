@@ -8,7 +8,6 @@ import {
   ViewChild
 } from '@angular/core';
 import {Selectable} from '../../model/Selectable';
-import {faWrench} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-multiple-select',
@@ -38,9 +37,6 @@ export class MultipleSelectComponent implements OnInit {
     this.selectedValues = this.items.filter(i => i.isSelected());
     this.filter = '';
     this.filterInput.nativeElement.focus();
-    if (!this.triggerIcon) {
-      this.triggerIcon = faWrench;
-    }
   }
 
   itemSelected() {

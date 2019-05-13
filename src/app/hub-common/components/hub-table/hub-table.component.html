@@ -1,4 +1,21 @@
-<app-multiple-select [label]="''" [items]="headers" (selectionChange)="columnsSelected($event)"></app-multiple-select>
+<div class="table-gadgets">
+  <div class="prodecures"></div>
+
+  <div class="filter">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+  </div>
+
+  <div class="locations"></div>
+  <div class="groups"></div>
+  <div class="cattlegories"></div>
+
+  <div class="column-select">
+    <app-multiple-select [triggerIcon]="wrench" [label]="''" [items]="headers" (selectionChange)="columnsSelected($event)"></app-multiple-select>
+  </div>
+
+</div>
 
 <div class="mat-elevation-z8">
   <table mat-table [dataSource]="dataSource" matSort>

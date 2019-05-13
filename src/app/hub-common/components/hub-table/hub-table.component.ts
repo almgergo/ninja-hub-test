@@ -2,6 +2,7 @@ import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {TableHeader} from '../../model/TableHeader';
 import {MatTableDataSource, MatPaginator, MatSort} from '@angular/material';
 import {SelectionModel} from '@angular/cdk/collections';
+import {faWrench} from '@fortawesome/free-solid-svg-icons';
 
 interface TestDataType {
   col1: string;
@@ -76,6 +77,8 @@ const TestData: TestDataType[] = [
 })
 export class HubTableComponent implements OnInit {
   @Input() tableName: string;
+
+  wrench = faWrench;
 
   dataSource: MatTableDataSource<TestDataType>;
   selection = new SelectionModel<TestDataType>(true, []);
@@ -168,5 +171,10 @@ export class HubTableComponent implements OnInit {
           parsedHeader && parsedHeader.some(ph => ph === key)
         )
     );
+  }
+
+  applyFilter(filterValue: string) {
+    console.log(filterValue);
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 }

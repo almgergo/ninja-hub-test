@@ -10,3 +10,30 @@ table {
 td, th {
   max-width: 25%;
 }
+
+.table-gadgets {
+  display: grid;
+  grid-template-areas:
+    "procedure blank1 filter blank2 locations groups cattlegories blank3 select";
+}
+
+.procedure {
+  grid-area: procedure;
+}
+.filter {
+  grid-area: filter;
+}
+.locations {
+  grid-area: locations;
+}
+.groups {
+  grid-area: groups;
+}
+.cattlegories {
+  grid-area: cattlegories;
+}
+.column-select {
+  width:auto;
+  justify-self: end;
+  grid-area: select;
+}
