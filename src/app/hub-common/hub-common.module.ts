@@ -14,12 +14,14 @@ import {
   MatButtonModule,
   MatIconModule
 } from '@angular/material';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [SelectComponent, MultipleSelectComponent, HubTableComponent],
   imports: [
     CommonModule,
     FormsModule,
+    FontAwesomeModule,
     MatSelectModule,
     MatTableModule,
     MatSortModule,

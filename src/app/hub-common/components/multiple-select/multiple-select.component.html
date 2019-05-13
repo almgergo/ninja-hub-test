@@ -1,6 +1,14 @@
 <mat-form-field>
   <mat-label>{{label}}</mat-label>
   <mat-select [(ngModel)]="selectedValues" (selectionChange)="itemSelected()" multiple>
+    <!-- trigger-->
+    <mat-select-trigger>
+      <div class="trigger-icon" >
+        <fa-icon [classes]="['faded']" [icon]="triggerIcon"></fa-icon>
+      </div>
+    </mat-select-trigger>
+
+    <!-- multiple select content-->
     <mat-form-field class="filter-field">
       <input #filterInput matInput type="text" placeholder="filter" [(ngModel)]="filter" (input)="updateFilter($event)">
       <button mat-button *ngIf="filter" matSuffix mat-icon-button aria-label="Clear" (click)="filter=''">

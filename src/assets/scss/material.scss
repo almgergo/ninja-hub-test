@@ -1,3 +1,21 @@
+// multiple select formatting
 div.mat-select-panel {
   max-height: 356px;
 }
+
+app-multiple-select div.mat-form-field-infix {
+  width: 40px;
+}
+
+app-multiple-select .mat-form-field-underline
+{
+  display:none;
+}
+
+app-multiple-select .mat-select-arrow-wrapper,
+app-multiple-select .mat-select-arrow{
+  width: 0;
+  padding: 0 0 0 0;
+  border: none;
+}
+
