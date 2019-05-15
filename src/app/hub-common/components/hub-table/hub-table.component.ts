@@ -3,6 +3,7 @@ import {TableHeader} from '../../model/TableHeader';
 import {MatTableDataSource, MatPaginator, MatSort} from '@angular/material';
 import {SelectionModel} from '@angular/cdk/collections';
 import {faWrench} from '@fortawesome/free-solid-svg-icons';
+import {CdkDragDrop} from '@angular/cdk/drag-drop';
 
 interface TestDataType {
   col1: string;
@@ -176,5 +177,9 @@ export class HubTableComponent implements OnInit {
   applyFilter(filterValue: string) {
     console.log(filterValue);
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  dropHeader(event: CdkDragDrop<any, any>, column: string) {
+    console.log({event: event, column: column});
   }
 }

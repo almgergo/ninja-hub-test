@@ -15,6 +15,7 @@ import {
   MatIconModule
 } from '@angular/material';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [SelectComponent, MultipleSelectComponent, HubTableComponent],
@@ -29,7 +30,8 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
     MatCheckboxModule,
     MatInputModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    DragDropModule
   ],
   exports: [HubTableComponent]
 })
