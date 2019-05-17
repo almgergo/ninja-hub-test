@@ -6,8 +6,10 @@ import {HubCommonModule} from './hub-common/hub-common.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {registerLocaleData} from '@angular/common';
 import localeDe from '@angular/common/locales/de';
-import {MatButtonModule, MatIconModule} from '@angular/material';
+import {MatIconModule} from '@angular/material';
 import {TestModule} from './test/test.module';
+import {ServiceWorkerModule} from '@angular/service-worker';
+import {environment} from '../environments/environment';
 
 export function LocaleFactory() {
   return 'en';
@@ -22,7 +24,10 @@ registerLocaleData(localeDe, 'de');
     BrowserAnimationsModule,
     HubCommonModule,
     TestModule,
-    MatIconModule
+    MatIconModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production
+    })
   ],
   providers: [{provide: LOCALE_ID, useFactory: LocaleFactory}],
   bootstrap: [AppComponent]
