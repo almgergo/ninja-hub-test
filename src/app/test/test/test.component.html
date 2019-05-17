@@ -1,8 +1,6 @@
-<h1>Test title</h1>
+<h1>{{qrResult}}</h1>
 
-<input type="file" accept="image/*" capture="environment">
-<input type="file" accept="image/*" capture="user">
-<input type="file" accept="image/*" capture >
+<input type="file" accept="image/*" (change)="onFileChange($event)" capture >
 
 <div class="table-wrapper">
   <app-hub-table>
