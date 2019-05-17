@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --port 4201",
+    "start": "ng serve --port 4201 --host 0.0.0.0 -o --disable-host-check",
     "build": "ng build",
+    "pwabuild": "ng build --prod && cd dist && http-server -p 8081",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
