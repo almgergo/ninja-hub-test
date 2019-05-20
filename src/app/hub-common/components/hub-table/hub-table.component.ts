@@ -1,18 +1,11 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {TableHeader} from '../../model/TableHeader';
 import {MatTableDataSource, MatPaginator, MatSort} from '@angular/material';
 import {SelectionModel} from '@angular/cdk/collections';
 import {faWrench} from '@fortawesome/free-solid-svg-icons';
-import {CdkDragDrop} from '@angular/cdk/drag-drop';
+import {moveItemInArray} from '@angular/cdk/drag-drop';
 
-interface TestDataType {
-  col1: string;
-  col2: string;
-  random: number;
-  negyedik: Date;
-}
-
-const TestData: TestDataType[] = [
+const TestData: any[] = [
   {col1: 'col1', col2: 'col2', random: 1.123, negyedik: new Date(1234)},
   {
     col1: 'col11',
@@ -77,14 +70,15 @@ const TestData: TestDataType[] = [
   styleUrls: ['./hub-table.component.scss']
 })
 export class HubTableComponent implements OnInit {
-  testElements = [1, 2, 3, 4, 5];
+  @ViewChild('table', {read: ElementRef}) table: ElementRef;
+  draggedItem: number;
 
   @Input() tableName: string;
 
   wrench = faWrench;
 
-  dataSource: MatTableDataSource<TestDataType>;
-  selection = new SelectionModel<TestDataType>(true, []);
+  dataSource: MatTableDataSource<any>;
+  selection = new SelectionModel<any>(true, []);
 
   selectionHeader = new TableHeader('select', true);
   headers: TableHeader[];
@@ -102,6 +96,8 @@ export class HubTableComponent implements OnInit {
 
   constructor() {
     this.loadHeader();
+
+    setTimeout(() => console.log(this.table), 555);
 
     this.dataSource = new MatTableDataSource(TestData);
   }
@@ -137,7 +133,7 @@ export class HubTableComponent implements OnInit {
   }
 
   /** The label for the checkbox on the passed row */
-  checkboxLabel(row?: TestDataType): string {
+  checkboxLabel(row?: any): string {
     if (!row) {
       return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
     }
@@ -181,26 +177,36 @@ export class HubTableComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  dropHeader(event: CdkDragDrop<any, any>, column: string) {
-    console.log({event: event, column: column});
+  drag(col: string) {
+    const index = this.headers.findIndex(h => h.name === col);
+    if (this.draggedItem !== index) {
+      moveItemInArray(this.headers, this.draggedItem, index);
+      this.draggedItem = index;
+    }
   }
 
-  drag(event: DragEvent) {
-    console.log({
-      transform: `translate(${event.offsetX},${event.offsetY})`,
-      event: event
-    });
-    // event.target.style.transform = `translate(
-    //   ${event.offsetX}px,
-    //   ${event.offsetY}px
-    // )`;
+  dragStart(col: string) {
+    this.draggedItem = this.headers.findIndex(h => h.name === col);
   }
 
-  dragstart($event: DragEvent) {
-    console.log(event);
+  headerStyle() {
+    const style = {};
+    this.addColWidth(style);
+    console.log({width: this.table});
+    return style;
   }
 
-  dragEnd(event: DragEvent) {
-    event.target.style.transform = '';
+  bodyStyle() {
+    const style = {};
+    this.addColWidth(style);
+    return style;
+  }
+
+  private addColWidth(style: {}) {
+    style['width.%'] = 100 / this.displayedColumns.length;
+  }
+
+  private getColWidthPx(): number {
+    return this.table.nativeElement.offsetWidth / this.displayedColumns.length;
   }
 }
