@@ -10,6 +10,7 @@ import {MatIconModule} from '@angular/material';
 import {TestModule} from './test/test.module';
 import {ServiceWorkerModule} from '@angular/service-worker';
 import {environment} from '../environments/environment';
+import {ZXingScannerModule} from '@zxing/ngx-scanner';
 
 export function LocaleFactory() {
   return 'en';
@@ -27,7 +28,8 @@ registerLocaleData(localeDe, 'de');
     MatIconModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production
-    })
+    }),
+    ZXingScannerModule.forRoot()
   ],
   providers: [{provide: LOCALE_ID, useFactory: LocaleFactory}],
   bootstrap: [AppComponent]

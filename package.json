@@ -8,7 +8,8 @@
     "pwabuild": "ng build --prod && cd dist && http-server -p 8081",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "deploy": "npm run build --prod && aws s3 cp ./dist s3://hub.agroninja.com --recursive --acl public-read"
   },
   "private": true,
   "dependencies": {

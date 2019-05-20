@@ -1,4 +1,5 @@
-<!--<h1>{{qrResult}}</h1>-->
+<h1>Qr Test</h1>
+<h2>{{qrResult}}</h2>
 
 <!--<input type="file" accept="image/*" (change)="onFileChange($event)" capture >-->
 
@@ -8,3 +9,4 @@
 <!--</div>-->
 
 <zxing-scanner></zxing-scanner>
+<zxing-scanner #scanner [(device)]="currentDevice" (scanSuccess)="handleQrCodeResult($event)" [formats]="['EAN_13', 'CODE_128', 'QR_CODE']" [tryHarder]="true"></zxing-scanner>
