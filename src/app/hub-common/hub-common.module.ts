@@ -16,9 +16,15 @@ import {
 } from '@angular/material';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import {DraggableDirective} from './directives/draggable.directive';
 
 @NgModule({
-  declarations: [SelectComponent, MultipleSelectComponent, HubTableComponent],
+  declarations: [
+    SelectComponent,
+    MultipleSelectComponent,
+    HubTableComponent,
+    DraggableDirective
+  ],
   imports: [
     CommonModule,
     FormsModule,

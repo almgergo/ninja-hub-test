@@ -19,3 +19,8 @@ app-multiple-select .mat-select-arrow{
   border: none;
 }
 
+th.checkbox-column,
+td.checkbox-column {
+  width: 40px;
+  flex:unset;
+}

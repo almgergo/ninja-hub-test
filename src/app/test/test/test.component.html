@@ -1,12 +1,12 @@
 <h1>Qr Test</h1>
-<h2>{{qrResult}}</h2>
+<!--<h2>{{qrResult}}</h2>-->
 
 <!--<input type="file" accept="image/*" (change)="onFileChange($event)" capture >-->
 
 <!--<div class="table-wrapper">-->
-<!--  <app-hub-table>-->
-<!--  </app-hub-table>-->
-<!--</div>-->
+  <app-hub-table>
+  </app-hub-table>
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
 
-<zxing-scanner></zxing-scanner>
-<zxing-scanner #scanner [(device)]="currentDevice" (scanSuccess)="handleQrCodeResult($event)" [formats]="['EAN_13', 'CODE_128', 'QR_CODE']" [tryHarder]="true"></zxing-scanner>
+<!--<zxing-scanner></zxing-scanner>-->
+<!--<zxing-scanner #scanner [(device)]="currentDevice" (scanSuccess)="handleQrCodeResult($event)" [formats]="['EAN_13', 'CODE_128', 'QR_CODE']" [tryHarder]="true"></zxing-scanner>-->

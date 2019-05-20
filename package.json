@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --port 4201 --host 0.0.0.0 -o --disable-host-check",
+    "start": "npm install && ng serve --port 4201 --host 0.0.0.0 -o --disable-host-check",
     "build": "ng build",
     "pwabuild": "ng build --prod && cd dist && http-server -p 8081",
     "test": "ng test",
@@ -33,11 +33,12 @@
     "core-js": "^2.5.4",
     "prettier": "^1.17.0",
     "rxjs": "~6.3.3",
+    "tslib": "^1.9.0",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.13.9",
-    "@angular/cli": "~7.0.3",
+    "@angular/cli": "~7.3.9",
     "@angular/compiler-cli": "^7.2.15",
     "@angular/language-service": "~7.0.0",
     "@types/jasmine": "~2.8.8",

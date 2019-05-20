@@ -77,6 +77,8 @@ const TestData: TestDataType[] = [
   styleUrls: ['./hub-table.component.scss']
 })
 export class HubTableComponent implements OnInit {
+  testElements = [1, 2, 3, 4, 5];
+
   @Input() tableName: string;
 
   wrench = faWrench;
@@ -181,5 +183,24 @@ export class HubTableComponent implements OnInit {
 
   dropHeader(event: CdkDragDrop<any, any>, column: string) {
     console.log({event: event, column: column});
+  }
+
+  drag(event: DragEvent) {
+    console.log({
+      transform: `translate(${event.offsetX},${event.offsetY})`,
+      event: event
+    });
+    // event.target.style.transform = `translate(
+    //   ${event.offsetX}px,
+    //   ${event.offsetY}px
+    // )`;
+  }
+
+  dragstart($event: DragEvent) {
+    console.log(event);
+  }
+
+  dragEnd(event: DragEvent) {
+    event.target.style.transform = '';
   }
 }
