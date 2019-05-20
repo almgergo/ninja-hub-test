@@ -1,4 +1,11 @@
-import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Input,
+  OnInit,
+  ViewChild,
+  ViewChildren
+} from '@angular/core';
 import {TableHeader} from '../../model/TableHeader';
 import {MatTableDataSource, MatPaginator, MatSort} from '@angular/material';
 import {SelectionModel} from '@angular/cdk/collections';
@@ -70,18 +77,31 @@ const TestData: any[] = [
   styleUrls: ['./hub-table.component.scss']
 })
 export class HubTableComponent implements OnInit {
-  @ViewChild('table', {read: ElementRef}) table: ElementRef;
-  draggedItem: number;
-
   @Input() tableName: string;
+
+  @ViewChild('table', {read: ElementRef}) table: ElementRef;
+  @ViewChild('header', {read: ElementRef}) header: ElementRef;
+  @ViewChildren('checkbox', {read: ElementRef}) checkbox: ElementRef;
+  @ViewChildren('headerColumn', {read: ElementRef}) headerColumn: ElementRef;
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+  draggedItem: number;
 
   wrench = faWrench;
 
+  // animation timeout
+  displacement: string;
+  displacementCooldown: boolean;
+
+  // for mat table
   dataSource: MatTableDataSource<any>;
   selection = new SelectionModel<any>(true, []);
 
+  // header handling
   selectionHeader = new TableHeader('select', true);
   headers: TableHeader[];
+  tempHeaders: TableHeader[];
   // return the currently active headers
   get displayedColumns(): string[] {
     return this.headers.filter(h => h.active).map(h => h.name);
@@ -91,13 +111,8 @@ export class HubTableComponent implements OnInit {
     return [this.selectionHeader.name].concat(this.displayedColumns);
   }
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
-
   constructor() {
     this.loadHeader();
-
-    setTimeout(() => console.log(this.table), 555);
 
     this.dataSource = new MatTableDataSource(TestData);
   }
@@ -170,6 +185,7 @@ export class HubTableComponent implements OnInit {
           parsedHeader && parsedHeader.some(ph => ph === key)
         )
     );
+    this.tempHeaders = this.headers;
   }
 
   applyFilter(filterValue: string) {
@@ -178,35 +194,68 @@ export class HubTableComponent implements OnInit {
   }
 
   drag(col: string) {
-    const index = this.headers.findIndex(h => h.name === col);
+    const index = this.tempHeaders.findIndex(h => h.name === col);
     if (this.draggedItem !== index) {
-      moveItemInArray(this.headers, this.draggedItem, index);
+      moveItemInArray(this.tempHeaders, this.draggedItem, index);
       this.draggedItem = index;
     }
   }
 
   dragStart(col: string) {
     this.draggedItem = this.headers.findIndex(h => h.name === col);
+    this.tempHeaders = [...this.headers];
   }
 
-  headerStyle() {
+  headerStyle(colname: string) {
     const style = {};
     this.addColWidth(style);
-    console.log({width: this.table});
+    this.addDisplacement(style, colname);
     return style;
   }
 
-  bodyStyle() {
+  bodyStyle(colname: string) {
     const style = {};
     this.addColWidth(style);
+    this.addDisplacement(style, colname);
     return style;
   }
 
   private addColWidth(style: {}) {
-    style['width.%'] = 100 / this.displayedColumns.length;
+    style['width.px'] = this.getColWidthPx();
+  }
+
+  dragEnd() {
+    this.headers = this.tempHeaders;
   }
 
   private getColWidthPx(): number {
-    return this.table.nativeElement.offsetWidth / this.displayedColumns.length;
+    let paddingRight = 0;
+    if (this.headerColumn) {
+      paddingRight = window
+        .getComputedStyle(this.headerColumn.last.nativeElement, null)
+        .paddingRight.split('px')[0];
+    }
+
+    return (
+      (this.table.nativeElement.offsetWidth -
+        paddingRight -
+        (this.checkbox ? this.checkbox.first.nativeElement.offsetWidth : 0)) /
+      this.displayedColumns.length
+    );
   }
+
+  private addDisplacement(style: {}, colname: string) {
+  //   if (!this.displacement || !this.displacementCooldown) {
+  //
+  //     this.displacement = `translateX(${this.getColWidthPx()}px)`;
+  //     this.displacementCooldown = true;
+  //     console.log({displacement: this.displacement});
+  //     setTimeout(() => (this.displacementCooldown = false), 100);
+  //   }
+  //
+  //   const multiplier =
+  //     this.tempHeaders.findIndex(th => th.name === colname) -
+  //     this.headers.findIndex(h => h.name === colname);
+  //   style['transform'] = this.displacement;
+  // }
 }
