@@ -21,7 +21,7 @@
 </div>
 
 <div class="mat-elevation-z8">
-  <table #table mat-table [dataSource]="dataSource" cdkDropList cdkDropListLockAxis="x" cdkDropListOrientation="horizontal">
+  <table #table mat-table [dataSource]="dataSource" matSort>
     <ng-container matColumnDef="select" >
       <th #checkbox class="checkbox-column" mat-header-cell *matHeaderCellDef>
         <mat-checkbox (change)="$event ? masterToggle() : null"
@@ -41,13 +41,14 @@
 
     <ng-container *ngFor="let column of displayedColumns; let i = index">
       <ng-container  [matColumnDef]="column.name">
-        <th #headerColumn [ngStyle]="columnStyle()" mat-header-cell *matHeaderCellDef>
-          <div  (dragstart)="dragStart(column)" (dragover)="drag(column)" (dragend)="dragEnd()"
-               draggable="true" class="animated-container" [ngStyle]="displacementStyle(column)">
+        <th #headerColumns [ngStyle]="columnStyle(column)" mat-header-cell *matHeaderCellDef mat-sort-header>
+          <div class="drag-container"  (dragstart)="dragStart(column)" (dragend)="dragEnd()" (dragenter)="drag(column)"
+               draggable="true"></div>
+          <span class="animated-container"  [ngStyle]="displacementStyle(column)">
             {{column.name}}
-          </div>
+          </span>
         </th>
-        <td mat-cell [ngStyle]="columnStyle()" *matCellDef="let row">
+        <td mat-cell [ngStyle]="columnStyle(column)" *matCellDef="let row">
           <div class="animated-container" [ngStyle]="displacementStyle(column)">
             <ng-container *ngIf="isString(row[column.name])">{{ row[column.name] }}</ng-container>
             <ng-container *ngIf="isDate(row[column.name])">{{ row[column.name] | date}}</ng-container>

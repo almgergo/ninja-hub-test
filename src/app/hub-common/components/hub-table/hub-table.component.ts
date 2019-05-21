@@ -14,61 +14,146 @@ import {faWrench} from '@fortawesome/free-solid-svg-icons';
 import {moveItemInArray} from '@angular/cdk/drag-drop';
 
 const TestData: any[] = [
-  {col1: 'col1', col2: 'col2', random: 1.123, negyedik: new Date(1234)},
+  {
+    col1: 'col1',
+    col2: 'col2',
+    random: 1.123,
+    negyedik: new Date(1234),
+    n1: new Date(Math.random() * 5000000000000),
+    n2: new Date(Math.random() * 5000000000000),
+    n3: new Date(Math.random() * 5000000000000),
+    n4: new Date(Math.random() * 5000000000000),
+    n5: new Date(Math.random() * 5000000000000),
+    n6: new Date(Math.random() * 5000000000000),
+    n7: new Date(Math.random() * 5000000000000),
+    n8: new Date(Math.random() * 5000000000000)
+  },
   {
     col1: 'col11',
     col2: 'col22',
     random: 123.3123,
-    negyedik: new Date(Math.random() * 5000000000000)
+    negyedik: new Date(Math.random() * 5000000000000),
+    n1: new Date(Math.random() * 5000000000000),
+    n2: new Date(Math.random() * 5000000000000),
+    n3: new Date(Math.random() * 5000000000000),
+    n4: new Date(Math.random() * 5000000000000),
+    n5: new Date(Math.random() * 5000000000000),
+    n6: new Date(Math.random() * 5000000000000),
+    n7: new Date(Math.random() * 5000000000000),
+    n8: new Date(Math.random() * 5000000000000)
   },
   {
     col1: 'col11',
     col2: 'col22',
     random: 123,
-    negyedik: new Date(Math.random() * 5000000000000)
+    negyedik: new Date(Math.random() * 5000000000000),
+    n1: new Date(Math.random() * 5000000000000),
+    n2: new Date(Math.random() * 5000000000000),
+    n3: new Date(Math.random() * 5000000000000),
+    n4: new Date(Math.random() * 5000000000000),
+    n5: new Date(Math.random() * 5000000000000),
+    n6: new Date(Math.random() * 5000000000000),
+    n7: new Date(Math.random() * 5000000000000),
+    n8: new Date(Math.random() * 5000000000000)
   },
   {
     col1: 'col11',
     col2: 'col22',
     random: 123,
-    negyedik: new Date(Math.random() * 5000000000000)
+    negyedik: new Date(Math.random() * 5000000000000),
+    n1: new Date(Math.random() * 5000000000000),
+    n2: new Date(Math.random() * 5000000000000),
+    n3: new Date(Math.random() * 5000000000000),
+    n4: new Date(Math.random() * 5000000000000),
+    n5: new Date(Math.random() * 5000000000000),
+    n6: new Date(Math.random() * 5000000000000),
+    n7: new Date(Math.random() * 5000000000000),
+    n8: new Date(Math.random() * 5000000000000)
   },
   {
     col1: 'col11',
     col2: 'col22',
     random: 123,
-    negyedik: new Date(Math.random() * 5000000000000)
+    negyedik: new Date(Math.random() * 5000000000000),
+    n1: new Date(Math.random() * 5000000000000),
+    n2: new Date(Math.random() * 5000000000000),
+    n3: new Date(Math.random() * 5000000000000),
+    n4: new Date(Math.random() * 5000000000000),
+    n5: new Date(Math.random() * 5000000000000),
+    n6: new Date(Math.random() * 5000000000000),
+    n7: new Date(Math.random() * 5000000000000),
+    n8: new Date(Math.random() * 5000000000000)
   },
   {
     col1: 'col11',
     col2: 'col22',
     random: 123,
-    negyedik: new Date(Math.random() * 5000000000000)
+    negyedik: new Date(Math.random() * 5000000000000),
+    n1: new Date(Math.random() * 5000000000000),
+    n2: new Date(Math.random() * 5000000000000),
+    n3: new Date(Math.random() * 5000000000000),
+    n4: new Date(Math.random() * 5000000000000),
+    n5: new Date(Math.random() * 5000000000000),
+    n6: new Date(Math.random() * 5000000000000),
+    n7: new Date(Math.random() * 5000000000000),
+    n8: new Date(Math.random() * 5000000000000)
   },
   {
     col1: 'col11',
     col2: 'col22',
     random: 123,
-    negyedik: new Date(Math.random() * 5000000000000)
+    negyedik: new Date(Math.random() * 5000000000000),
+    n1: new Date(Math.random() * 5000000000000),
+    n2: new Date(Math.random() * 5000000000000),
+    n3: new Date(Math.random() * 5000000000000),
+    n4: new Date(Math.random() * 5000000000000),
+    n5: new Date(Math.random() * 5000000000000),
+    n6: new Date(Math.random() * 5000000000000),
+    n7: new Date(Math.random() * 5000000000000),
+    n8: new Date(Math.random() * 5000000000000)
   },
   {
     col1: 'col11',
     col2: 'col22',
     random: 123,
-    negyedik: new Date(Math.random() * 5000000000000)
+    negyedik: new Date(Math.random() * 5000000000000),
+    n1: new Date(Math.random() * 5000000000000),
+    n2: new Date(Math.random() * 5000000000000),
+    n3: new Date(Math.random() * 5000000000000),
+    n4: new Date(Math.random() * 5000000000000),
+    n5: new Date(Math.random() * 5000000000000),
+    n6: new Date(Math.random() * 5000000000000),
+    n7: new Date(Math.random() * 5000000000000),
+    n8: new Date(Math.random() * 5000000000000)
   },
 
   {
     col1: 'col11',
     col2: 'col22',
     random: 123,
-    negyedik: new Date(Math.random() * 5000000000000)
+    negyedik: new Date(Math.random() * 5000000000000),
+    n1: new Date(Math.random() * 5000000000000),
+    n2: new Date(Math.random() * 5000000000000),
+    n3: new Date(Math.random() * 5000000000000),
+    n4: new Date(Math.random() * 5000000000000),
+    n5: new Date(Math.random() * 5000000000000),
+    n6: new Date(Math.random() * 5000000000000),
+    n7: new Date(Math.random() * 5000000000000),
+    n8: new Date(Math.random() * 5000000000000)
   },
   {
     col1: 'col1111',
     col2: 'col222',
     random: 444,
-    negyedik: new Date(Math.random() * 5000000000000)
+    negyedik: new Date(Math.random() * 5000000000000),
+    n1: new Date(Math.random() * 5000000000000),
+    n2: new Date(Math.random() * 5000000000000),
+    n3: new Date(Math.random() * 5000000000000),
+    n4: new Date(Math.random() * 5000000000000),
+    n5: new Date(Math.random() * 5000000000000),
+    n6: new Date(Math.random() * 5000000000000),
+    n7: new Date(Math.random() * 5000000000000),
+    n8: new Date(Math.random() * 5000000000000)
   }
 ];
 
@@ -92,6 +177,8 @@ export class HubTableComponent implements OnInit {
   draggedItem: number;
 
   wrench = faWrench;
+  private colWidthPx = 0;
+  private refreshColWidthPx = true;
 
   // for mat table
   dataSource: MatTableDataSource<any>;
@@ -183,41 +270,53 @@ export class HubTableComponent implements OnInit {
       key =>
         new TableHeader(
           key,
-          parsedHeader && parsedHeader.some(ph => ph === key)
+          parsedHeader ? parsedHeader.some(ph => ph === key) : true
         )
     );
     this.tempHeaders = this.headers;
   }
 
   applyFilter(filterValue: string) {
-    console.log(filterValue);
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
   // drag
   drag(header: TableHeader) {
-    const index = this.tempHeaders.findIndex(h => h === header);
+    const index = this.headers.findIndex(h => h === header);
 
-    // if (this.draggedItem !== index) {
-    moveItemInArray(this.tempHeaders, this.draggedItem, index);
-    console.log(this.draggedItem + ' ' + index);
-    // console.log(this.headers.map(h => h.name));
-    console.log(this.tempHeaders.map(h => h.name));
-    this.draggedItem = index;
-    // }
+    if (this.draggedItem !== index) {
+      moveItemInArray(this.tempHeaders, this.draggedItem, index);
+      this.draggedItem = index;
+    }
   }
 
   dragStart(header: TableHeader) {
-    this.draggedItem = this.headers.findIndex(h => h === header);
     this.tempHeaders = [...this.headers];
+    this.draggedItem = this.headers.findIndex(h => h === header);
   }
 
   dragEnd() {
+    this.headers.forEach(h => {
+      if (h['displacementStyle']) {
+        h['displacementStyle']['transition'] = 'none';
+        h['displacementStyle']['transform'] = 'none';
+      }
+    });
     this.headers = this.tempHeaders;
+
+    setTimeout(
+      () =>
+        this.headers.forEach(h => {
+          if (h['displacementStyle']) {
+            h['displacementStyle']['transition'] = null;
+          }
+        }),
+      100
+    );
   }
 
   // styles
-  columnStyle() {
+  columnStyle(column: TableHeader) {
     const style = {};
     this.addColWidth(style);
     return style;
@@ -228,63 +327,49 @@ export class HubTableComponent implements OnInit {
   }
 
   private getColWidthPx(): number {
-    let paddingRight = 0;
-    if (this.headerColumns && this.headerColumns.last) {
-      paddingRight = +window
-        .getComputedStyle(this.headerColumns.last.nativeElement, null)
-        .paddingRight.split('px')[0];
+    // some caching
+    if (this.refreshColWidthPx) {
+      // padding of the rightmost header
+      let paddingRight = 0;
+      if (this.headerColumns && this.headerColumns.last) {
+        paddingRight = +window
+          .getComputedStyle(this.headerColumns.last.nativeElement, null)
+          .paddingRight.split('px')[0];
+      }
+
+      this.colWidthPx =
+        (this.table.nativeElement.offsetWidth -
+          paddingRight -
+          (this.checkbox ? this.checkbox.first.nativeElement.offsetWidth : 0)) /
+        this.displayedColumns.length;
+
+      this.refreshColWidthPx = false;
+      setTimeout(() => (this.refreshColWidthPx = true), 100);
     }
 
-    return (
-      (this.table.nativeElement.offsetWidth -
-        paddingRight -
-        (this.checkbox ? this.checkbox.first.nativeElement.offsetWidth : 0)) /
-      this.displayedColumns.length
-    );
+    return this.colWidthPx;
   }
-  //
-  // private addDisplacement(style: {}, colname: string) {
-  // //   if (!this.displacement || !this.displacementCooldown) {
-  // //
-  // //     this.displacement = `translateX(${this.getColWidthPx()}px)`;
-  // //     this.displacementCooldown = true;
-  // //     console.log({displacement: this.displacement});
-  // //     setTimeout(() => (this.displacementCooldown = false), 100);
-  // //   }
-  // //
-  //   const multiplier =
-  //     this.tempHeaders.findIndex(th => th.name === colname) -
-  //     this.headers.findIndex(h => h.name === colname);
-  // //   style['transform'] = this.displacement;
-  // }
+
   getDisplacement(column: TableHeader) {
     const multiplier =
       this.tempHeaders.findIndex(th => th === column) -
       this.headers.findIndex(h => h === column);
 
-    // if (
-    //   this.tempHeaders.findIndex(th => th === column) !==
-    //   this.headers.findIndex(h => h === column)
-    // ) {
-    //   console.log({
-    //     tempHeader: this.tempHeaders,
-    //     headers: this.headers
-    //   });
-    // }
-
     return this.getColWidthPx() * multiplier;
   }
 
   displacementStyle(column: TableHeader) {
-    const style = {};
-    // if (column.name === 'col1') {
-    //   console.log({
-    //     column: column.name,
-    //     displ: this.getDisplacement(column),
-    //     tmp: this.tempHeaders[0].name
-    //   });
-    // }
-    style['transform'] = `translateX(${this.getDisplacement(column)}px)`;
-    return style;
+    if (!column['timeout'] || !column['displacementStyle']) {
+      if (!column['displacementStyle']) {
+        column['displacementStyle'] = {};
+      }
+      column['displacementStyle'][
+        'transform'
+      ] = `translateX(${this.getDisplacement(column)}px)`;
+      column['timeout'] = true;
+      setTimeout(() => (column['timeout'] = false), 110);
+    }
+
+    return column['displacementStyle'];
   }
 }
