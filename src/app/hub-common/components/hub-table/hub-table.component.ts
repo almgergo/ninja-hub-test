@@ -176,8 +176,12 @@ export class HubTableComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   draggedItem: number;
 
+  // wrench icon
   wrench = faWrench;
+
+  // column average pixel width
   private colWidthPx = 0;
+  // for caching
   private refreshColWidthPx = true;
 
   // for mat table
@@ -208,6 +212,11 @@ export class HubTableComponent implements OnInit {
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+  }
+
+  private getDataHeaders(): string[] {
+    // TODO load real header from request
+    return Object.keys(TestData[0]);
   }
 
   columnsSelected(headers: TableHeader[]) {
@@ -243,36 +252,35 @@ export class HubTableComponent implements OnInit {
     return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row`;
   }
 
-  isNumber(element: any) {
-    return typeof element === 'number';
-  }
-
-  isDate(element: any) {
-    return typeof element.getMonth === 'function';
-  }
-
-  isString(element: any) {
-    return typeof element === 'string';
-  }
-
   private persistHeader() {
     localStorage.setItem(
       this.tableName + '_header',
-      JSON.stringify(this.headers.filter(h => h.active).map(h => h.name))
+      JSON.stringify(this.headers)
     );
   }
 
   private loadHeader() {
-    const parsedHeader: string[] = JSON.parse(
+    const parsedHeader: TableHeader[] = JSON.parse(
       localStorage.getItem(this.tableName + '_header')
     );
-    this.headers = Object.keys(TestData[0]).map(
-      key =>
-        new TableHeader(
-          key,
-          parsedHeader ? parsedHeader.some(ph => ph === key) : true
-        )
-    );
+
+    const headers: TableHeader[] = [];
+
+    if (parsedHeader) {
+      parsedHeader.forEach(ph => {
+        if (this.getDataHeaders().some(dh => dh === ph.name)) {
+          headers.push(new TableHeader(ph.name, ph.active));
+        }
+      });
+    }
+
+    this.getDataHeaders().forEach(dh => {
+      if (!headers.some(h => h.name === dh)) {
+        headers.push(new TableHeader(dh, true));
+      }
+    });
+
+    this.headers = headers;
     this.tempHeaders = this.headers;
   }
 
@@ -296,6 +304,7 @@ export class HubTableComponent implements OnInit {
   }
 
   dragEnd() {
+    // remove transition css because transform is removed and it looks better if it happens instantly
     this.headers.forEach(h => {
       if (h['displacementStyle']) {
         h['displacementStyle']['transition'] = 'none';
@@ -303,7 +312,9 @@ export class HubTableComponent implements OnInit {
       }
     });
     this.headers = this.tempHeaders;
+    this.persistHeader();
 
+    // restore transition css for future animations
     setTimeout(
       () =>
         this.headers.forEach(h => {
@@ -317,31 +328,17 @@ export class HubTableComponent implements OnInit {
 
   // styles
   columnStyle(column: TableHeader) {
-    const style = {};
-    this.addColWidth(style);
-    return style;
-  }
-
-  private addColWidth(style: {}) {
-    style['width.px'] = this.getColWidthPx();
+    return {'width.px': `${this.getColWidthPx()}`};
   }
 
   private getColWidthPx(): number {
-    // some caching
+    // caching
     if (this.refreshColWidthPx) {
-      // padding of the rightmost header
-      let paddingRight = 0;
-      if (this.headerColumns && this.headerColumns.last) {
-        paddingRight = +window
-          .getComputedStyle(this.headerColumns.last.nativeElement, null)
-          .paddingRight.split('px')[0];
-      }
-
-      this.colWidthPx =
-        (this.table.nativeElement.offsetWidth -
-          paddingRight -
-          (this.checkbox ? this.checkbox.first.nativeElement.offsetWidth : 0)) /
-        this.displayedColumns.length;
+      this.colWidthPx = this.headerColumns
+        ? this.headerColumns
+            .map(hc => hc.nativeElement.offsetWidth)
+            .reduce((h1, h2) => h1 + h2, 0) / this.headerColumns.length
+        : 0;
 
       this.refreshColWidthPx = false;
       setTimeout(() => (this.refreshColWidthPx = true), 100);
@@ -371,5 +368,17 @@ export class HubTableComponent implements OnInit {
     }
 
     return column['displacementStyle'];
+  }
+
+  isNumber(element: any) {
+    return typeof element === 'number';
+  }
+
+  isDate(element: any) {
+    return typeof element.getMonth === 'function';
+  }
+
+  isString(element: any) {
+    return typeof element === 'string';
   }
 }
