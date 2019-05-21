@@ -3,6 +3,7 @@ import {
   ElementRef,
   Input,
   OnInit,
+  QueryList,
   ViewChild,
   ViewChildren
 } from '@angular/core';
@@ -81,18 +82,16 @@ export class HubTableComponent implements OnInit {
 
   @ViewChild('table', {read: ElementRef}) table: ElementRef;
   @ViewChild('header', {read: ElementRef}) header: ElementRef;
-  @ViewChildren('checkbox', {read: ElementRef}) checkbox: ElementRef;
-  @ViewChildren('headerColumn', {read: ElementRef}) headerColumn: ElementRef;
+  @ViewChildren('checkbox', {read: ElementRef}) checkbox: QueryList<ElementRef>;
+  @ViewChildren('headerColumns', {read: ElementRef}) headerColumns: QueryList<
+    ElementRef
+  >;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   draggedItem: number;
 
   wrench = faWrench;
-
-  // animation timeout
-  displacement: string;
-  displacementCooldown: boolean;
 
   // for mat table
   dataSource: MatTableDataSource<any>;
@@ -103,12 +102,14 @@ export class HubTableComponent implements OnInit {
   headers: TableHeader[];
   tempHeaders: TableHeader[];
   // return the currently active headers
-  get displayedColumns(): string[] {
-    return this.headers.filter(h => h.active).map(h => h.name);
+  get displayedColumns(): TableHeader[] {
+    return this.headers.filter(h => h.active);
   }
 
   get columns(): string[] {
-    return [this.selectionHeader.name].concat(this.displayedColumns);
+    return [this.selectionHeader.name].concat(
+      this.displayedColumns.map(h => h.name)
+    );
   }
 
   constructor() {
@@ -193,30 +194,32 @@ export class HubTableComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  drag(col: string) {
-    const index = this.tempHeaders.findIndex(h => h.name === col);
-    if (this.draggedItem !== index) {
-      moveItemInArray(this.tempHeaders, this.draggedItem, index);
-      this.draggedItem = index;
-    }
+  // drag
+  drag(header: TableHeader) {
+    const index = this.tempHeaders.findIndex(h => h === header);
+
+    // if (this.draggedItem !== index) {
+    moveItemInArray(this.tempHeaders, this.draggedItem, index);
+    console.log(this.draggedItem + ' ' + index);
+    // console.log(this.headers.map(h => h.name));
+    console.log(this.tempHeaders.map(h => h.name));
+    this.draggedItem = index;
+    // }
   }
 
-  dragStart(col: string) {
-    this.draggedItem = this.headers.findIndex(h => h.name === col);
+  dragStart(header: TableHeader) {
+    this.draggedItem = this.headers.findIndex(h => h === header);
     this.tempHeaders = [...this.headers];
   }
 
-  headerStyle(colname: string) {
-    const style = {};
-    this.addColWidth(style);
-    this.addDisplacement(style, colname);
-    return style;
+  dragEnd() {
+    this.headers = this.tempHeaders;
   }
 
-  bodyStyle(colname: string) {
+  // styles
+  columnStyle() {
     const style = {};
     this.addColWidth(style);
-    this.addDisplacement(style, colname);
     return style;
   }
 
@@ -224,15 +227,11 @@ export class HubTableComponent implements OnInit {
     style['width.px'] = this.getColWidthPx();
   }
 
-  dragEnd() {
-    this.headers = this.tempHeaders;
-  }
-
   private getColWidthPx(): number {
     let paddingRight = 0;
-    if (this.headerColumn) {
-      paddingRight = window
-        .getComputedStyle(this.headerColumn.last.nativeElement, null)
+    if (this.headerColumns && this.headerColumns.last) {
+      paddingRight = +window
+        .getComputedStyle(this.headerColumns.last.nativeElement, null)
         .paddingRight.split('px')[0];
     }
 
@@ -243,19 +242,49 @@ export class HubTableComponent implements OnInit {
       this.displayedColumns.length
     );
   }
-
-  private addDisplacement(style: {}, colname: string) {
-  //   if (!this.displacement || !this.displacementCooldown) {
   //
-  //     this.displacement = `translateX(${this.getColWidthPx()}px)`;
-  //     this.displacementCooldown = true;
-  //     console.log({displacement: this.displacement});
-  //     setTimeout(() => (this.displacementCooldown = false), 100);
-  //   }
-  //
+  // private addDisplacement(style: {}, colname: string) {
+  // //   if (!this.displacement || !this.displacementCooldown) {
+  // //
+  // //     this.displacement = `translateX(${this.getColWidthPx()}px)`;
+  // //     this.displacementCooldown = true;
+  // //     console.log({displacement: this.displacement});
+  // //     setTimeout(() => (this.displacementCooldown = false), 100);
+  // //   }
+  // //
   //   const multiplier =
   //     this.tempHeaders.findIndex(th => th.name === colname) -
   //     this.headers.findIndex(h => h.name === colname);
-  //   style['transform'] = this.displacement;
+  // //   style['transform'] = this.displacement;
   // }
+  getDisplacement(column: TableHeader) {
+    const multiplier =
+      this.tempHeaders.findIndex(th => th === column) -
+      this.headers.findIndex(h => h === column);
+
+    // if (
+    //   this.tempHeaders.findIndex(th => th === column) !==
+    //   this.headers.findIndex(h => h === column)
+    // ) {
+    //   console.log({
+    //     tempHeader: this.tempHeaders,
+    //     headers: this.headers
+    //   });
+    // }
+
+    return this.getColWidthPx() * multiplier;
+  }
+
+  displacementStyle(column: TableHeader) {
+    const style = {};
+    // if (column.name === 'col1') {
+    //   console.log({
+    //     column: column.name,
+    //     displ: this.getDisplacement(column),
+    //     tmp: this.tempHeaders[0].name
+    //   });
+    // }
+    style['transform'] = `translateX(${this.getDisplacement(column)}px)`;
+    return style;
+  }
 }

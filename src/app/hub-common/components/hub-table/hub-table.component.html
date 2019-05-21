@@ -40,15 +40,19 @@
     </ng-container>
 
     <ng-container *ngFor="let column of displayedColumns; let i = index">
-      <ng-container  [matColumnDef]="column">
-        <th #headerColumn [ngStyle]="headerStyle(column)"
-            (dragstart)="dragStart(column)" (dragover)="drag(column)"  (dragend)="dragEnd()"
-            draggable="true"
-            mat-header-cell *matHeaderCellDef>{{column}}</th>
-        <td [ngStyle]="bodyStyle(column)" mat-cell *matCellDef="let row">
-          <ng-container *ngIf="isString(row[column])">{{ row[column] }}</ng-container>
-          <ng-container *ngIf="isDate(row[column])">{{ row[column] | date}}</ng-container>
-          <ng-container *ngIf="isNumber(row[column])">{{ row[column] | number}}</ng-container>
+      <ng-container  [matColumnDef]="column.name">
+        <th #headerColumn [ngStyle]="columnStyle()" mat-header-cell *matHeaderCellDef>
+          <div  (dragstart)="dragStart(column)" (dragover)="drag(column)" (dragend)="dragEnd()"
+               draggable="true" class="animated-container" [ngStyle]="displacementStyle(column)">
+            {{column.name}}
+          </div>
+        </th>
+        <td mat-cell [ngStyle]="columnStyle()" *matCellDef="let row">
+          <div class="animated-container" [ngStyle]="displacementStyle(column)">
+            <ng-container *ngIf="isString(row[column.name])">{{ row[column.name] }}</ng-container>
+            <ng-container *ngIf="isDate(row[column.name])">{{ row[column.name] | date}}</ng-container>
+            <ng-container *ngIf="isNumber(row[column.name])">{{ row[column.name] | number}}</ng-container>
+          </div>
         </td>
       </ng-container>
     </ng-container>

@@ -12,7 +12,8 @@ import {
   MatCheckboxModule,
   MatInputModule,
   MatButtonModule,
-  MatIconModule
+  MatIconModule,
+  MatTooltipModule
 } from '@angular/material';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {DragDropModule} from '@angular/cdk/drag-drop';
@@ -37,7 +38,8 @@ import {DraggableDirective} from './directives/draggable.directive';
     MatInputModule,
     MatIconModule,
     MatButtonModule,
-    DragDropModule
+    DragDropModule,
+    MatTooltipModule
   ],
   exports: [HubTableComponent]
 })

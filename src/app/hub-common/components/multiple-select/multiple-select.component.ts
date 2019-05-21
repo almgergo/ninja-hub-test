@@ -46,4 +46,8 @@ export class MultipleSelectComponent implements OnInit {
   updateFilter(text: any) {
     this.filter = text.target.value;
   }
+
+  hideItem(item: Selectable): boolean {
+    return this.filter && item.getLabel().indexOf(this.filter) < 0;
+  }
 }
