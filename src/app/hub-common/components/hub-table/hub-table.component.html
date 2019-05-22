@@ -15,12 +15,12 @@
   <div class="cattlegories"></div>
 
   <div class="column-select">
-    <app-multiple-select [triggerIcon]="wrench" [label]="''" [items]="headers" (selectionChange)="columnsSelected($event)"></app-multiple-select>
+    <app-multiple-select [triggerIcon]="wrench" [label]="''" [items]="headers" (selectionChange)="columnsSelected($event)" [maxSelectionCount]="this.maxColumnCount"></app-multiple-select>
   </div>
 
 </div>
 
-<div class="mat-elevation-z8">
+<div #tableContainer class="mat-elevation-z8">
   <table #table mat-table [dataSource]="dataSource" matSort>
     <ng-container matColumnDef="select" >
       <th #checkbox class="checkbox-column" mat-header-cell *matHeaderCellDef>
@@ -42,7 +42,7 @@
     <ng-container *ngFor="let column of displayedColumns; let i = index">
       <ng-container  [matColumnDef]="column.name">
         <th #headerColumns  [ngStyle]="columnStyle(column)" mat-header-cell *matHeaderCellDef mat-sort-header>
-          <div class="drag-container" draggable="true" (dragstart)="dragStart(column)" (dragend)="dragEnd()" (dragenter)="drag(column)"
+          <div class="drag-container" draggable="true" (dragstart)="dragStart(column)" (dragend)="dragEnd()" (dragenter)="dragEnter(column)"
                ></div>
           <span class="animated-container"  [ngStyle]="displacementStyle(column)">
             {{column.name}}

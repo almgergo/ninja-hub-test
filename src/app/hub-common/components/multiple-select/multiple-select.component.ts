@@ -3,6 +3,7 @@ import {
   ElementRef,
   EventEmitter,
   Input,
+  OnChanges,
   OnInit,
   Output,
   ViewChild
@@ -16,6 +17,7 @@ import {Selectable} from '../../model/Selectable';
 })
 export class MultipleSelectComponent implements OnInit {
   @Input() label: string;
+  @Input() maxSelectionCount: number;
   @Input() items: Selectable[];
   @Input() triggerIcon: any /*IconDefinition*/;
 
@@ -33,7 +35,6 @@ export class MultipleSelectComponent implements OnInit {
   filter: string;
 
   ngOnInit() {
-    console.log(this.filter);
     this.selectedValues = this.items.filter(i => i.isSelected());
     this.filter = '';
     this.filterInput.nativeElement.focus();
@@ -49,5 +50,17 @@ export class MultipleSelectComponent implements OnInit {
 
   hideItem(item: Selectable): boolean {
     return this.filter && item.getLabel().indexOf(this.filter) < 0;
+  }
+
+  refreshSelectedValues() {
+    this.selectedValues = this.items.filter(i => i.isSelected());
+  }
+
+  isItemDisabled(item: Selectable) {
+    return (
+      this.maxSelectionCount &&
+      this.selectedValues.length >= this.maxSelectionCount &&
+      !this.selectedValues.some(sv => sv === item)
+    );
   }
 }
