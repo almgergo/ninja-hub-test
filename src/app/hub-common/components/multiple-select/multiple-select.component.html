@@ -1,7 +1,6 @@
 <mat-form-field>
   <mat-label>{{label}}</mat-label>
-  <mat-select [(ngModel)]="selectedValues" (selectionChange)="itemSelected()" multiple>
-
+  <mat-select  [(ngModel)]="selectedValues" (selectionChange)="itemSelected()" multiple>
     <!-- trigger-->
     <mat-select-trigger>
       <div class="trigger-icon">
@@ -16,7 +15,8 @@
         <mat-icon>close</mat-icon>
       </button>
     </mat-form-field>
-    <mat-option [disabled]="isItemDisabled(item)"
+
+    <mat-option [disabled]="isItemDisabled(item)" matTooltip="Maximum number of rows selected" matTooltipPosition="above" [matTooltipDisabled]="!isItemDisabled(item)"
                 [ngClass]="{hidden: hideItem(item)}"
                 *ngFor="let item of items"
                 [value]="item.getValue()">
@@ -24,4 +24,3 @@
     </mat-option>
   </mat-select>
 </mat-form-field>
-

@@ -6,9 +6,11 @@ import {
   OnChanges,
   OnInit,
   Output,
-  ViewChild
+  ViewChild,
+  ViewContainerRef
 } from '@angular/core';
 import {Selectable} from '../../model/Selectable';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-multiple-select',
@@ -61,6 +63,13 @@ export class MultipleSelectComponent implements OnInit {
       this.maxSelectionCount &&
       this.selectedValues.length >= this.maxSelectionCount &&
       !this.selectedValues.some(sv => sv === item)
+    );
+  }
+
+  isAnyItemDisabled() {
+    return (
+      this.maxSelectionCount &&
+      this.selectedValues.length >= this.maxSelectionCount
     );
   }
 }
