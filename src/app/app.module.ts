@@ -11,9 +11,20 @@ import {TestModule} from './test/test.module';
 import {ServiceWorkerModule} from '@angular/service-worker';
 import {environment} from '../environments/environment';
 import {ZXingScannerModule} from '@zxing/ngx-scanner';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 export function LocaleFactory() {
   return 'en';
+}
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(
+    http,
+    '/assets/i18n/',
+    '.json?cb=' + new Date().getTime()
+  );
 }
 
 registerLocaleData(localeDe, 'de');
@@ -29,8 +40,17 @@ registerLocaleData(localeDe, 'de');
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production
     }),
-    ZXingScannerModule.forRoot()
+    ZXingScannerModule.forRoot(),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
+    HttpClientModule
   ],
+
   providers: [{provide: LOCALE_ID, useFactory: LocaleFactory}],
   bootstrap: [AppComponent]
 })

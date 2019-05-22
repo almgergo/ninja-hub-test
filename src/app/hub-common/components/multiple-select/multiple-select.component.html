@@ -1,3 +1,5 @@
+
+
 <mat-form-field>
   <mat-label>{{label}}</mat-label>
   <mat-select  [(ngModel)]="selectedValues" (selectionChange)="itemSelected()" multiple>
@@ -16,7 +18,11 @@
       </button>
     </mat-form-field>
 
-    <mat-option [disabled]="isItemDisabled(item)" matTooltip="Maximum number of rows selected" matTooltipPosition="above" [matTooltipDisabled]="!isItemDisabled(item)"
+    <mat-option [disabled]="isItemDisabled(item)"
+                #tooltip="matTooltip"
+                matTooltipHideDelay="1"
+                [matTooltip]="'common.table.maximum_selected' | translate" matTooltipPosition="above"
+                [matTooltipDisabled]=" !isItemDisabled(item)"
                 [ngClass]="{hidden: hideItem(item)}"
                 *ngFor="let item of items"
                 [value]="item.getValue()">
@@ -24,3 +30,5 @@
     </mat-option>
   </mat-select>
 </mat-form-field>
+
+

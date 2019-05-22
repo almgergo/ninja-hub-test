@@ -15,7 +15,9 @@
   <div class="cattlegories"></div>
 
   <div class="column-select">
-    <app-multiple-select [triggerIcon]="wrench" [label]="''" [items]="headers" (selectionChange)="columnsSelected($event)" [maxSelectionCount]="this.maxColumnCount"></app-multiple-select>
+    <app-multiple-select [triggerIcon]="wrench" [label]="''" [items]="headers"
+                         (selectionChange)="columnsSelected($event)" [maxSelectionCount]="this.maxColumnCount">
+    </app-multiple-select>
   </div>
 
 </div>

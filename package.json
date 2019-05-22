@@ -9,7 +9,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy": "npm run build --prod && aws s3 cp ./dist s3://hub.agroninja.com --recursive --acl public-read "
+    "deploy": "npm run build --prod && aws s3 cp ./dist s3://hub.agroninja.com --recursive --acl public-read ",
+    "lang-extract": "ngx-translate-extract --input ./src --output ./src/assets/i18n/en.json --format namespaced-json"
   },
   "private": true,
   "dependencies": {
@@ -29,6 +30,8 @@
     "@fortawesome/angular-fontawesome": "^0.3.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.18",
     "@fortawesome/free-solid-svg-icons": "^5.8.2",
+    "@ngx-translate/core": "^11.0.1",
+    "@ngx-translate/http-loader": "^4.0.0",
     "@zxing/ngx-scanner": "^1.3.0",
     "core-js": "^2.5.4",
     "prettier": "^1.17.0",
@@ -41,6 +44,7 @@
     "@angular/cli": "~7.3.9",
     "@angular/compiler-cli": "^7.2.15",
     "@angular/language-service": "~7.0.0",
+    "@biesbjerg/ngx-translate-extract": "^2.3.4",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",

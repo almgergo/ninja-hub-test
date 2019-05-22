@@ -166,6 +166,9 @@ const TestData: any[] = [
   styleUrls: ['./hub-table.component.scss']
 })
 export class HubTableComponent implements OnInit, AfterViewInit {
+  // cache window width to only react to window.resize events modifying it
+  windowWidth: number;
+
   @Input() tableName: string;
 
   @ViewChild('tableContainer') tableContainer: ElementRef;
@@ -175,7 +178,6 @@ export class HubTableComponent implements OnInit, AfterViewInit {
   @ViewChildren('headerColumns', {read: ElementRef}) headerColumns: QueryList<
     ElementRef
   >;
-
   @ViewChild(MultipleSelectComponent) columnSelector: MultipleSelectComponent;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -218,6 +220,7 @@ export class HubTableComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+    this.windowWidth = window.innerWidth;
   }
 
   ngAfterViewInit(): void {
@@ -254,10 +257,14 @@ export class HubTableComponent implements OnInit, AfterViewInit {
   // when the window size changes we need to reevaluate what fits inside the table
   @HostListener('window:resize', ['$event'])
   onResize(event) {
-    // remove the limitation on column counts because it will be reduced in checkTableBounds later if needed
-    this.maxColumnCount = this.headers.length;
-    // limit the number of columns allowed if necessary
-    setTimeout(() => this.checkTableBounds(), 5);
+    // trigger only when the window's width changes
+    if (this.windowWidth !== window.innerWidth) {
+      this.windowWidth = window.innerWidth;
+      // remove the limitation on column counts because it will be reduced in checkTableBounds later if needed
+      this.maxColumnCount = this.headers.length;
+      // limit the number of columns allowed if necessary
+      setTimeout(() => this.checkTableBounds(), 5);
+    }
   }
 
   // return the list of column names

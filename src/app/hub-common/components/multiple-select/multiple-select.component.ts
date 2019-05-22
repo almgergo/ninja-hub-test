@@ -3,14 +3,15 @@ import {
   ElementRef,
   EventEmitter,
   Input,
-  OnChanges,
   OnInit,
   Output,
+  QueryList,
   ViewChild,
-  ViewContainerRef
+  ViewChildren
 } from '@angular/core';
 import {Selectable} from '../../model/Selectable';
-import {MatSnackBar} from '@angular/material';
+import {MatSelect, MatTooltip} from '@angular/material';
+import {ScrollDispatcher} from '@angular/cdk/overlay';
 
 @Component({
   selector: 'app-multiple-select',
@@ -18,6 +19,9 @@ import {MatSnackBar} from '@angular/material';
   styleUrls: ['./multiple-select.component.scss']
 })
 export class MultipleSelectComponent implements OnInit {
+  @ViewChild(MatSelect) matSelect: MatSelect;
+  @ViewChildren('tooltip') tooltips: QueryList<MatTooltip>;
+
   @Input() label: string;
   @Input() maxSelectionCount: number;
   @Input() items: Selectable[];
@@ -27,6 +31,10 @@ export class MultipleSelectComponent implements OnInit {
     return this.items.filter(
       i => !this.filter || i.getLabel().indexOf(this.filter) >= 0
     );
+  }
+
+  constructor(private scroll: ScrollDispatcher) {
+    scroll.scrolled(1).subscribe(console.log);
   }
 
   @Output() selectionChange: EventEmitter<any> = new EventEmitter();
@@ -40,6 +48,18 @@ export class MultipleSelectComponent implements OnInit {
     this.selectedValues = this.items.filter(i => i.isSelected());
     this.filter = '';
     this.filterInput.nativeElement.focus();
+    this.matSelect._openedStream.subscribe(() =>
+      this.registerPanelScrollEvent()
+    );
+  }
+
+  registerPanelScrollEvent() {
+    const panel = this.matSelect.panel.nativeElement;
+    panel.addEventListener('scroll', event => this.hideTooltipsOnScroll(event));
+  }
+
+  hideTooltipsOnScroll(event) {
+    this.tooltips.forEach(t => t.hide());
   }
 
   itemSelected() {
@@ -63,13 +83,6 @@ export class MultipleSelectComponent implements OnInit {
       this.maxSelectionCount &&
       this.selectedValues.length >= this.maxSelectionCount &&
       !this.selectedValues.some(sv => sv === item)
-    );
-  }
-
-  isAnyItemDisabled() {
-    return (
-      this.maxSelectionCount &&
-      this.selectedValues.length >= this.maxSelectionCount
     );
   }
 }

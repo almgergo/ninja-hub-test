@@ -19,6 +19,8 @@ import {
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {DraggableDirective} from './directives/draggable.directive';
+import {TranslateModule} from '@ngx-translate/core';
+import {ScrollingModule} from '@angular/cdk/scrolling';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import {DraggableDirective} from './directives/draggable.directive';
     MatButtonModule,
     DragDropModule,
     MatTooltipModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    TranslateModule,
+    ScrollingModule
   ],
   exports: [HubTableComponent]
 })
