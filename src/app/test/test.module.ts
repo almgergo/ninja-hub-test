@@ -12,6 +12,7 @@ import {
   MatSelectModule
 } from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [TestComponent, QrTestComponent],
@@ -26,7 +27,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     ReactiveFormsModule,
     MatButtonModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    FontAwesomeModule
   ],
   exports: [TestComponent, QrTestComponent]
 })

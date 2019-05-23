@@ -1,7 +1,8 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {HubTableComponent} from '../../hub-common/components/hub-table/hub-table.component';
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {MatSelectChange} from '@angular/material';
+import {MatSelect, MatSelectChange} from '@angular/material';
+import {faTrash} from '@fortawesome/free-solid-svg-icons';
 
 const TestData: any[] = [
   {
@@ -154,6 +155,9 @@ const TestData: any[] = [
 })
 export class TestComponent implements OnInit {
   @ViewChild(HubTableComponent) hubTable: HubTableComponent;
+  @ViewChild('presetSelector') presetSelector: MatSelect;
+
+  faTrash = faTrash;
 
   tableFilters: object = {};
   filterPresets: Map<string, object> = new Map();
@@ -186,24 +190,23 @@ export class TestComponent implements OnInit {
     this.hubTable.applyFilter(this.tableFilters);
   }
 
-  public changeFilters(filters: object) {
-    this.tableFilters = filters;
-    Object.keys(filters).forEach(key =>
-      this.filters.get(key).setValue(filters[key])
+  public changeFilters(filters: {key: string; value: object}) {
+    this.tableFilters = {...filters.value};
+    this.presetName = filters.key;
+    Object.keys(filters.value).forEach(key =>
+      this.filters.get(key).setValue(filters.value[key])
     );
     this.hubTable.applyFilter(this.tableFilters);
   }
 
   public applyFilter(columnName: string) {
     this.tableFilters[columnName] = this.filters.get(columnName).value;
-    console.log({tableFilters: this.tableFilters});
     this.hubTable.applyFilter(this.tableFilters);
   }
 
   // save the current filter into a preset for later use
   public savePreset(name: string) {
-    this.filterPresets.set(name, {...this.tableFilters});
-    console.log(this.filterPresets);
+    this.filterPresets.set(name, JSON.parse(JSON.stringify(this.tableFilters)));
     this.storePresets();
     // localStorage.setItem('test_table_filters', )
   }
@@ -254,6 +257,14 @@ export class TestComponent implements OnInit {
       this.changeFilters(event.value);
     } else {
       this.resetFilters();
+    }
+  }
+
+  removePreset(presetName: string) {
+    this.resetFilters();
+    this.filterPresets.delete(presetName);
+    if (this.filterPresets.size <= 0) {
+      this.presetSelector.close();
     }
   }
 }

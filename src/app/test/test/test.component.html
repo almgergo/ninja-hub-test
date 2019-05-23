@@ -6,13 +6,15 @@
 <!--<div class="table-wrapper">-->
   <app-hub-table [data]="data">
     <ng-template let-headers="headers" let-dataSource="dataSource">
-      <div>
       <div class="table-added-gadgets">
         <mat-form-field>
           <mat-label>Select a preset filter</mat-label>
-          <mat-select (selectionChange)="selectPresetFilter($event)">
+          <mat-select #presetSelector   (selectionChange)="selectPresetFilter($event)">
             <mat-option>None</mat-option>
-            <mat-option *ngFor="let preset of (filterPresets | keyvalue)" [value]="preset.value">{{preset.key}}</mat-option>
+            <mat-option *ngFor="let preset of (filterPresets | keyvalue)" [value]="preset">
+              {{preset.key}}
+              <span style="float: right"><fa-icon [icon]="faTrash" (click)="removePreset(preset.key)" [classes]="['transition','highlight']"></fa-icon></span>
+            </mat-option>
           </mat-select>
         </mat-form-field>
 
@@ -21,9 +23,7 @@
         </mat-form-field>
         <button color="primary" mat-raised-button (click)="savePreset(presetName)">Save preset</button>
       </div>
-      </div>
 
-      <div>
       <form [formGroup]="filters">
         <div class="table-added-gadgets">
           <div class="select" *ngFor="let filter of filterNames">
@@ -36,11 +36,10 @@
             </mat-form-field>
           </div>
 
-          <button class="reset-button" mat-raised-button (click)="resetFilters()">Reset</button>
+        <button class="reset-button" mat-raised-button (click)="resetFilters()">Reset</button>
 
         </div>
       </form>
-      </div>
     </ng-template>
   </app-hub-table>
 <!--&lt;!&ndash;</div>&ndash;&gt;-->

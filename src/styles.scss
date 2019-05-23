@@ -3,3 +3,12 @@
 
 @import "assets/scss/material.scss";
 @import "assets/scss/design.scss";
+
+
+.highlight:hover{
+  color:red;
+}
+
+.transition {
+  transition: color 250ms ease-out;
+}
