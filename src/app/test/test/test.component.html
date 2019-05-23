@@ -4,7 +4,26 @@
 <!--<input type="file" accept="image/*" (change)="onFileChange($event)" capture >-->
 
 <!--<div class="table-wrapper">-->
-  <app-hub-table>
+  <app-hub-table [data]="data">
+    <ng-template let-headers="headers" let-dataSource="dataSource">
+      <form [formGroup]="filters">
+        <div class="table-added-gadgets">
+          <button style="background: rgba(0,0,0,0.8); color: white;" mat-raised-button (click)="resetFilters()">Reset</button>
+
+            <div class="select" *ngFor="let filter of filterNames">
+              <mat-form-field>
+                <mat-label>{{filter}}</mat-label>
+                <mat-select [formControlName]="filter" (selectionChange)="applyFilter(filter)">
+                  <mat-option>None</mat-option>
+                  <mat-option *ngFor="let value of createFilterValues(dataSource['data'],filter)" [value]="value">{{value}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+
+        </div>
+      </form>
+    </ng-template>
   </app-hub-table>
 <!--&lt;!&ndash;</div>&ndash;&gt;-->
 

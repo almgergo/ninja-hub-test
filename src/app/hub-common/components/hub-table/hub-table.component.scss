@@ -7,37 +7,41 @@ table {
   width: 100%;
 }
 
-.table-gadgets {
-  display: grid;
-  grid-template-areas:
-    "procedure blank1 filter blank2 locations groups cattlegories blank3 select";
+.table-added-gadgets {
+  border-top: 1px solid rgba(0,0,0,0.2);
+  border-left: 1px solid rgba(0,0,0,0.2);
+  border-right: 1px solid rgba(0,0,0,0.2);
+
+  display: flex;
+  justify-content: space-between;
+
+  padding:10px 15px
+
+}
+.table-base-gadgets {
+  border-top: 1px solid rgba(0,0,0,0.2);
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  border-left: 1px solid rgba(0,0,0,0.2);
+  border-right: 1px solid rgba(0,0,0,0.2);
+
+  display: flex;
+  justify-content: space-between;
+
+  padding:10px 15px
 }
 
-.procedure {
-  grid-area: procedure;
-}
+
 .filter {
-  grid-area: filter;
+  justify-self: start;
 }
-.locations {
-  grid-area: locations;
-}
-.groups {
-  grid-area: groups;
-}
-.cattlegories {
-  grid-area: cattlegories;
-}
+
 .column-select {
-  width:auto;
   justify-self: end;
-  grid-area: select;
 }
 
 .animated-container {
   display: inline-block;
   transition: transform 250ms ease-out;
-  //cubic-bezier(0,0,.19,.71);
   padding: 15px 10px;
 
 }

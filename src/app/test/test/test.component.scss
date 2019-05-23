@@ -2,3 +2,16 @@
   max-width: 1000px;
   margin: auto;
 }
+
+
+.table-added-gadgets {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.table-added-gadgets > * {
+  padding: 0px 15px
+}
+

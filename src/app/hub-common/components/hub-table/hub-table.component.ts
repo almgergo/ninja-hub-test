@@ -1,11 +1,13 @@
 import {
   AfterViewInit,
   Component,
+  ContentChild,
   ElementRef,
   HostListener,
   Input,
   OnInit,
   QueryList,
+  TemplateRef,
   ViewChild,
   ViewChildren
 } from '@angular/core';
@@ -16,160 +18,31 @@ import {faWrench} from '@fortawesome/free-solid-svg-icons';
 import {moveItemInArray} from '@angular/cdk/drag-drop';
 import {MultipleSelectComponent} from '../multiple-select/multiple-select.component';
 
-const TestData: any[] = [
-  {
-    col1: 'col1',
-    col2: 'col2',
-    random: 1.123,
-    negyedik: new Date(1234),
-    n1: new Date(Math.random() * 5000000000000),
-    n2: new Date(Math.random() * 5000000000000),
-    n3: new Date(Math.random() * 5000000000000),
-    n4: new Date(Math.random() * 5000000000000),
-    n5: new Date(Math.random() * 5000000000000),
-    n6: new Date(Math.random() * 5000000000000),
-    n7: new Date(Math.random() * 5000000000000),
-    n8: new Date(Math.random() * 5000000000000)
-  },
-  {
-    col1: 'col11',
-    col2: 'col22',
-    random: 123.3123,
-    negyedik: new Date(Math.random() * 5000000000000),
-    n1: new Date(Math.random() * 5000000000000),
-    n2: new Date(Math.random() * 5000000000000),
-    n3: new Date(Math.random() * 5000000000000),
-    n4: new Date(Math.random() * 5000000000000),
-    n5: new Date(Math.random() * 5000000000000),
-    n6: new Date(Math.random() * 5000000000000),
-    n7: new Date(Math.random() * 5000000000000),
-    n8: new Date(Math.random() * 5000000000000)
-  },
-  {
-    col1: 'col11',
-    col2: 'col22',
-    random: 123,
-    negyedik: new Date(Math.random() * 5000000000000),
-    n1: new Date(Math.random() * 5000000000000),
-    n2: new Date(Math.random() * 5000000000000),
-    n3: new Date(Math.random() * 5000000000000),
-    n4: new Date(Math.random() * 5000000000000),
-    n5: new Date(Math.random() * 5000000000000),
-    n6: new Date(Math.random() * 5000000000000),
-    n7: new Date(Math.random() * 5000000000000),
-    n8: new Date(Math.random() * 5000000000000)
-  },
-  {
-    col1: 'col11',
-    col2: 'col22',
-    random: 123,
-    negyedik: new Date(Math.random() * 5000000000000),
-    n1: new Date(Math.random() * 5000000000000),
-    n2: new Date(Math.random() * 5000000000000),
-    n3: new Date(Math.random() * 5000000000000),
-    n4: new Date(Math.random() * 5000000000000),
-    n5: new Date(Math.random() * 5000000000000),
-    n6: new Date(Math.random() * 5000000000000),
-    n7: new Date(Math.random() * 5000000000000),
-    n8: new Date(Math.random() * 5000000000000)
-  },
-  {
-    col1: 'col11',
-    col2: 'col22',
-    random: 123,
-    negyedik: new Date(Math.random() * 5000000000000),
-    n1: new Date(Math.random() * 5000000000000),
-    n2: new Date(Math.random() * 5000000000000),
-    n3: new Date(Math.random() * 5000000000000),
-    n4: new Date(Math.random() * 5000000000000),
-    n5: new Date(Math.random() * 5000000000000),
-    n6: new Date(Math.random() * 5000000000000),
-    n7: new Date(Math.random() * 5000000000000),
-    n8: new Date(Math.random() * 5000000000000)
-  },
-  {
-    col1: 'col11',
-    col2: 'col22',
-    random: 123,
-    negyedik: new Date(Math.random() * 5000000000000),
-    n1: new Date(Math.random() * 5000000000000),
-    n2: new Date(Math.random() * 5000000000000),
-    n3: new Date(Math.random() * 5000000000000),
-    n4: new Date(Math.random() * 5000000000000),
-    n5: new Date(Math.random() * 5000000000000),
-    n6: new Date(Math.random() * 5000000000000),
-    n7: new Date(Math.random() * 5000000000000),
-    n8: new Date(Math.random() * 5000000000000)
-  },
-  {
-    col1: 'col11',
-    col2: 'col22',
-    random: 123,
-    negyedik: new Date(Math.random() * 5000000000000),
-    n1: new Date(Math.random() * 5000000000000),
-    n2: new Date(Math.random() * 5000000000000),
-    n3: new Date(Math.random() * 5000000000000),
-    n4: new Date(Math.random() * 5000000000000),
-    n5: new Date(Math.random() * 5000000000000),
-    n6: new Date(Math.random() * 5000000000000),
-    n7: new Date(Math.random() * 5000000000000),
-    n8: new Date(Math.random() * 5000000000000)
-  },
-  {
-    col1: 'col11',
-    col2: 'col22',
-    random: 123,
-    negyedik: new Date(Math.random() * 5000000000000),
-    n1: new Date(Math.random() * 5000000000000),
-    n2: new Date(Math.random() * 5000000000000),
-    n3: new Date(Math.random() * 5000000000000),
-    n4: new Date(Math.random() * 5000000000000),
-    n5: new Date(Math.random() * 5000000000000),
-    n6: new Date(Math.random() * 5000000000000),
-    n7: new Date(Math.random() * 5000000000000),
-    n8: new Date(Math.random() * 5000000000000)
-  },
-
-  {
-    col1: 'col11',
-    col2: 'col22',
-    random: 123,
-    negyedik: new Date(Math.random() * 5000000000000),
-    n1: new Date(Math.random() * 5000000000000),
-    n2: new Date(Math.random() * 5000000000000),
-    n3: new Date(Math.random() * 5000000000000),
-    n4: new Date(Math.random() * 5000000000000),
-    n5: new Date(Math.random() * 5000000000000),
-    n6: new Date(Math.random() * 5000000000000),
-    n7: new Date(Math.random() * 5000000000000),
-    n8: new Date(Math.random() * 5000000000000)
-  },
-  {
-    col1: 'col1111',
-    col2: 'col222',
-    random: 444,
-    negyedik: new Date(Math.random() * 5000000000000),
-    n1: new Date(Math.random() * 5000000000000),
-    n2: new Date(Math.random() * 5000000000000),
-    n3: new Date(Math.random() * 5000000000000),
-    n4: new Date(Math.random() * 5000000000000),
-    n5: new Date(Math.random() * 5000000000000),
-    n6: new Date(Math.random() * 5000000000000),
-    n7: new Date(Math.random() * 5000000000000),
-    n8: new Date(Math.random() * 5000000000000)
-  }
-];
-
 @Component({
   selector: 'app-hub-table',
   templateUrl: './hub-table.component.html',
   styleUrls: ['./hub-table.component.scss']
 })
 export class HubTableComponent implements OnInit, AfterViewInit {
+  // return the currently active headers
+  get displayedColumns(): TableHeader[] {
+    return this.headers.filter(h => h.active);
+  }
+
+  get columns(): string[] {
+    return [this.selectionHeader.name].concat(
+      this.displayedColumns.map(h => h.name)
+    );
+  }
+
   // cache window width to only react to window.resize events modifying it
   windowWidth: number;
 
+  // holds template for table gadgets
+  @ContentChild(TemplateRef) gadgetsTemplate: TemplateRef<any>;
+
   @Input() tableName: string;
+  @Input() data: object[];
 
   @ViewChild('tableContainer') tableContainer: ElementRef;
   @ViewChild('table', {read: ElementRef}) table: ElementRef;
@@ -200,33 +73,33 @@ export class HubTableComponent implements OnInit, AfterViewInit {
   headers: TableHeader[];
   tempHeaders: TableHeader[];
   maxColumnCount: number; // track how many columns fit on screen
-  // return the currently active headers
-  get displayedColumns(): TableHeader[] {
-    return this.headers.filter(h => h.active);
-  }
 
-  get columns(): string[] {
-    return [this.selectionHeader.name].concat(
-      this.displayedColumns.map(h => h.name)
-    );
-  }
+  // region Initialization
+  constructor() {}
 
-  constructor() {
-    this.loadHeader();
-
-    this.dataSource = new MatTableDataSource(TestData);
+  // return the list of column names
+  private getDataHeaders(): string[] {
+    // TODO load real header from request
+    return Object.keys(this.data[0]);
   }
 
   ngOnInit() {
+    this.loadHeader();
+    this.dataSource = new MatTableDataSource(this.data);
+
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
     this.windowWidth = window.innerWidth;
+    this.setCustomFilterPredicate();
   }
 
   ngAfterViewInit(): void {
     setTimeout(() => this.checkTableBounds(), 10);
   }
 
+  // endregion
+
+  // region Table bounds handling
   // recursively deactivate the last column as long as the table is large than its container
   checkTableBounds() {
     // if the table is larger than its container
@@ -266,13 +139,10 @@ export class HubTableComponent implements OnInit, AfterViewInit {
       setTimeout(() => this.checkTableBounds(), 5);
     }
   }
+  // endregion
 
-  // return the list of column names
-  private getDataHeaders(): string[] {
-    // TODO load real header from request
-    return Object.keys(TestData[0]);
-  }
-
+  // region Checkbox and column selection handling
+  // handle column selection in multiple select
   columnsSelected(headers: TableHeader[]) {
     // if a column is selected, we need to refresh which ones are active
     this.headers.forEach(
@@ -282,9 +152,9 @@ export class HubTableComponent implements OnInit, AfterViewInit {
         ))
     );
 
-    // FIXME? reset maxColumnCount? if a larger column is removed, maybe 2 fit in its place, is it ok like this or should be implemented?
+    // FIXME? reset maxColumnCount? if a wider column is removed, maybe 2 fit in its place, is it ok like this or should it be implemented?
     // check if the new number of columns still fit inside the table
-    setTimeout(() => this.checkTableBounds(), 5);
+    setTimeout(() => this.checkTableBounds(), 10);
   }
 
   // Whether the number of selected elements matches the total number of rows.
@@ -308,7 +178,9 @@ export class HubTableComponent implements OnInit, AfterViewInit {
     }
     return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row`;
   }
+  // endregion
 
+  // region Persistence
   // save the header to local store
   private persistHeader() {
     localStorage.setItem(
@@ -345,11 +217,35 @@ export class HubTableComponent implements OnInit, AfterViewInit {
     this.headers = headers;
     this.tempHeaders = this.headers;
   }
+  // endregion
 
-  applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+  // region Filtering
+  private setCustomFilterPredicate() {
+    // set custom filter predicate for data source
+    this.dataSource.filterPredicate = (data: any, filtersJson: string) => {
+      const matchFilter = [];
+      const filters: object = JSON.parse(filtersJson);
+
+      Object.keys(filters).forEach(key => {
+        const val = data[key] === null ? '' : data[key];
+        matchFilter.push(
+          `${val}`.toLowerCase().includes(`${filters[key]}`.toLowerCase())
+        );
+      });
+      return matchFilter.every(Boolean);
+    };
   }
 
+  public applyFilter(filters: object) {
+    console.log({filters: filters, json: JSON.stringify(filters)});
+    this.dataSource.filter = JSON.stringify(filters);
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+  // endregion
+
+  // region Drag handling
   // dragEnter
   dragEnter(header: TableHeader) {
     // find the index of the element that we've just dragged something over
@@ -395,7 +291,9 @@ export class HubTableComponent implements OnInit, AfterViewInit {
       100
     );
   }
+  // endregion
 
+  // region Column width and translate for animation
   columnStyle(column: TableHeader) {
     // set the width of the column
     return {'width.px': `${this.getColWidthPx()}`};
@@ -440,7 +338,9 @@ export class HubTableComponent implements OnInit, AfterViewInit {
 
     return column['displacementStyle'];
   }
+  // endregion
 
+  // region Element type checks
   isNumber(element: any) {
     return typeof element === 'number';
   }
@@ -452,4 +352,5 @@ export class HubTableComponent implements OnInit, AfterViewInit {
   isString(element: any) {
     return typeof element === 'string';
   }
+  // endregion
 }

@@ -1,18 +1,16 @@
-<div class="table-gadgets"></div>
-<ng-content></ng-content>
+<div class="table-added-gadgets">
+  <ng-container *ngTemplateOutlet="gadgetsTemplate; context: {dataSource:dataSource, headers:headers }"></ng-container>
+</div>
 
-<div class="table-gadgets">
-  <div class="prodecures"></div>
-
+<div class="table-base-gadgets">
   <div class="filter">
     <mat-form-field>
-      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+      <!--             (keyup)="applyFilter('random', $event.target.value)" -->
+      <label>
+        <input matInput placeholder="Filter">
+      </label>
     </mat-form-field>
   </div>
-
-  <div class="locations"></div>
-  <div class="groups"></div>
-  <div class="cattlegories"></div>
 
   <div class="column-select">
     <app-multiple-select [triggerIcon]="wrench" [label]="''" [items]="headers"

@@ -5,6 +5,12 @@ import {TestComponent} from './test/test.component';
 import {TestRoutingModule} from './test-routing.module';
 import {ZXingScannerModule} from '@zxing/ngx-scanner';
 import {QrTestComponent} from './qr-test/qr-test.component';
+import {
+  MatButtonModule,
+  MatOptionModule,
+  MatSelectModule
+} from '@angular/material';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [TestComponent, QrTestComponent],
@@ -13,7 +19,11 @@ import {QrTestComponent} from './qr-test/qr-test.component';
     HubCommonModule,
     TestRoutingModule,
     ZXingScannerModule,
-    ZXingScannerModule.forRoot()
+    ZXingScannerModule.forRoot(),
+    MatOptionModule,
+    MatSelectModule,
+    ReactiveFormsModule,
+    MatButtonModule
   ],
   exports: [TestComponent, QrTestComponent]
 })
