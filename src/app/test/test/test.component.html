@@ -6,23 +6,41 @@
 <!--<div class="table-wrapper">-->
   <app-hub-table [data]="data">
     <ng-template let-headers="headers" let-dataSource="dataSource">
+      <div>
+      <div class="table-added-gadgets">
+        <mat-form-field>
+          <mat-label>Select a preset filter</mat-label>
+          <mat-select (selectionChange)="selectPresetFilter($event)">
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let preset of (filterPresets | keyvalue)" [value]="preset.value">{{preset.key}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Preset name" [(ngModel)]="presetName">
+        </mat-form-field>
+        <button color="primary" mat-raised-button (click)="savePreset(presetName)">Save preset</button>
+      </div>
+      </div>
+
+      <div>
       <form [formGroup]="filters">
         <div class="table-added-gadgets">
-          <button style="background: rgba(0,0,0,0.8); color: white;" mat-raised-button (click)="resetFilters()">Reset</button>
+          <div class="select" *ngFor="let filter of filterNames">
+            <mat-form-field>
+              <mat-label>{{filter}}</mat-label>
+              <mat-select [formControlName]="filter" (selectionChange)="applyFilter(filter)">
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let value of createFilterValues(dataSource['data'],filter)" [value]="value">{{value}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
 
-            <div class="select" *ngFor="let filter of filterNames">
-              <mat-form-field>
-                <mat-label>{{filter}}</mat-label>
-                <mat-select [formControlName]="filter" (selectionChange)="applyFilter(filter)">
-                  <mat-option>None</mat-option>
-                  <mat-option *ngFor="let value of createFilterValues(dataSource['data'],filter)" [value]="value">{{value}}</mat-option>
-                </mat-select>
-              </mat-form-field>
-            </div>
-
+          <button class="reset-button" mat-raised-button (click)="resetFilters()">Reset</button>
 
         </div>
       </form>
+      </div>
     </ng-template>
   </app-hub-table>
 <!--&lt;!&ndash;</div>&ndash;&gt;-->

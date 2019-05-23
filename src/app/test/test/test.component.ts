@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {HubTableComponent} from '../../hub-common/components/hub-table/hub-table.component';
 import {FormBuilder, FormGroup} from '@angular/forms';
+import {MatSelectChange} from '@angular/material';
 
 const TestData: any[] = [
   {
@@ -154,9 +155,11 @@ const TestData: any[] = [
 export class TestComponent implements OnInit {
   @ViewChild(HubTableComponent) hubTable: HubTableComponent;
 
-  tableFilters = {};
-  filters: FormGroup;
+  tableFilters: object = {};
+  filterPresets: Map<string, object> = new Map();
   filterValues: Map<string, string[]> = new Map();
+  filters: FormGroup;
+  presetName: string;
 
   get data() {
     return TestData;
@@ -173,11 +176,21 @@ export class TestComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.restorePresets();
+  }
 
   public resetFilters() {
     this.tableFilters = {};
     this.filters.reset();
+    this.hubTable.applyFilter(this.tableFilters);
+  }
+
+  public changeFilters(filters: object) {
+    this.tableFilters = filters;
+    Object.keys(filters).forEach(key =>
+      this.filters.get(key).setValue(filters[key])
+    );
     this.hubTable.applyFilter(this.tableFilters);
   }
 
@@ -187,14 +200,60 @@ export class TestComponent implements OnInit {
     this.hubTable.applyFilter(this.tableFilters);
   }
 
+  // save the current filter into a preset for later use
+  public savePreset(name: string) {
+    this.filterPresets.set(name, {...this.tableFilters});
+    console.log(this.filterPresets);
+    this.storePresets();
+    // localStorage.setItem('test_table_filters', )
+  }
+
+  // store the presets
+  private storePresets() {
+    // convert the map into a list of objects and save it to localstorage
+    localStorage.setItem(
+      'test_table_presets',
+      JSON.stringify(
+        Array.from(this.filterPresets, ([key, value]) => {
+          console.log({key: key, value: value});
+          return {name: key, value: value};
+        })
+      )
+    );
+  }
+
+  private restorePresets() {
+    const presets: object[] = JSON.parse(
+      localStorage.getItem('test_table_presets')
+    );
+
+    if (presets) {
+      presets.forEach((preset: {name: string; value: object}) =>
+        this.filterPresets.set(preset.name, preset.value)
+      );
+    }
+  }
+
   // create unique list of values for specific filter and cache it inside a map
   createFilterValues(dataSourceElement: any[], columnName: string): string[] {
-    if (this.filterValues[columnName]) {
-      return this.filterValues[columnName];
+    if (!this.filterValues.get(columnName)) {
+      this.filterValues.set(
+        columnName,
+        dataSourceElement
+          .map(row => row[columnName])
+          .filter((value, index, self) => self.indexOf(value) === index)
+      );
+    }
+
+    return this.filterValues.get(columnName);
+  }
+
+  // select a preset filter
+  selectPresetFilter(event: MatSelectChange) {
+    if (event.value) {
+      this.changeFilters(event.value);
     } else {
-      return (this.filterValues[columnName] = dataSourceElement
-        .map(row => row[columnName])
-        .filter((value, index, self) => self.indexOf(value) === index));
+      this.resetFilters();
     }
   }
 }

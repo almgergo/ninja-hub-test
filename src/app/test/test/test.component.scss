@@ -4,14 +4,22 @@
 }
 
 
+form{
+  width: 100%;
+}
 .table-added-gadgets {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
+
+  margin-top:10px
 
 }
 
 .table-added-gadgets > * {
-  padding: 0px 15px
+  margin: 0px 15px
 }
 
+.reset-button {
+  background: rgba(0,0,0,0.8); color: white;
+}

@@ -7,10 +7,11 @@ import {ZXingScannerModule} from '@zxing/ngx-scanner';
 import {QrTestComponent} from './qr-test/qr-test.component';
 import {
   MatButtonModule,
+  MatInputModule,
   MatOptionModule,
   MatSelectModule
 } from '@angular/material';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [TestComponent, QrTestComponent],
@@ -23,7 +24,9 @@ import {ReactiveFormsModule} from '@angular/forms';
     MatOptionModule,
     MatSelectModule,
     ReactiveFormsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatInputModule,
+    FormsModule
   ],
   exports: [TestComponent, QrTestComponent]
 })
