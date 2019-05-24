@@ -12,7 +12,7 @@ import {
   ViewChildren
 } from '@angular/core';
 import {TableHeader} from '../../model/TableHeader';
-import {MatTableDataSource, MatPaginator, MatSort} from '@angular/material';
+import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {SelectionModel} from '@angular/cdk/collections';
 import {faWrench} from '@fortawesome/free-solid-svg-icons';
 import {moveItemInArray} from '@angular/cdk/drag-drop';
@@ -220,7 +220,6 @@ export class HubTableComponent implements OnInit, AfterViewInit {
       }
     });
 
-    console.log({headers: this.headers});
     this.maxColumnCount = headers.length;
     this.headers = headers;
     this.tempHeaders = this.headers;

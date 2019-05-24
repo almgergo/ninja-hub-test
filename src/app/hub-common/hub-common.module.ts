@@ -18,7 +18,6 @@ import {
 } from '@angular/material';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {DragDropModule} from '@angular/cdk/drag-drop';
-import {DraggableDirective} from './directives/draggable.directive';
 import {TranslateModule} from '@ngx-translate/core';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import {RemovableOptionComponent} from './components/removable-option/removable-option.component';
@@ -29,7 +28,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     SelectComponent,
     MultipleSelectComponent,
     HubTableComponent,
-    DraggableDirective,
     RemovableOptionComponent
   ],
   imports: [
