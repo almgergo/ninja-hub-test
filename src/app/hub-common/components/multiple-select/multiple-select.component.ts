@@ -22,16 +22,19 @@ export class MultipleSelectComponent implements OnInit {
   @ViewChild(MatSelect) matSelect: MatSelect;
   @ViewChildren('tooltip') tooltips: QueryList<MatTooltip>;
 
+  private _items: Selectable[];
+  get items(): Selectable[] {
+    return this._items;
+  }
+
+  @Input() set items(value: Selectable[]) {
+    this._items = value;
+    this.refreshSelectedValues();
+  }
+
   @Input() label: string;
   @Input() maxSelectionCount: number;
-  @Input() items: Selectable[];
   @Input() triggerIcon: any /*IconDefinition*/;
-
-  get filteredItems(): Selectable[] {
-    return this.items.filter(
-      i => !this.filter || i.getLabel().indexOf(this.filter) >= 0
-    );
-  }
 
   constructor(private scroll: ScrollDispatcher) {
     scroll.scrolled(1).subscribe(console.log);
@@ -45,7 +48,7 @@ export class MultipleSelectComponent implements OnInit {
   filter: string;
 
   ngOnInit() {
-    this.selectedValues = this.items.filter(i => i.isSelected());
+    this.selectedValues = this._items.filter(i => i.isSelected());
     this.filter = '';
     this.filterInput.nativeElement.focus();
     this.matSelect._openedStream.subscribe(() =>
@@ -75,7 +78,7 @@ export class MultipleSelectComponent implements OnInit {
   }
 
   refreshSelectedValues() {
-    this.selectedValues = this.items.filter(i => i.isSelected());
+    this.selectedValues = this._items.filter(i => i.isSelected());
   }
 
   isItemDisabled(item: Selectable) {

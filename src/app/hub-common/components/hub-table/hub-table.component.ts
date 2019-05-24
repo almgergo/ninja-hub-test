@@ -17,6 +17,7 @@ import {SelectionModel} from '@angular/cdk/collections';
 import {faWrench} from '@fortawesome/free-solid-svg-icons';
 import {moveItemInArray} from '@angular/cdk/drag-drop';
 import {MultipleSelectComponent} from '../multiple-select/multiple-select.component';
+import {Preset} from '../../model/Preset';
 
 @Component({
   selector: 'app-hub-table',
@@ -190,16 +191,22 @@ export class HubTableComponent implements OnInit, AfterViewInit {
   }
 
   // restore the header from local store
-  private loadHeader() {
-    // load header from local store
-    const parsedHeader: TableHeader[] = JSON.parse(
-      localStorage.getItem(this.tableName + '_header')
-    );
+  public loadHeader(presetHeader?: TableHeader[]) {
+    let storedHeader: TableHeader[];
+    if (presetHeader) {
+      // if there are preset headers, use them
+      storedHeader = presetHeader;
+    } else {
+      // else load headers from local store
+      storedHeader = JSON.parse(
+        localStorage.getItem(this.tableName + '_header')
+      );
+    }
 
     const headers: TableHeader[] = [];
     // put columns that are stored first, in the order they were stored
-    if (parsedHeader) {
-      parsedHeader.forEach(ph => {
+    if (storedHeader) {
+      storedHeader.forEach(ph => {
         if (this.getDataHeaders().some(dh => dh === ph.name)) {
           headers.push(new TableHeader(ph.name, ph.active));
         }
@@ -213,6 +220,7 @@ export class HubTableComponent implements OnInit, AfterViewInit {
       }
     });
 
+    console.log({headers: this.headers});
     this.maxColumnCount = headers.length;
     this.headers = headers;
     this.tempHeaders = this.headers;
@@ -236,9 +244,10 @@ export class HubTableComponent implements OnInit, AfterViewInit {
     };
   }
 
-  public applyFilter(filters: object) {
-    console.log({filters: filters, json: JSON.stringify(filters)});
-    this.dataSource.filter = JSON.stringify(filters);
+  public applyFilter(preset: Preset) {
+    this.dataSource.filter = JSON.stringify(preset.filters);
+    this.loadHeader(preset.headers);
+
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }

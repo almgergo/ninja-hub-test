@@ -11,6 +11,8 @@ import {MatSelect, MatSelectChange} from '@angular/material';
 import {shiftAnimation} from '../../hub-common/animations/shift.animation';
 import {appearAnimation} from '../../hub-common/animations/appear.animation';
 import {RemovableOptionComponent} from '../../hub-common/components/removable-option/removable-option.component';
+import {Preset} from '../../hub-common/model/Preset';
+import {KeyValue} from '@angular/common';
 
 const TestData: any[] = [
   {
@@ -169,11 +171,12 @@ export class TestComponent implements OnInit {
     RemovableOptionComponent
   >;
 
-  tableFilters: object = {};
-  filterPresets: Map<string, object> = new Map();
+  tableFilters: Preset = new Preset();
+  selectedPreset: KeyValue<string, Preset>;
+
+  filterPresets: Map<string, Preset> = new Map();
   filterValues: Map<string, string[]> = new Map();
   filtersFormGroup: FormGroup;
-  presetName: string;
 
   get data() {
     return TestData;
@@ -216,24 +219,20 @@ export class TestComponent implements OnInit {
     // reset the formGroup
     this.filtersFormGroup.reset();
     // reset the filtersFormGroup object to a new object
-    this.tableFilters = {};
-    // reset the preset name
-    this.presetName = '';
+    this.tableFilters = new Preset();
     // apply the new now reset filtersFormGroup to the table
     this.hubTable.applyFilter(this.tableFilters);
   }
 
-  public changeFilters(filters: {key: string; value: object}) {
+  public changeFilters() {
     // reset form in case not every filter is used
     this.filtersFormGroup.reset();
     // apply the filter
-    this.tableFilters = {...filters.value};
-    // apply the filter name
-    this.presetName = filters.key;
+    this.tableFilters = new Preset(this.selectedPreset.value);
 
     // copy the values into the formGroup
-    Object.keys(filters.value).forEach(key =>
-      this.filtersFormGroup.get(key).setValue(filters.value[key])
+    Object.keys(this.tableFilters.filters).forEach(key =>
+      this.filtersFormGroup.get(key).setValue(this.tableFilters.filters[key])
     );
 
     // apply the filter to the table
@@ -242,17 +241,33 @@ export class TestComponent implements OnInit {
 
   public applyFilter(columnName: string) {
     // set the chosen filter
-    this.tableFilters[columnName] = this.filtersFormGroup.get(columnName).value;
+    this.tableFilters.filters[columnName] = this.filtersFormGroup.get(
+      columnName
+    ).value;
     // apply the filter to the table
     this.hubTable.applyFilter(this.tableFilters);
   }
   // endregion
 
   // region Save, select, store and restore presets
+  // select a preset filter
+  private usePreset(event: MatSelectChange) {
+    if (event.value) {
+      // if a preset is chosen, apply it
+      this.changeFilters();
+    } else {
+      // else reset the filtersFormGroup
+      this.resetFilters();
+    }
+  }
+
   // save the current filter into a preset for later use
-  public savePreset(name: string) {
+  public savePreset() {
+    const copiedPreset: Preset = JSON.parse(JSON.stringify(this.tableFilters));
+    copiedPreset.headers = JSON.parse(JSON.stringify(this.hubTable.headers));
+
     // save the filter into presets
-    this.filterPresets.set(name, JSON.parse(JSON.stringify(this.tableFilters)));
+    this.filterPresets.set(this.tableFilters.name, copiedPreset);
     // store the presets
     this.storePresets();
   }
@@ -279,22 +294,12 @@ export class TestComponent implements OnInit {
 
     // fill presets map from serialized object
     if (presets) {
-      presets.forEach((preset: {name: string; value: object}) =>
+      presets.forEach((preset: {name: string; value: Preset}) =>
         this.filterPresets.set(preset.name, preset.value)
       );
     }
   }
 
-  // select a preset filter
-  selectPresetFilter(event: MatSelectChange) {
-    if (event.value) {
-      // if a preset is chosen, apply it
-      this.changeFilters(event.value);
-    } else {
-      // else reset the filtersFormGroup
-      this.resetFilters();
-    }
-  }
   // endregion
 
   presetDeleteConfirmationRequested(optionKey: string) {
