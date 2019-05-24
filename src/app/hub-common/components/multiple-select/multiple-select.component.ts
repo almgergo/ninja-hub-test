@@ -36,9 +36,7 @@ export class MultipleSelectComponent implements OnInit {
   @Input() maxSelectionCount: number;
   @Input() triggerIcon: any /*IconDefinition*/;
 
-  constructor(private scroll: ScrollDispatcher) {
-    scroll.scrolled(1).subscribe(console.log);
-  }
+  constructor() {}
 
   @Output() selectionChange: EventEmitter<any> = new EventEmitter();
 

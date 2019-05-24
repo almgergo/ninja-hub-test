@@ -86,12 +86,16 @@ export class HubTableComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.loadHeader();
+    this.initDatasource();
+    this.windowWidth = window.innerWidth;
+    this.setCustomFilterPredicate();
+  }
+
+  private initDatasource(): void {
     this.dataSource = new MatTableDataSource(this.data);
 
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
-    this.windowWidth = window.innerWidth;
-    this.setCustomFilterPredicate();
   }
 
   ngAfterViewInit(): void {
@@ -246,6 +250,19 @@ export class HubTableComponent implements OnInit, AfterViewInit {
   public applyFilter(preset: Preset) {
     this.dataSource.filter = JSON.stringify(preset.filters);
     this.loadHeader(preset.headers);
+
+    if (preset.pageSize) {
+      this.dataSource.paginator.pageSize = preset.pageSize;
+    }
+
+    if (preset.sort) {
+      this.dataSource.sort.sort({id: null, start: 'asc', disableClear: false});
+      this.dataSource.sort.sort({
+        id: preset.sort.active,
+        start: <'asc' | 'desc'>preset.sort.direction,
+        disableClear: false
+      });
+    }
 
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
