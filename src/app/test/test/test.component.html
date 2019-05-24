@@ -9,11 +9,13 @@
       <div class="table-added-gadgets">
         <mat-form-field>
           <mat-label>Select a preset filter</mat-label>
-          <mat-select #presetSelector   (selectionChange)="selectPresetFilter($event)">
+          <mat-select #presetSelector  (opened)="presetSelectorOpened()" (selectionChange)="selectPresetFilter($event)">
             <mat-option>None</mat-option>
             <mat-option *ngFor="let preset of (filterPresets | keyvalue)" [value]="preset">
-              {{preset.key}}
-              <span style="float: right"><fa-icon [icon]="faTrash" (click)="removePreset(preset.key)" [classes]="['transition','highlight']"></fa-icon></span>
+              <app-removable-option #removableOptions [value]="preset" [selector]="presetSelector"
+                                    (askConfirmation)="presetDeleteConfirmationRequested($event)"
+                                    (valueDeleted)="deletePreset($event)">
+              </app-removable-option>
             </mat-option>
           </mat-select>
         </mat-form-field>
@@ -24,7 +26,7 @@
         <button color="primary" mat-raised-button (click)="savePreset(presetName)">Save preset</button>
       </div>
 
-      <form [formGroup]="filters">
+      <form [formGroup]="filtersFormGroup">
         <div class="table-added-gadgets">
           <div class="select" *ngFor="let filter of filterNames">
             <mat-form-field>

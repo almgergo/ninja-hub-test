@@ -11,7 +11,5 @@ export class AppComponent {
 
   constructor(private translate: TranslateService) {
     translate.setDefaultLang('en');
-
-    console.log(navigator.language);
   }
 }

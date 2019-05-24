@@ -21,13 +21,16 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 import {DraggableDirective} from './directives/draggable.directive';
 import {TranslateModule} from '@ngx-translate/core';
 import {ScrollingModule} from '@angular/cdk/scrolling';
+import {RemovableOptionComponent} from './components/removable-option/removable-option.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     SelectComponent,
     MultipleSelectComponent,
     HubTableComponent,
-    DraggableDirective
+    DraggableDirective,
+    RemovableOptionComponent
   ],
   imports: [
     CommonModule,
@@ -45,8 +48,9 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
     MatTooltipModule,
     MatSnackBarModule,
     TranslateModule,
-    ScrollingModule
+    ScrollingModule,
+    BrowserAnimationsModule
   ],
-  exports: [HubTableComponent]
+  exports: [HubTableComponent, RemovableOptionComponent]
 })
 export class HubCommonModule {}

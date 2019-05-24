@@ -10,7 +10,9 @@ form{
 .table-added-gadgets {
   width: 100%;
   display: flex;
-  justify-content: start;
+  flex-wrap: wrap;
+
+  justify-content: flex-start;
 
   margin-top:10px
 

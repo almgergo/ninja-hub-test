@@ -5,10 +5,10 @@
 @import "assets/scss/design.scss";
 
 
-.highlight:hover{
+.highlight-danger:hover{
   color:red;
 }
 
-.transition {
-  transition: color 250ms ease-out;
+.highlight-success:hover{
+  color:darkgreen;
 }

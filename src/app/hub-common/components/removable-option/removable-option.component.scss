@@ -1,0 +1,17 @@
+
+.icon-holder {
+  display: inline-block;
+  position: relative;
+  float: right;
+  height: 100%;
+  width: 50px
+
+}
+
+.icon-holder > * {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding-right:5px;
+  display: inline-block;
+}

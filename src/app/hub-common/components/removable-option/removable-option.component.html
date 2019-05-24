@@ -1,0 +1,9 @@
+  <span>{{value.key}}</span>
+  <div class="icon-holder" (click)="iconHolderClicked($event)">
+    <div class="highlight-success" [@appear] *ngIf="this.toDelete" (click)="cancelDelete($event)">
+      <fa-icon  [icon]="faLeft"></fa-icon>
+    </div>
+    <div class="highlight-danger" [@shift]="{value: this.toDelete, params:{shift: '-30px'}}"  (click)="removeValue($event)">
+      <fa-icon [icon]="faTrash" ></fa-icon>
+    </div>
+  </div>
