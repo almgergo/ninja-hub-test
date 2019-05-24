@@ -279,7 +279,6 @@ export class TestComponent implements OnInit {
       'test_table_presets',
       JSON.stringify(
         Array.from(this.filterPresets, ([key, value]) => {
-          console.log({key: key, value: value});
           return {name: key, value: value};
         })
       )
