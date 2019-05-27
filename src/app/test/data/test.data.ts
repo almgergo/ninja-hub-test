@@ -1,4 +1,5 @@
-// {'Anya száma': '\1', 'Borjú száma': '\2','Születési ideje': '\3','Ivara': '\4','Színe': '\5','választási súly': '\7','2017.11.10': '\8','2018.01.05': '\11','2018.9.10': '\14'}
+// tslint:disable-next-line:max-line-length
+// {'Anya száma': '\1', 'Borjú száma': '\2','Születési ideje': '\3',''Ivara'': '\4',''Színe'': '\5','választási súly': '\7','2017.11.10': '\8','2018.01.05': '\11','2018.9.10': '\14'}
 
 export const TestData: any[] = [
   {
@@ -8,7 +9,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '265.0',
+    'Valasztasi suly': 265.0,
     'gy/nap/g': ''
   },
   {
@@ -18,7 +19,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '231.0',
+    'Valasztasi suly': 231.0,
     'gy/nap/g': ''
   },
   {
@@ -28,7 +29,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '245.0',
+    'Valasztasi suly': 245.0,
     'gy/nap/g': ''
   },
   {
@@ -38,7 +39,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '240.0',
+    'Valasztasi suly': 240.0,
     'gy/nap/g': ''
   },
   {
@@ -48,7 +49,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '245.0',
+    'Valasztasi suly': 245.0,
     'gy/nap/g': ''
   },
   {
@@ -58,7 +59,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '227.0',
+    'Valasztasi suly': 227.0,
     'gy/nap/g': ''
   },
   {
@@ -68,7 +69,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'zsemleszínű',
-    'Valasztasi suly': '214.0',
+    'Valasztasi suly': 214.0,
     'gy/nap/g': ''
   },
   {
@@ -78,7 +79,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '227.0',
+    'Valasztasi suly': 227.0,
     'gy/nap/g': ''
   },
   {
@@ -88,7 +89,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '248.0',
+    'Valasztasi suly': 248.0,
     'gy/nap/g': ''
   },
   {
@@ -98,7 +99,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '250.0',
+    'Valasztasi suly': 250.0,
     'gy/nap/g': ''
   },
   {
@@ -108,7 +109,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vöröstarka',
-    'Valasztasi suly': '225.0',
+    'Valasztasi suly': 225.0,
     'gy/nap/g': ''
   },
   {
@@ -118,7 +119,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vöröstarka',
-    'Valasztasi suly': '236.0',
+    'Valasztasi suly': 236.0,
     'gy/nap/g': ''
   },
   {
@@ -128,7 +129,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '228.0',
+    'Valasztasi suly': 228.0,
     'gy/nap/g': ''
   },
   {
@@ -138,7 +139,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '220.0',
+    'Valasztasi suly': 220.0,
     'gy/nap/g': ''
   },
   {
@@ -148,7 +149,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'zsemletarka',
-    'Valasztasi suly': '208.0',
+    'Valasztasi suly': 208.0,
     'gy/nap/g': ''
   },
   {
@@ -158,7 +159,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '222.0',
+    'Valasztasi suly': 222.0,
     'gy/nap/g': ''
   },
   {
@@ -168,7 +169,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '215.0',
+    'Valasztasi suly': 215.0,
     'gy/nap/g': ''
   },
   {
@@ -178,7 +179,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '240.0',
+    'Valasztasi suly': 240.0,
     'gy/nap/g': ''
   },
   {
@@ -188,7 +189,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '210.0',
+    'Valasztasi suly': 210.0,
     'gy/nap/g': ''
   },
   {
@@ -198,7 +199,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '220.0',
+    'Valasztasi suly': 220.0,
     'gy/nap/g': ''
   },
   {
@@ -208,7 +209,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '240.0',
+    'Valasztasi suly': 240.0,
     'gy/nap/g': ''
   },
   {
@@ -218,7 +219,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'zsemletarka',
-    'Valasztasi suly': '260.0',
+    'Valasztasi suly': 260.0,
     'gy/nap/g': ''
   },
   {
@@ -228,7 +229,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '200.0',
+    'Valasztasi suly': 200.0,
     'gy/nap/g': ''
   },
   {
@@ -238,7 +239,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '238.0',
+    'Valasztasi suly': 238.0,
     'gy/nap/g': ''
   },
   {
@@ -248,7 +249,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vöröstarka',
-    'Valasztasi suly': '219.0',
+    'Valasztasi suly': 219.0,
     'gy/nap/g': ''
   },
   {
@@ -258,7 +259,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'zsemleszínű',
-    'Valasztasi suly': '220.0',
+    'Valasztasi suly': 220.0,
     'gy/nap/g': ''
   },
   {
@@ -268,7 +269,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '220.0',
+    'Valasztasi suly': 220.0,
     'gy/nap/g': ''
   },
   {
@@ -278,7 +279,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vöröstarka',
-    'Valasztasi suly': '213.0',
+    'Valasztasi suly': 213.0,
     'gy/nap/g': ''
   },
   {
@@ -288,7 +289,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '228.0',
+    'Valasztasi suly': 228.0,
     'gy/nap/g': ''
   },
   {
@@ -298,7 +299,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '212.0',
+    'Valasztasi suly': 212.0,
     'gy/nap/g': ''
   },
   {
@@ -308,7 +309,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '223.0',
+    'Valasztasi suly': 223.0,
     'gy/nap/g': ''
   },
   {
@@ -318,7 +319,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vöröstarka',
-    'Valasztasi suly': '210.0',
+    'Valasztasi suly': 210.0,
     'gy/nap/g': ''
   },
   {
@@ -328,7 +329,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '220.0',
+    'Valasztasi suly': 220.0,
     'gy/nap/g': ''
   },
   {
@@ -338,7 +339,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '214.0',
+    'Valasztasi suly': 214.0,
     'gy/nap/g': ''
   },
   {
@@ -348,7 +349,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vöröstarka',
-    'Valasztasi suly': '208.0',
+    'Valasztasi suly': 208.0,
     'gy/nap/g': ''
   },
   {
@@ -358,7 +359,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'zsemleszínű',
-    'Valasztasi suly': '198.0',
+    'Valasztasi suly': 198.0,
     'gy/nap/g': ''
   },
   {
@@ -368,7 +369,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '211.0',
+    'Valasztasi suly': 211.0,
     'gy/nap/g': ''
   },
   {
@@ -378,7 +379,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '235.0',
+    'Valasztasi suly': 235.0,
     'gy/nap/g': ''
   },
   {
@@ -388,7 +389,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '190.0',
+    'Valasztasi suly': 190.0,
     'gy/nap/g': ''
   },
   {
@@ -398,7 +399,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '205.0',
+    'Valasztasi suly': 205.0,
     'gy/nap/g': ''
   },
   {
@@ -408,7 +409,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '200.0',
+    'Valasztasi suly': 200.0,
     'gy/nap/g': ''
   },
   {
@@ -418,7 +419,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '205.0',
+    'Valasztasi suly': 205.0,
     'gy/nap/g': ''
   },
   {
@@ -428,7 +429,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '200.0',
+    'Valasztasi suly': 200.0,
     'gy/nap/g': ''
   },
   {
@@ -438,7 +439,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '200.0',
+    'Valasztasi suly': 200.0,
     'gy/nap/g': ''
   },
   {
@@ -448,7 +449,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '217.0',
+    'Valasztasi suly': 217.0,
     'gy/nap/g': ''
   },
   {
@@ -458,7 +459,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '200.0',
+    'Valasztasi suly': 200.0,
     'gy/nap/g': ''
   },
   {
@@ -468,7 +469,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '180.0',
+    'Valasztasi suly': 180.0,
     'gy/nap/g': ''
   },
   {
@@ -478,7 +479,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '189.0',
+    'Valasztasi suly': 189.0,
     'gy/nap/g': ''
   },
   {
@@ -488,7 +489,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '200.0',
+    'Valasztasi suly': 200.0,
     'gy/nap/g': ''
   },
   {
@@ -498,7 +499,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '207.0',
+    'Valasztasi suly': 207.0,
     'gy/nap/g': ''
   },
   {
@@ -508,7 +509,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '187.0',
+    'Valasztasi suly': 187.0,
     'gy/nap/g': ''
   },
   {
@@ -518,7 +519,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '200.0',
+    'Valasztasi suly': 200.0,
     'gy/nap/g': ''
   },
   {
@@ -528,7 +529,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '175.0',
+    'Valasztasi suly': 175.0,
     'gy/nap/g': ''
   },
   {
@@ -538,7 +539,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'zsemleszínű',
-    'Valasztasi suly': '200.0',
+    'Valasztasi suly': 200.0,
     'gy/nap/g': ''
   },
   {
@@ -548,7 +549,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '206.0',
+    'Valasztasi suly': 206.0,
     'gy/nap/g': ''
   },
   {
@@ -558,7 +559,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '190.0',
+    'Valasztasi suly': 190.0,
     'gy/nap/g': ''
   },
   {
@@ -568,7 +569,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '181.0',
+    'Valasztasi suly': 181.0,
     'gy/nap/g': ''
   },
   {
@@ -578,7 +579,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '188.0',
+    'Valasztasi suly': 188.0,
     'gy/nap/g': ''
   },
   {
@@ -588,7 +589,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '175.0',
+    'Valasztasi suly': 175.0,
     'gy/nap/g': ''
   },
   {
@@ -598,7 +599,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '215.0',
+    'Valasztasi suly': 215.0,
     'gy/nap/g': ''
   },
   {
@@ -608,7 +609,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '185.0',
+    'Valasztasi suly': 185.0,
     'gy/nap/g': ''
   },
   {
@@ -618,7 +619,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '192.0',
+    'Valasztasi suly': 192.0,
     'gy/nap/g': ''
   },
   {
@@ -628,7 +629,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'zsemleszínű',
-    'Valasztasi suly': '194.0',
+    'Valasztasi suly': 194.0,
     'gy/nap/g': ''
   },
   {
@@ -638,7 +639,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '185.0',
+    'Valasztasi suly': 185.0,
     'gy/nap/g': ''
   },
   {
@@ -648,7 +649,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '190.0',
+    'Valasztasi suly': 190.0,
     'gy/nap/g': ''
   },
   {
@@ -658,7 +659,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '170.0',
+    'Valasztasi suly': 170.0,
     'gy/nap/g': ''
   },
   {
@@ -668,7 +669,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '183.0',
+    'Valasztasi suly': 183.0,
     'gy/nap/g': ''
   },
   {
@@ -678,7 +679,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '181.0',
+    'Valasztasi suly': 181.0,
     'gy/nap/g': ''
   },
   {
@@ -688,7 +689,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '161.0',
+    'Valasztasi suly': 161.0,
     'gy/nap/g': ''
   },
   {
@@ -698,7 +699,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '168.0',
+    'Valasztasi suly': 168.0,
     'gy/nap/g': ''
   },
   {
@@ -708,7 +709,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '165.0',
+    'Valasztasi suly': 165.0,
     'gy/nap/g': ''
   },
   {
@@ -718,7 +719,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '160.0',
+    'Valasztasi suly': 160.0,
     'gy/nap/g': ''
   },
   {
@@ -728,7 +729,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '173.0',
+    'Valasztasi suly': 173.0,
     'gy/nap/g': ''
   },
   {
@@ -738,7 +739,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '190.0',
+    'Valasztasi suly': 190.0,
     'gy/nap/g': ''
   },
   {
@@ -748,7 +749,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '150.0',
+    'Valasztasi suly': 150.0,
     'gy/nap/g': ''
   },
   {
@@ -758,7 +759,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '171.0',
+    'Valasztasi suly': 171.0,
     'gy/nap/g': ''
   },
   {
@@ -768,7 +769,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '175.0',
+    'Valasztasi suly': 175.0,
     'gy/nap/g': ''
   },
   {
@@ -778,7 +779,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '163.0',
+    'Valasztasi suly': 163.0,
     'gy/nap/g': ''
   },
   {
@@ -788,7 +789,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vöröstarka',
-    'Valasztasi suly': '155.0',
+    'Valasztasi suly': 155.0,
     'gy/nap/g': ''
   },
   {
@@ -798,7 +799,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '170.0',
+    'Valasztasi suly': 170.0,
     'gy/nap/g': ''
   },
   {
@@ -808,7 +809,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '157.0',
+    'Valasztasi suly': 157.0,
     'gy/nap/g': ''
   },
   {
@@ -818,7 +819,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vöröstarka',
-    'Valasztasi suly': '174.0',
+    'Valasztasi suly': 174.0,
     'gy/nap/g': ''
   },
   {
@@ -828,7 +829,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '185.0',
+    'Valasztasi suly': 185.0,
     'gy/nap/g': ''
   },
   {
@@ -838,7 +839,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '200.0',
+    'Valasztasi suly': 200.0,
     'gy/nap/g': ''
   },
   {
@@ -848,7 +849,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '175.0',
+    'Valasztasi suly': 175.0,
     'gy/nap/g': ''
   },
   {
@@ -858,7 +859,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '154.0',
+    'Valasztasi suly': 154.0,
     'gy/nap/g': ''
   },
   {
@@ -868,7 +869,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vöröstarka',
-    'Valasztasi suly': '170.0',
+    'Valasztasi suly': 170.0,
     'gy/nap/g': ''
   },
   {
@@ -878,7 +879,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '150.0',
+    'Valasztasi suly': 150.0,
     'gy/nap/g': ''
   },
   {
@@ -888,7 +889,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '154.0',
+    'Valasztasi suly': 154.0,
     'gy/nap/g': ''
   },
   {
@@ -898,7 +899,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '150.0',
+    'Valasztasi suly': 150.0,
     'gy/nap/g': ''
   },
   {
@@ -908,7 +909,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '149.0',
+    'Valasztasi suly': 149.0,
     'gy/nap/g': ''
   },
   {
@@ -918,7 +919,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '157.0',
+    'Valasztasi suly': 157.0,
     'gy/nap/g': ''
   },
   {
@@ -928,7 +929,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '148.0',
+    'Valasztasi suly': 148.0,
     'gy/nap/g': ''
   },
   {
@@ -938,7 +939,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '186.0',
+    'Valasztasi suly': 186.0,
     'gy/nap/g': ''
   },
   {
@@ -948,7 +949,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vöröstarka',
-    'Valasztasi suly': '130.0',
+    'Valasztasi suly': 130.0,
     'gy/nap/g': ''
   },
   {
@@ -958,7 +959,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '141.0',
+    'Valasztasi suly': 141.0,
     'gy/nap/g': ''
   },
   {
@@ -968,7 +969,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '133.0',
+    'Valasztasi suly': 133.0,
     'gy/nap/g': ''
   },
   {
@@ -978,7 +979,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '110.0',
+    'Valasztasi suly': 110.0,
     'gy/nap/g': ''
   },
   {
@@ -988,7 +989,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '135.0',
+    'Valasztasi suly': 135.0,
     'gy/nap/g': ''
   },
   {
@@ -998,7 +999,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '126.0',
+    'Valasztasi suly': 126.0,
     'gy/nap/g': ''
   },
   {
@@ -1008,7 +1009,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '120.0',
+    'Valasztasi suly': 120.0,
     'gy/nap/g': ''
   },
   {
@@ -1018,7 +1019,7 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '100.0',
+    'Valasztasi suly': 100.0,
     'gy/nap/g': ''
   },
   {
@@ -1028,22 +1029,34 @@ export const TestData: any[] = [
     Neme: 'hímivarú',
     Fajta: 'limousin',
     Szin: 'vörös',
-    'Valasztasi suly': '98.0',
+    'Valasztasi suly': 98.0,
     'gy/nap/g': ''
   }
 ];
 
-export const TestData2: any[] = [
+export interface TestData2If {
+  'Anya száma': string;
+  'Borjú száma': string;
+  'Születési ideje': string;
+  Ivara: string;
+  Színe: string;
+  'választási súly': number;
+  '2017.11.10': number;
+  '2018.01.05': number;
+  '2018.9.10': number;
+}
+
+export const TestData2: TestData2If[] = [
   {
     'Anya száma': '32086 2150 5',
     'Borjú száma': '32086 4936 7',
     'Születési ideje': '3/24/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '246.0',
-    '2017.11.10': '252.0',
-    '2018.01.05': '300.0',
-    '2018.9.10': '514.0'
+    'választási súly': 246.0,
+    '2017.11.10': 252.0,
+    '2018.01.05': 300.0,
+    '2018.9.10': 514.0
   },
   {
     'Anya száma': '32086 3069 5',
@@ -1051,10 +1064,10 @@ export const TestData2: any[] = [
     'Születési ideje': '3/31/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '224.0',
-    '2017.11.10': '244.0',
-    '2018.01.05': '292.0',
-    '2018.9.10': '504.0'
+    'választási súly': 224.0,
+    '2017.11.10': 244.0,
+    '2018.01.05': 292.0,
+    '2018.9.10': 504.0
   },
   {
     'Anya száma': '32086 3858 1',
@@ -1062,10 +1075,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/10/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '228.0',
-    '2017.11.10': '233.0',
-    '2018.01.05': '280.0',
-    '2018.9.10': '481.0'
+    'választási súly': 228.0,
+    '2017.11.10': 233.0,
+    '2018.01.05': 280.0,
+    '2018.9.10': 481.0
   },
   {
     'Anya száma': '32086 2036 2',
@@ -1073,10 +1086,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/5/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '199.0',
-    '2017.11.10': '219.0',
-    '2018.01.05': '261.0',
-    '2018.9.10': '474.0'
+    'választási súly': 199.0,
+    '2017.11.10': 219.0,
+    '2018.01.05': 261.0,
+    '2018.9.10': 474.0
   },
   {
     'Anya száma': '32086 3593 1',
@@ -1084,10 +1097,10 @@ export const TestData2: any[] = [
     'Születési ideje': '3/19/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '228.0',
-    '2017.11.10': '254.0',
-    '2018.01.05': '290.0',
-    '2018.9.10': '461.0'
+    'választási súly': 228.0,
+    '2017.11.10': 254.0,
+    '2018.01.05': 290.0,
+    '2018.9.10': 461.0
   },
   {
     'Anya száma': '32086 3336 0',
@@ -1095,10 +1108,10 @@ export const TestData2: any[] = [
     'Születési ideje': '3/27/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '183.0',
-    '2017.11.10': '227.0',
-    '2018.01.05': '276.0',
-    '2018.9.10': '450.0'
+    'választási súly': 183.0,
+    '2017.11.10': 227.0,
+    '2018.01.05': 276.0,
+    '2018.9.10': 450.0
   },
   {
     'Anya száma': '32086 3878 3',
@@ -1106,10 +1119,10 @@ export const TestData2: any[] = [
     'Születési ideje': '3/28/2017',
     Ivara: 'üsző',
     Színe: 'v.tarka',
-    'választási súly': '210.0',
-    '2017.11.10': '220.0',
-    '2018.01.05': '251.0',
-    '2018.9.10': '448.0'
+    'választási súly': 210.0,
+    '2017.11.10': 220.0,
+    '2018.01.05': 251.0,
+    '2018.9.10': 448.0
   },
   {
     'Anya száma': '32086 3569 0',
@@ -1117,10 +1130,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/16/2017',
     Ivara: 'üszö',
     Színe: 'vörös',
-    'választási súly': '204.0',
-    '2017.11.10': '213.0',
-    '2018.01.05': '261.0',
-    '2018.9.10': '440.0'
+    'választási súly': 204.0,
+    '2017.11.10': 213.0,
+    '2018.01.05': 261.0,
+    '2018.9.10': 440.0
   },
   {
     'Anya száma': '32086 3020 8',
@@ -1128,10 +1141,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/8/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '191.0',
-    '2017.11.10': '207.0',
-    '2018.01.05': '250.0',
-    '2018.9.10': '437.0'
+    'választási súly': 191.0,
+    '2017.11.10': 207.0,
+    '2018.01.05': 250.0,
+    '2018.9.10': 437.0
   },
   {
     'Anya száma': '32086 0897 1',
@@ -1139,10 +1152,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/4/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '206.0',
-    '2017.11.10': '225.0',
-    '2018.01.05': '255.0',
-    '2018.9.10': '424.0'
+    'választási súly': 206.0,
+    '2017.11.10': 225.0,
+    '2018.01.05': 255.0,
+    '2018.9.10': 424.0
   },
   {
     'Anya száma': '32178 0548 0',
@@ -1150,10 +1163,10 @@ export const TestData2: any[] = [
     'Születési ideje': '3/19/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '228.0',
-    '2017.11.10': '244.0',
-    '2018.01.05': '290.0',
-    '2018.9.10': '487.0'
+    'választási súly': 228.0,
+    '2017.11.10': 244.0,
+    '2018.01.05': 290.0,
+    '2018.9.10': 487.0
   },
   {
     'Anya száma': '32086 3578 4',
@@ -1161,10 +1174,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/6/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '255.0',
-    '2017.11.10': '267.0',
-    '2018.01.05': '235.0',
-    '2018.9.10': '574.0'
+    'választási súly': 255.0,
+    '2017.11.10': 267.0,
+    '2018.01.05': 235.0,
+    '2018.9.10': 574.0
   },
   {
     'Anya száma': '32086 3796 8',
@@ -1172,10 +1185,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/8/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '215.0',
-    '2017.11.10': '227.0',
-    '2018.01.05': '286.0',
-    '2018.9.10': '512.0'
+    'választási súly': 215.0,
+    '2017.11.10': 227.0,
+    '2018.01.05': 286.0,
+    '2018.9.10': 512.0
   },
   {
     'Anya száma': '32086 1440 4',
@@ -1183,10 +1196,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/24/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '213.0',
-    '2017.11.10': '230.0',
-    '2018.01.05': '267.0',
-    '2018.9.10': '506.0'
+    'választási súly': 213.0,
+    '2017.11.10': 230.0,
+    '2018.01.05': 267.0,
+    '2018.9.10': 506.0
   },
   {
     'Anya száma': '32178 0539 6',
@@ -1194,10 +1207,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/22/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '210.5',
-    '2017.11.10': '228.0',
-    '2018.01.05': '271.0',
-    '2018.9.10': '476.0'
+    'választási súly': 210.5,
+    '2017.11.10': 228.0,
+    '2018.01.05': 271.0,
+    '2018.9.10': 476.0
   },
   {
     'Anya száma': '32086 1668 8',
@@ -1205,10 +1218,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/14/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '205.0',
-    '2017.11.10': '215.0',
-    '2018.01.05': '267.0',
-    '2018.9.10': '469.0'
+    'választási súly': 205.0,
+    '2017.11.10': 215.0,
+    '2018.01.05': 267.0,
+    '2018.9.10': 469.0
   },
   {
     'Anya száma': '32086 1505 8',
@@ -1216,10 +1229,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/6/2017',
     Ivara: 'üsző',
     Színe: 'v.tarka',
-    'választási súly': '200.0',
-    '2017.11.10': '219.0',
-    '2018.01.05': '255.0',
-    '2018.9.10': '468.0'
+    'választási súly': 200.0,
+    '2017.11.10': 219.0,
+    '2018.01.05': 255.0,
+    '2018.9.10': 468.0
   },
   {
     'Anya száma': '32086 3810 1',
@@ -1227,10 +1240,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/8/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '226.0',
-    '2017.11.10': '227.0',
-    '2018.01.05': '271.0',
-    '2018.9.10': '468.0'
+    'választási súly': 226.0,
+    '2017.11.10': 227.0,
+    '2018.01.05': 271.0,
+    '2018.9.10': 468.0
   },
   {
     'Anya száma': '32543 0079 9',
@@ -1238,10 +1251,10 @@ export const TestData2: any[] = [
     'Születési ideje': '5/7/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '169.0',
-    '2017.11.10': '191.0',
-    '2018.01.05': '233.0',
-    '2018.9.10': '467.0'
+    'választási súly': 169.0,
+    '2017.11.10': 191.0,
+    '2018.01.05': 233.0,
+    '2018.9.10': 467.0
   },
   {
     'Anya száma': '32086 4158 9',
@@ -1249,10 +1262,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/1/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '225.0',
-    '2017.11.10': '239.0',
-    '2018.01.05': '277.0',
-    '2018.9.10': '460.0'
+    'választási súly': 225.0,
+    '2017.11.10': 239.0,
+    '2018.01.05': 277.0,
+    '2018.9.10': 460.0
   },
   {
     'Anya száma': '32086 2247 6',
@@ -1260,10 +1273,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/1/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '216.0',
-    '2017.11.10': '211.0',
-    '2018.01.05': '284.0',
-    '2018.9.10': '459.0'
+    'választási súly': 216.0,
+    '2017.11.10': 211.0,
+    '2018.01.05': 284.0,
+    '2018.9.10': 459.0
   },
   {
     'Anya száma': '32086 1092 1',
@@ -1271,10 +1284,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/16/2017',
     Ivara: 'üsző',
     Színe: 'zs.tarka',
-    'választási súly': '172.0',
-    '2017.11.10': '186.0',
-    '2018.01.05': '238.0',
-    '2018.9.10': '459.0'
+    'választási súly': 172.0,
+    '2017.11.10': 186.0,
+    '2018.01.05': 238.0,
+    '2018.9.10': 459.0
   },
   {
     'Anya száma': '32086 3803 1',
@@ -1282,10 +1295,10 @@ export const TestData2: any[] = [
     'Születési ideje': '3/25/2017',
     Ivara: 'üsző',
     Színe: 'v.tarka',
-    'választási súly': '247.0',
-    '2017.11.10': '240.0',
-    '2018.01.05': '285.0',
-    '2018.9.10': '455.0'
+    'választási súly': 247.0,
+    '2017.11.10': 240.0,
+    '2018.01.05': 285.0,
+    '2018.9.10': 455.0
   },
   {
     'Anya száma': '32086 3178 2',
@@ -1293,10 +1306,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/8/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '250.0',
-    '2017.11.10': '217.0',
-    '2018.01.05': '244.0',
-    '2018.9.10': '455.0'
+    'választási súly': 250.0,
+    '2017.11.10': 217.0,
+    '2018.01.05': 244.0,
+    '2018.9.10': 455.0
   },
   {
     'Anya száma': '32086 3139 5',
@@ -1304,10 +1317,10 @@ export const TestData2: any[] = [
     'Születési ideje': '3/29/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '194.5',
-    '2017.11.10': '215.0',
-    '2018.01.05': '262.0',
-    '2018.9.10': '453.0'
+    'választási súly': 194.5,
+    '2017.11.10': 215.0,
+    '2018.01.05': 262.0,
+    '2018.9.10': 453.0
   },
   {
     'Anya száma': '32086 1967 0',
@@ -1315,10 +1328,10 @@ export const TestData2: any[] = [
     'Születési ideje': '5/3/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '194.5',
-    '2017.11.10': '211.0',
-    '2018.01.05': '247.0',
-    '2018.9.10': '448.0'
+    'választási súly': 194.5,
+    '2017.11.10': 211.0,
+    '2018.01.05': 247.0,
+    '2018.9.10': 448.0
   },
   {
     'Anya száma': '32086 3589 2',
@@ -1326,10 +1339,10 @@ export const TestData2: any[] = [
     'Születési ideje': '3/23/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '235.0',
-    '2017.11.10': '239.0',
-    '2018.01.05': '292.0',
-    '2018.9.10': '445.0'
+    'választási súly': 235.0,
+    '2017.11.10': 239.0,
+    '2018.01.05': 292.0,
+    '2018.9.10': 445.0
   },
   {
     'Anya száma': '32086 3174 4',
@@ -1337,10 +1350,10 @@ export const TestData2: any[] = [
     'Születési ideje': '3/27/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '201.0',
-    '2017.11.10': '208.0',
-    '2018.01.05': '252.0',
-    '2018.9.10': '445.0'
+    'választási súly': 201.0,
+    '2017.11.10': 208.0,
+    '2018.01.05': 252.0,
+    '2018.9.10': 445.0
   },
   {
     'Anya száma': '32086 3918 0',
@@ -1348,10 +1361,10 @@ export const TestData2: any[] = [
     'Születési ideje': '5/13/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '185.5',
-    '2017.11.10': '190.5',
-    '2018.01.05': '235.0',
-    '2018.9.10': '445.0'
+    'választási súly': 185.5,
+    '2017.11.10': 190.5,
+    '2018.01.05': 235.0,
+    '2018.9.10': 445.0
   },
   {
     'Anya száma': '32544 0007 5',
@@ -1361,8 +1374,8 @@ export const TestData2: any[] = [
     Színe: 'v.tarka',
     'választási súly': '',
     '2017.11.10': '',
-    '2018.01.05': '253.0',
-    '2018.9.10': '445.0'
+    '2018.01.05': 253.0,
+    '2018.9.10': 445.0
   },
   {
     'Anya száma': '32086 3581 6',
@@ -1370,10 +1383,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/26/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '174.0',
-    '2017.11.10': '187.0',
-    '2018.01.05': '234.0',
-    '2018.9.10': '443.0'
+    'választási súly': 174.0,
+    '2017.11.10': 187.0,
+    '2018.01.05': 234.0,
+    '2018.9.10': 443.0
   },
   {
     'Anya száma': '32086 1956 2',
@@ -1381,10 +1394,10 @@ export const TestData2: any[] = [
     'Születési ideje': '5/3/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '163.0',
-    '2017.11.10': '185.0',
-    '2018.01.05': '234.0',
-    '2018.9.10': '443.0'
+    'választási súly': 163.0,
+    '2017.11.10': 185.0,
+    '2018.01.05': 234.0,
+    '2018.9.10': 443.0
   },
   {
     'Anya száma': '32086 1502 7',
@@ -1392,10 +1405,10 @@ export const TestData2: any[] = [
     'Születési ideje': '3/30/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '224.5',
-    '2017.11.10': '239.0',
-    '2018.01.05': '278.0',
-    '2018.9.10': '438.0'
+    'választási súly': 224.5,
+    '2017.11.10': 239.0,
+    '2018.01.05': 278.0,
+    '2018.9.10': 438.0
   },
   {
     'Anya száma': '32086 3825 7',
@@ -1403,10 +1416,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/23/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '173.0',
-    '2017.11.10': '197.0',
-    '2018.01.05': '228.0',
-    '2018.9.10': '438.0'
+    'választási súly': 173.0,
+    '2017.11.10': 197.0,
+    '2018.01.05': 228.0,
+    '2018.9.10': 438.0
   },
   {
     'Anya száma': '32086 3066 4',
@@ -1414,10 +1427,10 @@ export const TestData2: any[] = [
     'Születési ideje': '5/31/2017',
     Ivara: 'üszö',
     Színe: 'vörös',
-    'választási súly': '174.5',
-    '2017.11.10': '181.5',
-    '2018.01.05': '241.0',
-    '2018.9.10': '437.0'
+    'választási súly': 174.5,
+    '2017.11.10': 181.5,
+    '2018.01.05': 241.0,
+    '2018.9.10': 437.0
   },
   {
     'Anya száma': '32086 1835 0',
@@ -1425,10 +1438,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/11/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '185.5',
-    '2017.11.10': '199.5',
-    '2018.01.05': '245.0',
-    '2018.9.10': '436.0'
+    'választási súly': 185.5,
+    '2017.11.10': 199.5,
+    '2018.01.05': 245.0,
+    '2018.9.10': 436.0
   },
   {
     'Anya száma': '32086 3036 1',
@@ -1436,10 +1449,10 @@ export const TestData2: any[] = [
     'Születési ideje': '5/18/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '181.5',
-    '2017.11.10': '186.5',
-    '2018.01.05': '214.0',
-    '2018.9.10': '430.0'
+    'választási súly': 181.5,
+    '2017.11.10': 186.5,
+    '2018.01.05': 214.0,
+    '2018.9.10': 430.0
   },
   {
     'Anya száma': '32517 0197 5',
@@ -1447,10 +1460,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/26/2017',
     Ivara: 'üsző',
     Színe: 'v.tarka',
-    'választási súly': '157.5',
-    '2017.11.10': '173.5',
-    '2018.01.05': '217.0',
-    '2018.9.10': '430.0'
+    'választási súly': 157.5,
+    '2017.11.10': 173.5,
+    '2018.01.05': 217.0,
+    '2018.9.10': 430.0
   },
   {
     'Anya száma': '32086 3029 1',
@@ -1458,10 +1471,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/21/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '184.5',
-    '2017.11.10': '187.5',
-    '2018.01.05': '228.0',
-    '2018.9.10': '429.0'
+    'választási súly': 184.5,
+    '2017.11.10': 187.5,
+    '2018.01.05': 228.0,
+    '2018.9.10': 429.0
   },
   {
     'Anya száma': '32086 4158 9',
@@ -1469,10 +1482,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/1/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '217.0',
-    '2017.11.10': '227.0',
-    '2018.01.05': '270.0',
-    '2018.9.10': '428.0'
+    'választási súly': 217.0,
+    '2017.11.10': 227.0,
+    '2018.01.05': 270.0,
+    '2018.9.10': 428.0
   },
   {
     'Anya száma': '32178 0564 4',
@@ -1480,10 +1493,10 @@ export const TestData2: any[] = [
     'Születési ideje': '3/31/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '205.0',
-    '2017.11.10': '209.0',
-    '2018.01.05': '252.0',
-    '2018.9.10': '427.0'
+    'választási súly': 205.0,
+    '2017.11.10': 209.0,
+    '2018.01.05': 252.0,
+    '2018.9.10': 427.0
   },
   {
     'Anya száma': '32086 1469 9',
@@ -1491,10 +1504,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/26/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '166.5',
-    '2017.11.10': '188.0',
-    '2018.01.05': '230.0',
-    '2018.9.10': '425.0'
+    'választási súly': 166.5,
+    '2017.11.10': 188.0,
+    '2018.01.05': 230.0,
+    '2018.9.10': 425.0
   },
   {
     'Anya száma': '32086 3138 8',
@@ -1502,10 +1515,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/4/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '220.0',
-    '2017.11.10': '192.5',
-    '2018.01.05': '236.0',
-    '2018.9.10': '421.0'
+    'választási súly': 220.0,
+    '2017.11.10': 192.5,
+    '2018.01.05': 236.0,
+    '2018.9.10': 421.0
   },
   {
     'Anya száma': '32086 1762 9',
@@ -1513,10 +1526,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/23/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '161.0',
-    '2017.11.10': '173.0',
-    '2018.01.05': '209.0',
-    '2018.9.10': '418.0'
+    'választási súly': 161.0,
+    '2017.11.10': 173.0,
+    '2018.01.05': 209.0,
+    '2018.9.10': 418.0
   },
   {
     'Anya száma': '32086 1871 6',
@@ -1524,10 +1537,10 @@ export const TestData2: any[] = [
     'Születési ideje': '5/7/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '178.0',
-    '2017.11.10': '187.5',
-    '2018.01.05': '223.0',
-    '2018.9.10': '417.0'
+    'választási súly': 178.0,
+    '2017.11.10': 187.5,
+    '2018.01.05': 223.0,
+    '2018.9.10': 417.0
   },
   {
     'Anya száma': '32086 3566 9',
@@ -1535,10 +1548,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/14/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '141.5',
-    '2017.11.10': '154.5',
-    '2018.01.05': '196.0',
-    '2018.9.10': '414.0'
+    'választási súly': 141.5,
+    '2017.11.10': 154.5,
+    '2018.01.05': 196.0,
+    '2018.9.10': 414.0
   },
   {
     'Anya száma': '32543 6269 8',
@@ -1546,10 +1559,10 @@ export const TestData2: any[] = [
     'Születési ideje': '5/7/2017',
     Ivara: 'üsző',
     Színe: 'v.tarka',
-    'választási súly': '175.5',
-    '2017.11.10': '180.0',
-    '2018.01.05': '226.0',
-    '2018.9.10': '413.0'
+    'választási súly': 175.5,
+    '2017.11.10': 180.0,
+    '2018.01.05': 226.0,
+    '2018.9.10': 413.0
   },
   {
     'Anya száma': '32086 1815 8',
@@ -1557,10 +1570,10 @@ export const TestData2: any[] = [
     'Születési ideje': '5/7/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '179.5',
-    '2017.11.10': '191.5',
-    '2018.01.05': '207.0',
-    '2018.9.10': '406.0'
+    'választási súly': 179.5,
+    '2017.11.10': 191.5,
+    '2018.01.05': 207.0,
+    '2018.9.10': 406.0
   },
   {
     'Anya száma': '32086 2978 7',
@@ -1568,10 +1581,10 @@ export const TestData2: any[] = [
     'Születési ideje': '5/6/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '153.0',
-    '2017.11.10': '163.0',
-    '2018.01.05': '204.0',
-    '2018.9.10': '400.0'
+    'választási súly': 153.0,
+    '2017.11.10': 163.0,
+    '2018.01.05': 204.0,
+    '2018.9.10': 400.0
   },
   {
     'Anya száma': '30171 2608 0',
@@ -1579,10 +1592,10 @@ export const TestData2: any[] = [
     'Születési ideje': '5/23/2017',
     Ivara: 'üsző',
     Színe: 'v.tarka',
-    'választási súly': '152.0',
-    '2017.11.10': '161.0',
-    '2018.01.05': '179.5',
-    '2018.9.10': '392.0'
+    'választási súly': 152.0,
+    '2017.11.10': 161.0,
+    '2018.01.05': 179.5,
+    '2018.9.10': 392.0
   },
   {
     'Anya száma': '32086 3046 2',
@@ -1590,10 +1603,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/9/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '170.0',
-    '2017.11.10': '177.0',
-    '2018.01.05': '216.0',
-    '2018.9.10': '390.0'
+    'választási súly': 170.0,
+    '2017.11.10': 177.0,
+    '2018.01.05': 216.0,
+    '2018.9.10': 390.0
   },
   {
     'Anya száma': '32543 6255 9',
@@ -1601,10 +1614,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/1/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '138.5',
-    '2017.11.10': '154.0',
-    '2018.01.05': '205.0',
-    '2018.9.10': '385.0'
+    'választási súly': 138.5,
+    '2017.11.10': 154.0,
+    '2018.01.05': 205.0,
+    '2018.9.10': 385.0
   },
   {
     'Anya száma': '32086 1198 6',
@@ -1612,10 +1625,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/26/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '156.5',
-    '2017.11.10': '153.0',
-    '2018.01.05': '204.0',
-    '2018.9.10': '383.0'
+    'választási súly': 156.5,
+    '2017.11.10': 153.0,
+    '2018.01.05': 204.0,
+    '2018.9.10': 383.0
   },
   {
     'Anya száma': '32817 0956 7',
@@ -1623,10 +1636,10 @@ export const TestData2: any[] = [
     'Születési ideje': '3/25/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '164.5',
-    '2017.11.10': '186.0',
-    '2018.01.05': '219.0',
-    '2018.9.10': '325.0'
+    'választási súly': 164.5,
+    '2017.11.10': 186.0,
+    '2018.01.05': 219.0,
+    '2018.9.10': 325.0
   },
   {
     'Anya száma': '32086 3057 0',
@@ -1634,10 +1647,10 @@ export const TestData2: any[] = [
     'Születési ideje': '3/22/2017',
     Ivara: 'üsző',
     Színe: 'zs.tarka',
-    'választási súly': '234.0',
-    '2017.11.10': '250.0',
-    '2018.01.05': '285.0',
-    '2018.9.10': '485.0'
+    'választási súly': 234.0,
+    '2017.11.10': 250.0,
+    '2018.01.05': 285.0,
+    '2018.9.10': 485.0
   },
   {
     'Anya száma': '32086 3003 7',
@@ -1645,10 +1658,10 @@ export const TestData2: any[] = [
     'Születési ideje': '3/23/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '206.0',
-    '2017.11.10': '213.0',
-    '2018.01.05': '270.0',
-    '2018.9.10': '466.0'
+    'választási súly': 206.0,
+    '2017.11.10': 213.0,
+    '2018.01.05': 270.0,
+    '2018.9.10': 466.0
   },
   {
     'Anya száma': '32086 1837 4',
@@ -1656,10 +1669,10 @@ export const TestData2: any[] = [
     'Születési ideje': '3/31/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '235.0',
-    '2017.11.10': '249.0',
-    '2018.01.05': '294.0',
-    '2018.9.10': '542.0'
+    'választási súly': 235.0,
+    '2017.11.10': 249.0,
+    '2018.01.05': 294.0,
+    '2018.9.10': 542.0
   },
   {
     'Anya száma': '32394 7148 1',
@@ -1667,10 +1680,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/29/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '221.0',
-    '2017.11.10': '239.0',
-    '2018.01.05': '290.0',
-    '2018.9.10': '524.0'
+    'választási súly': 221.0,
+    '2017.11.10': 239.0,
+    '2018.01.05': 290.0,
+    '2018.9.10': 524.0
   },
   {
     'Anya száma': '32086 3001 3',
@@ -1678,10 +1691,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/24/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '213.0',
-    '2017.11.10': '237.0',
-    '2018.01.05': '290.0',
-    '2018.9.10': '508.0'
+    'választási súly': 213.0,
+    '2017.11.10': 237.0,
+    '2018.01.05': 290.0,
+    '2018.9.10': 508.0
   },
   {
     'Anya száma': '32086 1712 4',
@@ -1689,10 +1702,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/13/2017',
     Ivara: 'üsző',
     Színe: 'v.tarka',
-    'választási súly': '154.0',
-    '2017.11.10': '174.5',
-    '2018.01.05': '238.0',
-    '2018.9.10': '480.0'
+    'választási súly': 154.0,
+    '2017.11.10': 174.5,
+    '2018.01.05': 238.0,
+    '2018.9.10': 480.0
   },
   {
     'Anya száma': '32086 0659 5',
@@ -1700,10 +1713,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/7/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '213.0',
-    '2017.11.10': '233.0',
-    '2018.01.05': '283.0',
-    '2018.9.10': '477.0'
+    'választási súly': 213.0,
+    '2017.11.10': 233.0,
+    '2018.01.05': 283.0,
+    '2018.9.10': 477.0
   },
   {
     'Anya száma': '32086 1428 8',
@@ -1711,10 +1724,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/10/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '230.0',
-    '2017.11.10': '240.0',
-    '2018.01.05': '287.0',
-    '2018.9.10': '476.0'
+    'választási súly': 230.0,
+    '2017.11.10': 240.0,
+    '2018.01.05': 287.0,
+    '2018.9.10': 476.0
   },
   {
     'Anya száma': '32543 0102 6',
@@ -1722,10 +1735,10 @@ export const TestData2: any[] = [
     'Születési ideje': '3/28/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '201.0',
-    '2017.11.10': '213.0',
-    '2018.01.05': '266.0',
-    '2018.9.10': '475.0'
+    'választási súly': 201.0,
+    '2017.11.10': 213.0,
+    '2018.01.05': 266.0,
+    '2018.9.10': 475.0
   },
   {
     'Anya száma': '32817 0998 5',
@@ -1733,10 +1746,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/14/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '183.0',
-    '2017.11.10': '194.0',
-    '2018.01.05': '239.0',
-    '2018.9.10': '474.0'
+    'választási súly': 183.0,
+    '2017.11.10': 194.0,
+    '2018.01.05': 239.0,
+    '2018.9.10': 474.0
   },
   {
     'Anya száma': '32086 3595 5',
@@ -1744,10 +1757,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/22/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '204.0',
-    '2017.11.10': '213.0',
-    '2018.01.05': '258.0',
-    '2018.9.10': '473.0'
+    'választási súly': 204.0,
+    '2017.11.10': 213.0,
+    '2018.01.05': 258.0,
+    '2018.9.10': 473.0
   },
   {
     'Anya száma': '32086 1805 7',
@@ -1755,10 +1768,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/26/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '170.0',
-    '2017.11.10': '182.0',
-    '2018.01.05': '241.0',
-    '2018.9.10': '470.0'
+    'választási súly': 170.0,
+    '2017.11.10': 182.0,
+    '2018.01.05': 241.0,
+    '2018.9.10': 470.0
   },
   {
     'Anya száma': '32086 1883 1',
@@ -1766,10 +1779,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/12/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '220.0',
-    '2017.11.10': '228.0',
-    '2018.01.05': '266.0',
-    '2018.9.10': '466.0'
+    'választási súly': 220.0,
+    '2017.11.10': 228.0,
+    '2018.01.05': 266.0,
+    '2018.9.10': 466.0
   },
   {
     'Anya száma': '32543 0099 1',
@@ -1777,10 +1790,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/11/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '194.0',
-    '2017.11.10': '204.0',
-    '2018.01.05': '240.0',
-    '2018.9.10': '465.0'
+    'választási súly': 194.0,
+    '2017.11.10': 204.0,
+    '2018.01.05': 240.0,
+    '2018.9.10': 465.0
   },
   {
     'Anya száma': '32086 1728 7',
@@ -1788,10 +1801,10 @@ export const TestData2: any[] = [
     'Születési ideje': '5/23/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '188.5',
-    '2017.11.10': '202.0',
-    '2018.01.05': '238.0',
-    '2018.9.10': '463.0'
+    'választási súly': 188.5,
+    '2017.11.10': 202.0,
+    '2018.01.05': 238.0,
+    '2018.9.10': 463.0
   },
   {
     'Anya száma': '32086 3834 1',
@@ -1799,10 +1812,10 @@ export const TestData2: any[] = [
     'Születési ideje': '6/1/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '191.0',
-    '2017.11.10': '196.0',
-    '2018.01.05': '250.0',
-    '2018.9.10': '462.0'
+    'választási súly': 191.0,
+    '2017.11.10': 196.0,
+    '2018.01.05': 250.0,
+    '2018.9.10': 462.0
   },
   {
     'Anya száma': '32086 1545 2',
@@ -1810,10 +1823,10 @@ export const TestData2: any[] = [
     'Születési ideje': '3/31/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '138.5',
-    '2017.11.10': '212.0',
-    '2018.01.05': '264.0',
-    '2018.9.10': '460.0'
+    'választási súly': 138.5,
+    '2017.11.10': 212.0,
+    '2018.01.05': 264.0,
+    '2018.9.10': 460.0
   },
   {
     'Anya száma': '32086 1594 0',
@@ -1821,10 +1834,10 @@ export const TestData2: any[] = [
     'Születési ideje': '5/3/2017',
     Ivara: 'üsző',
     Színe: 'v.tarka',
-    'választási súly': '211.0',
-    '2017.11.10': '229.0',
-    '2018.01.05': '258.0',
-    '2018.9.10': '456.0'
+    'választási súly': 211.0,
+    '2017.11.10': 229.0,
+    '2018.01.05': 258.0,
+    '2018.9.10': 456.0
   },
   {
     'Anya száma': '32086 1917 5',
@@ -1832,10 +1845,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/26/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '201.0',
-    '2017.11.10': '190.0',
-    '2018.01.05': '251.0',
-    '2018.9.10': '454.0'
+    'választási súly': 201.0,
+    '2017.11.10': 190.0,
+    '2018.01.05': 251.0,
+    '2018.9.10': 454.0
   },
   {
     'Anya száma': '32086 2021 6',
@@ -1843,10 +1856,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/17/2017',
     Ivara: 'üszö',
     Színe: 'v.tarka',
-    'választási súly': '173.0',
-    '2017.11.10': '186.0',
-    '2018.01.05': '235.0',
-    '2018.9.10': '443.0'
+    'választási súly': 173.0,
+    '2017.11.10': 186.0,
+    '2018.01.05': 235.0,
+    '2018.9.10': 443.0
   },
   {
     'Anya száma': '32086 1697 4',
@@ -1854,10 +1867,10 @@ export const TestData2: any[] = [
     'Születési ideje': '3/26/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '207.0',
-    '2017.11.10': '213.0',
-    '2018.01.05': '261.0',
-    '2018.9.10': '441.0'
+    'választási súly': 207.0,
+    '2017.11.10': 213.0,
+    '2018.01.05': 261.0,
+    '2018.9.10': 441.0
   },
   {
     'Anya száma': '32086 3062 6',
@@ -1865,10 +1878,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/11/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '179.5',
-    '2017.11.10': '191.0',
-    '2018.01.05': '238.0',
-    '2018.9.10': '440.0'
+    'választási súly': 179.5,
+    '2017.11.10': 191.0,
+    '2018.01.05': 238.0,
+    '2018.9.10': 440.0
   },
   {
     'Anya száma': '32086 1573 1',
@@ -1876,10 +1889,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/13/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '205.0',
-    '2017.11.10': '209.0',
-    '2018.01.05': '250.0',
-    '2018.9.10': '440.0'
+    'választási súly': 205.0,
+    '2017.11.10': 209.0,
+    '2018.01.05': 250.0,
+    '2018.9.10': 440.0
   },
   {
     'Anya száma': '32086 2988 8',
@@ -1887,10 +1900,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/16/2017',
     Ivara: 'üszö',
     Színe: 'vörös',
-    'választási súly': '105.0',
-    '2017.11.10': '217.0',
-    '2018.01.05': '262.0',
-    '2018.9.10': '440.0'
+    'választási súly': 105.0,
+    '2017.11.10': 217.0,
+    '2018.01.05': 262.0,
+    '2018.9.10': 440.0
   },
   {
     'Anya száma': '32086 3027 7',
@@ -1898,10 +1911,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/26/2017',
     Ivara: 'üsző',
     Színe: 'v.tarka',
-    'választási súly': '172.0',
-    '2017.11.10': '183.5',
-    '2018.01.05': '249.0',
-    '2018.9.10': '430.0'
+    'választási súly': 172.0,
+    '2017.11.10': 183.5,
+    '2018.01.05': 249.0,
+    '2018.9.10': 430.0
   },
   {
     'Anya száma': '32086 3107 8',
@@ -1909,10 +1922,10 @@ export const TestData2: any[] = [
     'Születési ideje': '5/22/2017',
     Ivara: 'üsző',
     Színe: 'v.tarka',
-    'választási súly': '133.5',
-    '2017.11.10': '145.5',
-    '2018.01.05': '193.5',
-    '2018.9.10': '430.0'
+    'választási súly': 133.5,
+    '2017.11.10': 145.5,
+    '2018.01.05': 193.5,
+    '2018.9.10': 430.0
   },
   {
     'Anya száma': '32739 0039 2',
@@ -1920,10 +1933,10 @@ export const TestData2: any[] = [
     'Születési ideje': '5/22/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '138.0',
-    '2017.11.10': '149.0',
-    '2018.01.05': '203.0',
-    '2018.9.10': '430.0'
+    'választási súly': 138.0,
+    '2017.11.10': 149.0,
+    '2018.01.05': 203.0,
+    '2018.9.10': 430.0
   },
   {
     'Anya száma': '32517 0176 6',
@@ -1931,10 +1944,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/1/2017',
     Ivara: 'üsző',
     Színe: 'v.tarka',
-    'választási súly': '185.5',
-    '2017.11.10': '202.0',
-    '2018.01.05': '247.0',
-    '2018.9.10': '430.0'
+    'választási súly': 185.5,
+    '2017.11.10': 202.0,
+    '2018.01.05': 247.0,
+    '2018.9.10': 430.0
   },
   {
     'Anya száma': '32086 2977 0',
@@ -1942,10 +1955,10 @@ export const TestData2: any[] = [
     'Születési ideje': '5/17/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '132.5',
-    '2017.11.10': '140.0',
-    '2018.01.05': '196.0',
-    '2018.9.10': '416.0'
+    'választási súly': 132.5,
+    '2017.11.10': 140.0,
+    '2018.01.05': 196.0,
+    '2018.9.10': 416.0
   },
   {
     'Anya száma': '32086 1682 8',
@@ -1953,10 +1966,10 @@ export const TestData2: any[] = [
     'Születési ideje': '5/3/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '147.5',
-    '2017.11.10': '150.5',
-    '2018.01.05': '202.0',
-    '2018.9.10': '414.0'
+    'választási súly': 147.5,
+    '2017.11.10': 150.5,
+    '2018.01.05': 202.0,
+    '2018.9.10': 414.0
   },
   {
     'Anya száma': '32086 1520 5',
@@ -1964,10 +1977,10 @@ export const TestData2: any[] = [
     'Születési ideje': '5/17/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '130.5',
-    '2017.11.10': '141.5',
-    '2018.01.05': '177.0',
-    '2018.9.10': '412.0'
+    'választási súly': 130.5,
+    '2017.11.10': 141.5,
+    '2018.01.05': 177.0,
+    '2018.9.10': 412.0
   },
   {
     'Anya száma': '32086 1347 0',
@@ -1975,10 +1988,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/8/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '160.5',
-    '2017.11.10': '163.0',
-    '2018.01.05': '212.0',
-    '2018.9.10': '411.0'
+    'választási súly': 160.5,
+    '2017.11.10': 163.0,
+    '2018.01.05': 212.0,
+    '2018.9.10': 411.0
   },
   {
     'Anya száma': '32086 1122 7',
@@ -1986,10 +1999,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/9/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '172.0',
-    '2017.11.10': '186.5',
-    '2018.01.05': '229.0',
-    '2018.9.10': '411.0'
+    'választási súly': 172.0,
+    '2017.11.10': 186.5,
+    '2018.01.05': 229.0,
+    '2018.9.10': 411.0
   },
   {
     'Anya száma': '32086 1484 6',
@@ -1997,10 +2010,10 @@ export const TestData2: any[] = [
     'Születési ideje': '5/7/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '137.0',
-    '2017.11.10': '147.5',
-    '2018.01.05': '203.0',
-    '2018.9.10': '411.0'
+    'választási súly': 137.0,
+    '2017.11.10': 147.5,
+    '2018.01.05': 203.0,
+    '2018.9.10': 411.0
   },
   {
     'Anya száma': '32086 1240 8',
@@ -2008,10 +2021,10 @@ export const TestData2: any[] = [
     'Születési ideje': '5/18/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '167.5',
-    '2017.11.10': '175.5',
-    '2018.01.05': '216.0',
-    '2018.9.10': '409.0'
+    'választási súly': 167.5,
+    '2017.11.10': 175.5,
+    '2018.01.05': 216.0,
+    '2018.9.10': 409.0
   },
   {
     'Anya száma': '32086 1875 4',
@@ -2019,10 +2032,10 @@ export const TestData2: any[] = [
     'Születési ideje': '5/18/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '172.5',
-    '2017.11.10': '185.5',
-    '2018.01.05': '210.0',
-    '2018.9.10': '408.0'
+    'választási súly': 172.5,
+    '2017.11.10': 185.5,
+    '2018.01.05': 210.0,
+    '2018.9.10': 408.0
   },
   {
     'Anya száma': '32086 2063 4',
@@ -2030,10 +2043,10 @@ export const TestData2: any[] = [
     'Születési ideje': '5/7/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '170.0',
-    '2017.11.10': '150.5',
-    '2018.01.05': '184.5',
-    '2018.9.10': '400.0'
+    'választási súly': 170.0,
+    '2017.11.10': 150.5,
+    '2018.01.05': 184.5,
+    '2018.9.10': 400.0
   },
   {
     'Anya száma': '32178 0534 1',
@@ -2041,10 +2054,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/9/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '163.5',
-    '2017.11.10': '187.0',
-    '2018.01.05': '218.0',
-    '2018.9.10': '395.0'
+    'választási súly': 163.5,
+    '2017.11.10': 187.0,
+    '2018.01.05': 218.0,
+    '2018.9.10': 395.0
   },
   {
     'Anya száma': '32086 0916 9',
@@ -2052,10 +2065,10 @@ export const TestData2: any[] = [
     'Születési ideje': '5/18/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '129.5',
-    '2017.11.10': '147.0',
-    '2018.01.05': '193.0',
-    '2018.9.10': '380.0'
+    'választási súly': 129.5,
+    '2017.11.10': 147.0,
+    '2018.01.05': 193.0,
+    '2018.9.10': 380.0
   },
   {
     'Anya száma': '32086 4247 4',
@@ -2063,10 +2076,10 @@ export const TestData2: any[] = [
     'Születési ideje': '7/1/2017',
     Ivara: 'üszö',
     Színe: 'vörös',
-    'választási súly': '126.0',
-    '2017.11.10': '122.0',
-    '2018.01.05': '165.5',
-    '2018.9.10': '377.0'
+    'választási súly': 126.0,
+    '2017.11.10': 122.0,
+    '2018.01.05': 165.5,
+    '2018.9.10': 377.0
   },
   {
     'Anya száma': '32086 1990 4',
@@ -2074,10 +2087,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/1/2017',
     Ivara: 'üsző',
     Színe: 'v.tarka',
-    'választási súly': '245.0',
-    '2017.11.10': '265.0',
-    '2018.01.05': '301.0',
-    '2018.9.10': '524.0'
+    'választási súly': 245.0,
+    '2017.11.10': 265.0,
+    '2018.01.05': 301.0,
+    '2018.9.10': 524.0
   },
   {
     'Anya száma': '32086 3590 0',
@@ -2085,10 +2098,10 @@ export const TestData2: any[] = [
     'Születési ideje': '5/6/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '193.5',
-    '2017.11.10': '222.0',
-    '2018.01.05': '249.0',
-    '2018.9.10': '458.0'
+    'választási súly': 193.5,
+    '2017.11.10': 222.0,
+    '2018.01.05': 249.0,
+    '2018.9.10': 458.0
   },
   {
     'Anya száma': '32086 3081 1',
@@ -2096,10 +2109,10 @@ export const TestData2: any[] = [
     'Születési ideje': '4/8/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '181.0',
-    '2017.11.10': '195.0',
-    '2018.01.05': '248.0',
-    '2018.9.10': '450.0'
+    'választási súly': 181.0,
+    '2017.11.10': 195.0,
+    '2018.01.05': 248.0,
+    '2018.9.10': 450.0
   },
   {
     'Anya száma': '32086 1836 7',
@@ -2107,10 +2120,10 @@ export const TestData2: any[] = [
     'Születési ideje': '3/29/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '160.0',
-    '2017.11.10': '191.0',
-    '2018.01.05': '243.0',
-    '2018.9.10': '455.0'
+    'választási súly': 160.0,
+    '2017.11.10': 191.0,
+    '2018.01.05': 243.0,
+    '2018.9.10': 455.0
   },
   {
     'Anya száma': '32817 0974 5',
@@ -2118,10 +2131,10 @@ export const TestData2: any[] = [
     'Születési ideje': '1/21/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '213.0',
-    '2017.11.10': '191.0',
-    '2018.01.05': '236.0',
-    '2018.9.10': '432.0'
+    'választási súly': 213.0,
+    '2017.11.10': 191.0,
+    '2018.01.05': 236.0,
+    '2018.9.10': 432.0
   },
   {
     'Anya száma': '32086 4229 6',
@@ -2129,9 +2142,9 @@ export const TestData2: any[] = [
     'Születési ideje': '6/6/2017',
     Ivara: 'üsző',
     Színe: 'vörös',
-    'választási súly': '172.5',
-    '2017.11.10': '178.0',
-    '2018.01.05': '197.0',
-    '2018.9.10': '374.0'
+    'választási súly': 172.5,
+    '2017.11.10': 178.0,
+    '2018.01.05': 197.0,
+    '2018.9.10': 374.0
   }
 ];

@@ -13,7 +13,7 @@ import {appearAnimation} from '../../hub-common/animations/appear.animation';
 import {RemovableOptionComponent} from '../../hub-common/components/removable-option/removable-option.component';
 import {Preset} from '../../hub-common/model/Preset';
 import {KeyValue} from '@angular/common';
-import {TestData2} from './test.data';
+import {TestData2} from '../data/test.data';
 
 @Component({
   selector: 'app-test',

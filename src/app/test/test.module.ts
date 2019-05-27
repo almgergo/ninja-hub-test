@@ -13,9 +13,10 @@ import {
 } from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {ChartTestComponent} from './chart-test/chart-test.component';
 
 @NgModule({
-  declarations: [TestComponent, QrTestComponent],
+  declarations: [TestComponent, QrTestComponent, ChartTestComponent],
   imports: [
     CommonModule,
     HubCommonModule,
@@ -30,6 +31,6 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
     FormsModule,
     FontAwesomeModule
   ],
-  exports: [TestComponent, QrTestComponent]
+  exports: [TestComponent, QrTestComponent, ChartTestComponent]
 })
 export class TestModule {}

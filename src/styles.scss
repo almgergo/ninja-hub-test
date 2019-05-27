@@ -4,6 +4,11 @@
 @import "assets/scss/material.scss";
 @import "assets/scss/design.scss";
 
+.container {
+  max-width: 1200px;
+  margin:auto;
+  padding: 30px 40px
+}
 
 .highlight-danger:hover{
   color:red;
