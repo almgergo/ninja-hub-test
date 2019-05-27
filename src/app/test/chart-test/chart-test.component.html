@@ -1,13 +1,9 @@
-
-
-
-
 <div class="container">
   <mat-form-field>
     <mat-label>Select an animal</mat-label>
     <mat-select (selectionChange)="selectAnimal($event)" >
-      <mat-option *ngFor="let animal of testData" [value]="animal">
-        {{animal['Borjú száma']}}
+      <mat-option *ngFor="let animal of (weighings | keyvalue)" [value]="animal.value">
+        {{animal.key}}
       </mat-option>
     </mat-select>
   </mat-form-field>

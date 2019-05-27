@@ -1,18 +1,12 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {Chart} from 'chart.js';
-import {TestData2, TestData2If} from '../data/test.data';
+import {TestData2, TestData2If, WeighingData} from '../data/test.data';
 import {MatSelectChange} from '@angular/material';
 
-const TestData: any[] = [
-  {
-    x: 1,
-    y: 10
-  },
-  {
-    x: 2,
-    y: 20
-  }
-];
+interface PlottableData {
+  t: string | Date;
+  y: number;
+}
 
 @Component({
   selector: 'app-chart-test',
@@ -22,90 +16,102 @@ const TestData: any[] = [
 export class ChartTestComponent implements OnInit {
   @ViewChild('lineChart') private chartRef;
   chart: any;
-  labels = ['2017.11.10', '2018.01.05', '2018.9.10'];
-  chartData: any[];
-  averageData: any[];
-  selectedAnimal: string; // ENAR
 
-  get testData(): TestData2If[] {
+  static get testData(): TestData2If[] {
     return TestData2;
   }
 
-  constructor() {
-    this.selectedAnimal = TestData2[0]['Borjú száma'];
-    this.createDataFromAnimal();
-    this.createAverageData(TestData2);
-    console.log({chartData: this.chartData});
+  weighings: Map<string, WeighingData[]> = new Map();
+  averages: PlottableData[];
+
+  constructor() {}
+
+  ngOnInit() {
+    this.parseTestData();
+    this.calculateAverage();
+    this.createChart([], []);
   }
 
-  private createDataFromAnimal() {
-    this.chartData = TestData2.filter(
-      td => td['Borjú száma'] === this.selectedAnimal
-    ).map(td => {
-      const animalDatas = [];
-      this.labels.forEach(label => animalDatas.push({x: label, y: td[label]}));
-      return animalDatas;
-    })[0];
+  private parseTestData() {
+    ChartTestComponent.testData.forEach(td => {
+      const weighingData: WeighingData[] = Object.keys(td)
+        .filter(key => typeof td[key] === 'number')
+        .map(key => ({
+          weight: td[key],
+          animalId: td['Borjú száma'],
+          date: this.parseDate(key)
+        }))
+        .filter(
+          w =>
+            // remove invalid date fields
+            Object.prototype.toString.call(w.date) === '[object Date]' &&
+            !isNaN(w.date.getTime())
+        );
+
+      this.weighings.set(td['Borjú száma'], weighingData);
+    });
+
+    console.log({weighings: this.weighings});
   }
 
-  private createAverageData(dataSet: any[]) {
-    const sumData = dataSet
-      .map(td => {
-        return {
-          '2017.11.10': +td['2017.11.10'],
-          '2018.9.10': +td['2018.9.10'],
-          '2018.01.05': +td['2018.01.05']
-        };
-      })
-      .reduce((td1: TestData2If, td2: TestData2If) => {
-        return {
-          '2017.11.10': td1['2017.11.10'] + td2['2017.11.10'],
-          '2018.9.10': td1['2018.9.10'] + td2['2018.9.10'],
-          '2018.01.05': td1['2018.01.05'] + td2['2018.01.05']
-        };
+  private parseDate(key: string) {
+    const parts: string[] = key.split('.');
+    return new Date(+parts[0], +parts[1] - 1, +parts[2]);
+  }
+
+  private calculateAverage() {
+    const averages: Map<number, {sum: number; count: number}> = new Map();
+    for (const weighings of Array.from(this.weighings.values())) {
+      weighings.forEach(w => {
+        const value = averages.get(w.date.getTime());
+        if (value) {
+          averages.set(w.date.getTime(), {
+            sum: value.sum + w.weight,
+            count: value.count + 1
+          });
+        } else {
+          averages.set(w.date.getTime(), {sum: w.weight, count: 1});
+        }
       });
-
-    Object.keys(sumData).forEach(key => (sumData[key] /= dataSet.length));
-
-    this.averageData = this.labels.map(label => ({
-      x: label,
-      y: sumData[label]
-    }));
-    console.log({
-      thisaverageData: this.averageData,
-      sumData: sumData
+    }
+    this.averages = Array.from(averages.entries()).map(([key, value]) => {
+      return {t: new Date(key), y: value.sum / value.count};
     });
   }
 
-  ngOnInit() {
-    this.createChart();
-  }
-
-  private createChart() {
+  private createChart(labels: string[], dataPoints: any[]) {
     return (this.chart = new Chart(this.chartRef.nativeElement, {
       type: 'line',
       data: {
-        labels: this.labels, // your labels array
+        labels: labels, // your labels array
         datasets: [
           {
-            data: this.chartData, // your data array
-            borderColor: '#00AEFF',
-            fill: false
-          },
-          {
-            data: this.averageData, // your data array
-            borderColor: '#FFAE00',
-            fill: false
+            data: dataPoints,
+            label: 'cattle data',
+            backgroundColor: ['rgba(255, 99, 132, 0.2)'],
+            borderColor: ['rgba(255, 99, 132, 1)']
           }
         ]
       },
       options: {
+        animation: {
+          easing: 'easeOutQuad',
+          duration: 400
+        },
         legend: {
-          display: false
+          display: true,
+          position: 'right'
+        },
+        hover: {
+          mode: 'index'
         },
         scales: {
           xAxes: [
             {
+              type: 'time',
+              time: {
+                unit: 'month'
+              },
               display: true
             }
           ],
@@ -120,19 +126,43 @@ export class ChartTestComponent implements OnInit {
   }
 
   selectAnimal(event: MatSelectChange) {
-    this.selectedAnimal = event.value['Borjú száma'];
-    this.createDataFromAnimal();
-    this.chart.data.datasets = [];
-    this.chart.data.datasets.push({
-      data: this.chartData, // your data array
-      borderColor: '#00AEFF',
-      fill: false
-    });
-    this.chart.data.datasets.push({
-      data: this.averageData, // your data array
-      borderColor: '#FFAE00',
-      fill: false
-    });
+    const weighings: WeighingData[] = event.value;
+
+    const plottableData = weighings.map(w => ({t: w.date, y: w.weight}));
+
+    console.log({labels: weighings.map(w => w.date), plottable: plottableData});
+
+    // this.createChart(weighings.map(w => w.date.toString()), plottableData);
+
+    this.chart.data.datasets = [
+      {
+        data: plottableData,
+        label: 'cattle data',
+        backgroundColor: ['rgba(255, 99, 132, 0.2)'],
+        borderColor: ['rgba(255, 99, 132, 1)']
+      },
+      {
+        data: this.averages,
+        label: 'average',
+        backgroundColor: ['rgba(0, 99, 132, 0.2)'],
+        borderColor: ['rgba(0, 99, 132, 1)']
+      }
+    ];
     this.chart.update();
+    // this.createChart([], [{t: new Date(), y: 10}, {t: new Date(), y: 15}]);
+    // this.chart.data.datasets = [];
+    // this.chart.labels = weighings
+    //   .filter(
+    //     w =>
+    //       Object.prototype.toString.call(w.date) === '[object Date]' &&
+    //       !isNaN(w.date.getTime())
+    //   )
+    //   .map(w => w.date);
+    // this.chart.data.datasets.push({
+    //   data: plottableData,
+    //   borderColor: '#00AEFF',
+    //   fill: false
+    // });
+    // this.chart.update();
   }
 }

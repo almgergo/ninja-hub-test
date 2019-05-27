@@ -1,6 +1,12 @@
 // tslint:disable-next-line:max-line-length
 // {'Anya száma': '\1', 'Borjú száma': '\2','Születési ideje': '\3',''Ivara'': '\4',''Színe'': '\5','választási súly': '\7','2017.11.10': '\8','2018.01.05': '\11','2018.9.10': '\14'}
 
+export interface WeighingData {
+  animalId: string;
+  date: Date;
+  weight: number;
+}
+
 export const TestData: any[] = [
   {
     'Anyja Enar': 'HU3254362629',
