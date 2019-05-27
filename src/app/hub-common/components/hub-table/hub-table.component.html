@@ -41,9 +41,13 @@
 
     <ng-container *ngFor="let column of displayedColumns; let i = index">
       <ng-container  [matColumnDef]="column.name">
-        <th #headerColumns  [ngStyle]="columnStyle(column)" mat-header-cell *matHeaderCellDef mat-sort-header>
-          <div class="drag-container" draggable="true" (dragstart)="dragStart(column)" (dragend)="dragEnd()" (dragenter)="dragEnter(column)"
-               ></div>
+        <th #headerColumns [ngStyle]="columnStyle(column)" mat-header-cell *matHeaderCellDef mat-sort-header>
+          <div class="drag-container"
+               draggable="true"
+               (dragstart)="dragStart(column)"
+               (dragend)="dragEnd()"
+               (dragenter)="dragEnter(column, 'div')">
+          </div>
           <span class="animated-container"  [ngStyle]="displacementStyle(column)">
             {{column.name}}
           </span>

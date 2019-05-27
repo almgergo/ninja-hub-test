@@ -14,7 +14,7 @@ import {
 import {TableHeader} from '../../model/TableHeader';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {SelectionModel} from '@angular/cdk/collections';
-import {faWrench} from '@fortawesome/free-solid-svg-icons';
+import {faGripHorizontal, faWrench} from '@fortawesome/free-solid-svg-icons';
 import {moveItemInArray} from '@angular/cdk/drag-drop';
 import {MultipleSelectComponent} from '../multiple-select/multiple-select.component';
 import {Preset} from '../../model/Preset';
@@ -59,6 +59,7 @@ export class HubTableComponent implements OnInit, AfterViewInit {
 
   // wrench icon
   wrench = faWrench;
+  grip = faGripHorizontal;
 
   // column average pixel width
   private colWidthPx = 0;
@@ -272,7 +273,8 @@ export class HubTableComponent implements OnInit, AfterViewInit {
 
   // region Drag handling
   // dragEnter
-  dragEnter(header: TableHeader) {
+  dragEnter(header: TableHeader, name: string) {
+    console.log({dragEnter: this.draggedItem, name: name});
     // find the index of the element that we've just dragged something over
     const index = this.headers.findIndex(h => h === header);
 
@@ -288,6 +290,8 @@ export class HubTableComponent implements OnInit, AfterViewInit {
     this.tempHeaders = [...this.headers];
     // store the item being dragged
     this.draggedItem = this.headers.findIndex(h => h === header);
+
+    console.log({draggedItem: this.draggedItem});
   }
 
   dragEnd() {
@@ -298,6 +302,8 @@ export class HubTableComponent implements OnInit, AfterViewInit {
         h['displacementStyle']['transform'] = 'none';
       }
     });
+
+    console.log({dragEnd: this.draggedItem});
 
     // set the headers to represent the new order
     this.headers = this.tempHeaders;
