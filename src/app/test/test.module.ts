@@ -31,9 +31,7 @@ import {ChartTestComponent} from './chart-test/chart-test.component';
     MatButtonModule,
     MatInputModule,
     FormsModule,
-    FontAwesomeModule,
-    MatDatepickerModule,
-    MatNativeDateModule
+    FontAwesomeModule
   ],
   exports: [TestComponent, QrTestComponent, ChartTestComponent],
   providers: [MatDatepickerModule]

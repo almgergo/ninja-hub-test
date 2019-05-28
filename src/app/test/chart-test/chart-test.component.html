@@ -9,46 +9,12 @@
       </mat-select>
     </mat-form-field>
 <!--  <div class="p-2">-->
-    <mat-form-field>
-      <div class="datepicker-input">
-        <input matInput
-          [matDatepicker]="minDate"
-          formControlName="minDate"
-          placeholder="min date"
-          (dateChange)="updateFiltering()"
-        />
-        <span>
-          <fa-icon [icon]="faTimes" [classes]="['highlight-danger']" (click)="resetMinDate($event)">
-          </fa-icon>
-        </span>
-      </div>
-      <mat-datepicker-toggle
-        matSuffix
-        [for]="minDate"
-      ></mat-datepicker-toggle>
-      <mat-datepicker #minDate></mat-datepicker>
-    </mat-form-field>
-    <mat-form-field>
-      <div class="datepicker-input">
-        <input matInput
-               [matDatepicker]="maxDate"
-               formControlName="maxDate"
-               placeholder="max date"
-               (dateChange)="updateFiltering()"
-        />
-        <span>
-          <fa-icon [icon]="faTimes" [classes]="['highlight-danger']" (click)="resetMaxDate($event)">
-          </fa-icon>
-        </span>
-      </div>
-      <mat-datepicker-toggle
-        matSuffix
-        [for]="maxDate"
-      ></mat-datepicker-toggle>
-      <mat-datepicker #maxDate><span>Test</span></mat-datepicker>
-    </mat-form-field>
-  </form>
 
+  </form>
+    <app-datepicker (dateChanged)="updateFiltering()"
+                    [maxDate]="filterForm.get('maxDate')"
+                    [minDate]="filterForm.get('minDate')">
+    </app-datepicker>
   <!--  </div>-->
 
 <!--  <div class="p-2">-->

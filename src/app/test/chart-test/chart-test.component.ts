@@ -2,7 +2,6 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {Chart} from 'chart.js';
 import {TestData2, TestData2If, WeighingData} from '../data/test.data';
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {faTimes} from '@fortawesome/free-solid-svg-icons';
 
 interface PlottableData {
   t: string | Date;
@@ -16,26 +15,22 @@ interface PlottableData {
 })
 export class ChartTestComponent implements OnInit {
   static get testData(): TestData2If[] {
+    // mock data
     return TestData2;
   }
 
-  constructor(private fb: FormBuilder) {
-    this.filterForm = fb.group({
-      selectedAnimal: [],
-      minDate: null,
-      maxDate: null
-    });
-  }
+  constructor(private fb: FormBuilder) {}
 
+  // ref to the chart
   @ViewChild('lineChart') private chartRef;
   chart: any;
 
+  // weighing data in a map with cattleId as key
   weighings: Map<string, WeighingData[]> = new Map();
+  // average of weighing data
   averages: PlottableData[];
-  selectedAnimal: WeighingData[];
 
   filterForm: FormGroup;
-  faTimes = faTimes;
 
   static parseDate(key: string) {
     const parts: string[] = key.split('.');
@@ -43,9 +38,33 @@ export class ChartTestComponent implements OnInit {
   }
 
   ngOnInit() {
+    // create the formGroup that will hold the filters for the chart
+    this.createFilterForm();
+    // parse test data into model
     this.parseTestData();
+    // calculate the average values from all data
     this.calculateAverage();
+    // create the empty chart
     this.createChart([], []);
+
+    // select the first value from the data
+    this.filterForm
+      .get('selectedAnimal')
+      .setValue(this.weighings.values().next().value);
+  }
+
+  private createFilterForm() {
+    // create the form used for filtering
+    this.filterForm = this.fb.group({
+      selectedAnimal: [],
+      minDate: null,
+      maxDate: null
+    });
+
+    // add listener to selectedAnimal to update filtering on change
+    this.filterForm
+      .get('selectedAnimal')
+      .valueChanges.subscribe(() => this.updateFiltering());
   }
 
   private parseTestData() {
@@ -66,8 +85,6 @@ export class ChartTestComponent implements OnInit {
 
       this.weighings.set(td['Borjú száma'], weighingData);
     });
-
-    console.log({weighings: this.weighings});
   }
 
   private calculateAverage() {
@@ -95,14 +112,7 @@ export class ChartTestComponent implements OnInit {
       type: 'line',
       data: {
         labels: labels, // your labels array
-        datasets: [
-          {
-            data: dataPoints,
-            label: 'cattle data',
-            backgroundColor: ['rgba(255, 99, 132, 0.2)'],
-            borderColor: ['rgba(255, 99, 132, 1)']
-          }
-        ]
+        datasets: []
       },
       options: {
         animation: {
@@ -183,17 +193,5 @@ export class ChartTestComponent implements OnInit {
         keep && this.filterForm.get('maxDate').value >= weighingData[dateField];
     }
     return keep;
-  }
-
-  resetMinDate(event: MouseEvent) {
-    this.filterForm.get('minDate').setValue(null);
-    this.updateFiltering();
-    event.stopPropagation();
-  }
-
-  resetMaxDate(event: MouseEvent) {
-    this.filterForm.get('maxDate').setValue(null);
-    this.updateFiltering();
-    event.stopPropagation();
   }
 }

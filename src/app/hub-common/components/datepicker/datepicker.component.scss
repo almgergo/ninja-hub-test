@@ -1,0 +1,44 @@
+.datepicker-input {
+  display: flex;
+  flex-wrap: nowrap;
+
+  align-content: center;
+}
+
+.datepicker-input > span {
+  padding: 0 10px;
+}
+
+
+.mat-datepicker {
+  display: flex;
+  flex-wrap: wrap;
+
+  align-items: center;
+}
+.mat-datepicker > *{
+  padding: 0 5px;
+}
+
+.interval-title {
+  margin-bottom: 0;
+  margin-left:10px;
+  font-family: Quicksand, serif;
+}
+
+.interval-grid{
+  margin: 10px 15px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+
+  justify-items: center
+;
+}
+
+.interval-values {
+white-space: nowrap;
+}
+
+.mat-option {
+  padding: 0 5px;
+}

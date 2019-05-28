@@ -1,0 +1,71 @@
+<div class="mat-datepicker">
+  <mat-form-field>
+    <div class="datepicker-input">
+      <label>
+        <input matInput
+               [matDatepicker]="minDatePicker"
+               [formControl]="minDate"
+               placeholder="min date"
+               (dateChange)="minDateChanged()"
+        />
+      </label>
+      <span>
+            <fa-icon [icon]="faTimes" [classes]="['highlight-danger']" (click)="resetMinDate($event)">
+            </fa-icon>
+          </span>
+    </div>
+    <mat-datepicker-toggle
+      matSuffix
+      [for]="minDatePicker"
+    ></mat-datepicker-toggle>
+    <mat-datepicker #minDatePicker></mat-datepicker>
+  </mat-form-field>
+  <span>-</span>
+  <mat-form-field>
+    <div class="datepicker-input">
+      <label>
+        <input matInput
+               [matDatepicker]="maxDatePicker"
+               [formControl]="maxDate"
+               placeholder="max date"
+               (dateChange)="maxDateChanged()"
+        />
+      </label>
+      <span>
+            <fa-icon [icon]="faTimes" [classes]="['highlight-danger']" (click)="resetMaxDate($event)">
+            </fa-icon>
+          </span>
+    </div>
+    <mat-datepicker-toggle
+      matSuffix
+      [for]="maxDatePicker"
+    ></mat-datepicker-toggle>
+    <mat-datepicker #maxDatePicker><span>Test</span></mat-datepicker>
+  </mat-form-field>
+
+  <span style="padding-left:25px; padding-right: 25px">Or</span>
+
+  <mat-form-field>
+    <mat-label>Select time interval</mat-label>
+    <mat-select [(value)]="selectedInterval" (selectionChange)="intervalSelected($event)">
+      <mat-select-trigger >
+        <span *ngIf="selectedInterval">
+          {{selectedInterval.name}}: {{selectedInterval.value}}
+        </span>
+      </mat-select-trigger>
+
+      <div class="option-grid">
+        <mat-option>None</mat-option>
+        <ng-container *ngFor="let interval of intervals">
+          <h4 class="interval-title">{{ interval.name}}</h4>
+          <div class="interval-grid">
+            <mat-option *ngFor="let value of interval.values" [value]="{name: interval.name, value: value}">
+              {{value}}
+            </mat-option>
+          </div>
+        </ng-container>
+
+      </div>
+    </mat-select>
+  </mat-form-field>
+</div>
