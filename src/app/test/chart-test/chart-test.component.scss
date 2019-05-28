@@ -1,0 +1,14 @@
+form > * {
+  margin: auto 15px;
+}
+
+.datepicker-input {
+  display: flex;
+  flex-wrap: nowrap;
+
+  align-content: center;
+}
+
+.datepicker-input > span {
+  padding: 0 10px;
+}

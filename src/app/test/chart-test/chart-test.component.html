@@ -1,12 +1,77 @@
 <div class="container">
-  <mat-form-field>
-    <mat-label>Select an animal</mat-label>
-    <mat-select (selectionChange)="selectAnimal($event)" >
-      <mat-option *ngFor="let animal of (weighings | keyvalue)" [value]="animal.value">
-        {{animal.key}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+  <form [formGroup]="filterForm">
+    <mat-form-field>
+      <mat-label>Select an animal</mat-label>
+      <mat-select formControlName="selectedAnimal" (selectionChange)="updateFiltering()" >
+        <mat-option *ngFor="let animal of (weighings | keyvalue)" [value]="animal.value">
+          {{animal.key}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+<!--  <div class="p-2">-->
+    <mat-form-field>
+      <div class="datepicker-input">
+        <input matInput
+          [matDatepicker]="minDate"
+          formControlName="minDate"
+          placeholder="min date"
+          (dateChange)="updateFiltering()"
+        />
+        <span>
+          <fa-icon [icon]="faTimes" [classes]="['highlight-danger']" (click)="resetMinDate($event)">
+          </fa-icon>
+        </span>
+      </div>
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="minDate"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #minDate></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+      <div class="datepicker-input">
+        <input matInput
+               [matDatepicker]="maxDate"
+               formControlName="maxDate"
+               placeholder="max date"
+               (dateChange)="updateFiltering()"
+        />
+        <span>
+          <fa-icon [icon]="faTimes" [classes]="['highlight-danger']" (click)="resetMaxDate($event)">
+          </fa-icon>
+        </span>
+      </div>
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="maxDate"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #maxDate><span>Test</span></mat-datepicker>
+    </mat-form-field>
+  </form>
+
+  <!--  </div>-->
+
+<!--  <div class="p-2">-->
+<!--    <mat-form-field (wheel)="decEndDate($event)">-->
+<!--      <input-->
+<!--        [min]="minEndDate"-->
+<!--        matInput-->
+<!--        [matDatepicker]="endDate"-->
+<!--        [placeholder]="-->
+<!--                'MEMBERS.OVERVIEW.POPUP.LICENCE_ACTIVATE.FORM.END_DATE.LABEL'-->
+<!--                  | translate-->
+<!--              "-->
+<!--        formControlName="valid_until"-->
+<!--        (dateChange)="setminDate($event.value)"-->
+<!--      />-->
+<!--      <mat-datepicker-toggle-->
+<!--        matSuffix-->
+<!--        [for]="endDate"-->
+<!--      ></mat-datepicker-toggle>-->
+<!--      <mat-datepicker #endDate></mat-datepicker>-->
+<!--    </mat-form-field>-->
+<!--  </div>-->
+
   <canvas #lineChart>{{ chart }}</canvas>
 </div>
 

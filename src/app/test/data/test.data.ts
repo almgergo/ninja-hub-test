@@ -1378,8 +1378,8 @@ export const TestData2: TestData2If[] = [
     'Születési ideje': '9/15/2017',
     Ivara: 'üsző',
     Színe: 'v.tarka',
-    'választási súly': '',
-    '2017.11.10': '',
+    'választási súly': null,
+    '2017.11.10': null,
     '2018.01.05': 253.0,
     '2018.9.10': 445.0
   },

@@ -7,7 +7,9 @@ import {ZXingScannerModule} from '@zxing/ngx-scanner';
 import {QrTestComponent} from './qr-test/qr-test.component';
 import {
   MatButtonModule,
+  MatDatepickerModule,
   MatInputModule,
+  MatNativeDateModule,
   MatOptionModule,
   MatSelectModule
 } from '@angular/material';
@@ -29,8 +31,11 @@ import {ChartTestComponent} from './chart-test/chart-test.component';
     MatButtonModule,
     MatInputModule,
     FormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
-  exports: [TestComponent, QrTestComponent, ChartTestComponent]
+  exports: [TestComponent, QrTestComponent, ChartTestComponent],
+  providers: [MatDatepickerModule]
 })
 export class TestModule {}

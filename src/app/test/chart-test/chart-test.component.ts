@@ -1,7 +1,8 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {Chart} from 'chart.js';
 import {TestData2, TestData2If, WeighingData} from '../data/test.data';
-import {MatSelectChange} from '@angular/material';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {faTimes} from '@fortawesome/free-solid-svg-icons';
 
 interface PlottableData {
   t: string | Date;
@@ -14,17 +15,32 @@ interface PlottableData {
   styleUrls: ['./chart-test.component.scss']
 })
 export class ChartTestComponent implements OnInit {
-  @ViewChild('lineChart') private chartRef;
-  chart: any;
-
   static get testData(): TestData2If[] {
     return TestData2;
   }
 
+  constructor(private fb: FormBuilder) {
+    this.filterForm = fb.group({
+      selectedAnimal: [],
+      minDate: null,
+      maxDate: null
+    });
+  }
+
+  @ViewChild('lineChart') private chartRef;
+  chart: any;
+
   weighings: Map<string, WeighingData[]> = new Map();
   averages: PlottableData[];
+  selectedAnimal: WeighingData[];
 
-  constructor() {}
+  filterForm: FormGroup;
+  faTimes = faTimes;
+
+  static parseDate(key: string) {
+    const parts: string[] = key.split('.');
+    return new Date(+parts[0], +parts[1] - 1, +parts[2]);
+  }
 
   ngOnInit() {
     this.parseTestData();
@@ -39,7 +55,7 @@ export class ChartTestComponent implements OnInit {
         .map(key => ({
           weight: td[key],
           animalId: td['Borjú száma'],
-          date: this.parseDate(key)
+          date: ChartTestComponent.parseDate(key)
         }))
         .filter(
           w =>
@@ -52,11 +68,6 @@ export class ChartTestComponent implements OnInit {
     });
 
     console.log({weighings: this.weighings});
-  }
-
-  private parseDate(key: string) {
-    const parts: string[] = key.split('.');
-    return new Date(+parts[0], +parts[1] - 1, +parts[2]);
   }
 
   private calculateAverage() {
@@ -100,7 +111,7 @@ export class ChartTestComponent implements OnInit {
         },
         legend: {
           display: true,
-          position: 'right'
+          position: 'top'
         },
         hover: {
           mode: 'index'
@@ -125,44 +136,64 @@ export class ChartTestComponent implements OnInit {
     }));
   }
 
-  selectAnimal(event: MatSelectChange) {
-    const weighings: WeighingData[] = event.value;
-
-    const plottableData = weighings.map(w => ({t: w.date, y: w.weight}));
-
-    console.log({labels: weighings.map(w => w.date), plottable: plottableData});
-
-    // this.createChart(weighings.map(w => w.date.toString()), plottableData);
+  updateFiltering() {
+    const weighings: WeighingData[] = this.filterForm.get('selectedAnimal')
+      .value;
+    if (!weighings) {
+      return;
+    }
+    const plottableData = weighings
+      .filter(w => this.filterDateInterval(w, 'date'))
+      .map(w => ({t: w.date, y: w.weight}));
 
     this.chart.data.datasets = [
       {
         data: plottableData,
         label: 'cattle data',
         backgroundColor: ['rgba(255, 99, 132, 0.2)'],
-        borderColor: ['rgba(255, 99, 132, 1)']
+        borderColor: ['rgba(255, 99, 132, 1)'],
+        pointBackgroundColor: 'rgba(255, 99, 132, 0.2)',
+        pointBorderColor: 'rgba(255, 99, 132, 0.8)',
+        pointRadius: 10,
+        pointHoverRadius: 12
       },
       {
-        data: this.averages,
+        data: this.averages.filter(a => this.filterDateInterval(a, 't')),
         label: 'average',
         backgroundColor: ['rgba(0, 99, 132, 0.2)'],
-        borderColor: ['rgba(0, 99, 132, 1)']
+        borderColor: ['rgba(0, 99, 132, 1)'],
+        pointBackgroundColor: 'rgba(0, 99, 132, 0.2)',
+        pointBorderColor: 'rgba(0, 99, 132, 0.8)',
+        pointRadius: 5,
+        pointHoverRadius: 6,
+        fill: false
       }
     ];
     this.chart.update();
-    // this.createChart([], [{t: new Date(), y: 10}, {t: new Date(), y: 15}]);
-    // this.chart.data.datasets = [];
-    // this.chart.labels = weighings
-    //   .filter(
-    //     w =>
-    //       Object.prototype.toString.call(w.date) === '[object Date]' &&
-    //       !isNaN(w.date.getTime())
-    //   )
-    //   .map(w => w.date);
-    // this.chart.data.datasets.push({
-    //   data: plottableData,
-    //   borderColor: '#00AEFF',
-    //   fill: false
-    // });
-    // this.chart.update();
+  }
+
+  private filterDateInterval(weighingData: any, dateField: string) {
+    let keep = true;
+    if (this.filterForm.get('minDate').value) {
+      keep =
+        keep && this.filterForm.get('minDate').value <= weighingData[dateField];
+    }
+    if (this.filterForm.get('maxDate').value) {
+      keep =
+        keep && this.filterForm.get('maxDate').value >= weighingData[dateField];
+    }
+    return keep;
+  }
+
+  resetMinDate(event: MouseEvent) {
+    this.filterForm.get('minDate').setValue(null);
+    this.updateFiltering();
+    event.stopPropagation();
+  }
+
+  resetMaxDate(event: MouseEvent) {
+    this.filterForm.get('maxDate').setValue(null);
+    this.updateFiltering();
+    event.stopPropagation();
   }
 }
