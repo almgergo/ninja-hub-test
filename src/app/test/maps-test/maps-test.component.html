@@ -1,0 +1,18 @@
+<h1>{{ title }}</h1>
+
+<button mat-raised-button (click)="addBarn()">Add barn</button>
+
+<div class="map">
+  <agm-map  [latitude]="lat" [longitude]="lng" [zoom]="zoom" mapTypeId="satellite">
+<!--    <ng-container *ngFor="let barn of barns">-->
+<!--      <agm-polygon (polyMouseOver)="polymouseover($event)" #barnPolygons [paths]="barn.location" [editable]="true" [polyDraggable]="true" (polyMouseUp)="printPaths($event)" [fillColor]="barn.color">-->
+<!--      </agm-polygon>-->
+
+<!--      <agm-circle [radius]="200" [latitude]="lat" [longitude]="lng" [fillColor]="'red'"-->
+
+<!--                  [circleDraggable]="true"-->
+<!--                  [editable]="true"></agm-circle>-->
+<!--      <agm-rectangle ></agm-rectangle>-->
+<!--    </ng-container>-->
+  </agm-map>
+</div>

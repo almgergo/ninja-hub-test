@@ -16,24 +16,50 @@ import {
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {ChartTestComponent} from './chart-test/chart-test.component';
+import {MapsTestComponent} from './maps-test/maps-test.component';
+import {
+  AgmCoreModule,
+  AgmPolygon,
+  GoogleMapsAPIWrapper,
+  MarkerManager,
+  PolygonManager
+} from '@agm/core';
+import {HttpClientModule} from '@angular/common/http';
+import {GeolocationService} from './maps-test/geolocation.service';
 
 @NgModule({
-  declarations: [TestComponent, QrTestComponent, ChartTestComponent],
+  declarations: [
+    TestComponent,
+    QrTestComponent,
+    ChartTestComponent,
+    MapsTestComponent
+  ],
   imports: [
     CommonModule,
     HubCommonModule,
     TestRoutingModule,
     ZXingScannerModule,
-    ZXingScannerModule.forRoot(),
     MatOptionModule,
     MatSelectModule,
     ReactiveFormsModule,
     MatButtonModule,
     MatInputModule,
     FormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    AgmCoreModule,
+    HttpClientModule
   ],
-  exports: [TestComponent, QrTestComponent, ChartTestComponent],
-  providers: [MatDatepickerModule]
+  exports: [
+    TestComponent,
+    QrTestComponent,
+    ChartTestComponent,
+    MapsTestComponent
+  ],
+  providers: [
+    MatDatepickerModule,
+    PolygonManager,
+    GoogleMapsAPIWrapper,
+    GeolocationService
+  ]
 })
 export class TestModule {}

@@ -3,7 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  maps: {
+    key: 'AIzaSyBqofuieTVKQhCAYPLLC1u8OxBb9rZrt6E',
+    url: 'https://maps.googleapis.com/maps/api/geocode/json'
+  }
 };
 
 /*

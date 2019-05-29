@@ -14,6 +14,7 @@ import {ZXingScannerModule} from '@zxing/ngx-scanner';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {AgmCoreModule} from '@agm/core';
 
 export function LocaleFactory() {
   return 'en';
@@ -48,7 +49,10 @@ registerLocaleData(localeDe, 'de');
         deps: [HttpClient]
       }
     }),
-    HttpClientModule
+    HttpClientModule,
+    AgmCoreModule.forRoot({
+      apiKey: environment.maps.key
+    })
   ],
 
   providers: [{provide: LOCALE_ID, useFactory: LocaleFactory}],
