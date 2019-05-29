@@ -164,8 +164,8 @@ export class ChartTestComponent implements OnInit {
         borderColor: ['rgba(255, 99, 132, 1)'],
         pointBackgroundColor: 'rgba(255, 99, 132, 0.2)',
         pointBorderColor: 'rgba(255, 99, 132, 0.8)',
-        pointRadius: 10,
-        pointHoverRadius: 12
+        pointRadius: 5,
+        pointHoverRadius: 6
       },
       {
         data: this.averages.filter(a => this.filterDateInterval(a, 't')),

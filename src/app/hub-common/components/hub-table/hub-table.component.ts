@@ -377,7 +377,7 @@ export class HubTableComponent implements OnInit, AfterViewInit {
   }
 
   isDate(element: any) {
-    return typeof element.getMonth === 'function';
+    return element && typeof element.getMonth === 'function';
   }
 
   isString(element: any) {
