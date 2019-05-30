@@ -1,6 +1,7 @@
 <h1>{{ title }}</h1>
 
 <button mat-raised-button (click)="addBarn()">Add barn</button>
+<button mat-raised-button (click)="printPaths($event)">Print</button>
 
 <div class="map">
   <agm-map  [latitude]="lat" [longitude]="lng" [zoom]="zoom" mapTypeId="satellite">
@@ -8,11 +9,11 @@
 <!--      <agm-polygon (polyMouseOver)="polymouseover($event)" #barnPolygons [paths]="barn.location" [editable]="true" [polyDraggable]="true" (polyMouseUp)="printPaths($event)" [fillColor]="barn.color">-->
 <!--      </agm-polygon>-->
 
-<!--      <agm-circle [radius]="200" [latitude]="lat" [longitude]="lng" [fillColor]="'red'"-->
+<!--&lt;!&ndash;      <agm-circle [radius]="200" [latitude]="lat" [longitude]="lng" [fillColor]="'red'"&ndash;&gt;-->
 
-<!--                  [circleDraggable]="true"-->
-<!--                  [editable]="true"></agm-circle>-->
-<!--      <agm-rectangle ></agm-rectangle>-->
+<!--&lt;!&ndash;                  [circleDraggable]="true"&ndash;&gt;-->
+<!--&lt;!&ndash;                  [editable]="true"></agm-circle>&ndash;&gt;-->
+<!--&lt;!&ndash;      <agm-rectangle ></agm-rectangle>&ndash;&gt;-->
 <!--    </ng-container>-->
   </agm-map>
 </div>

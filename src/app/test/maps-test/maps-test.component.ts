@@ -1,12 +1,11 @@
 import {
   Component,
-  ElementRef,
   OnInit,
   QueryList,
   ViewChild,
   ViewChildren
 } from '@angular/core';
-import {AgmMap, AgmPolygon, LatLngLiteral, PolyMouseEvent} from '@agm/core';
+import {AgmMap, AgmPolygon, LatLngLiteral, PolygonManager, PolyMouseEvent} from '@agm/core';
 import {GeolocationService} from './geolocation.service';
 import GeocodingResponse = Geocoding.GeocodingResponse;
 import {google} from '@agm/core/services/google-maps-types';
@@ -66,15 +65,45 @@ export class MapsTestComponent implements OnInit {
     }
   }
 
-  printPaths(event: PolyMouseEvent) {
+  printPaths(event) {
+
     this.barnPolygons.forEach(console.log);
-    // console.log({event: event.getArray()});
+    console.log({vertex: this.polygon.getPaths().getAt(0).getLength()})
+    for (let i = 0; i < this.polygon.getPaths().getAt(0).getLength(); i++) {
+      const vertex = this.polygon.getPaths().getAt(0).getAt(i);
+      console.log({lat: vertex.lat(), lng: vertex.lng()});
+
+    }
   }
 
   private initFromGeolocationResponse(result: Geocoding.Result) {
     this.lat = result.geometry.location.lat;
     this.lng = result.geometry.location.lng;
 
+    this.createBarnTemplate(result);
+
+    this.map._mapsWrapper.createPolygon({
+      paths: this.barnTemplate,
+      strokeColor: '#FF0000',
+      strokeOpacity: 0.8,
+      strokeWeight: 2,
+      fillColor: '#FF0000',
+      fillOpacity: 0.1,
+      editable: true,
+      draggable: true
+    }).then((polygon: any) => {
+      this.polygon = polygon;
+    });
+
+    this.barns.push({
+      color: MapsTestComponent.getRandomColor(),
+      location: this.barnTemplate
+    });
+
+    console.log({paths: this.barns});
+  }
+
+  private createBarnTemplate(result: Geocoding.Result) {
     this.barnTemplate = [];
     this.barnTemplate.push({
       lat: result.geometry.bounds.northeast.lat,
@@ -92,27 +121,6 @@ export class MapsTestComponent implements OnInit {
       lat: result.geometry.bounds.southwest.lat,
       lng: result.geometry.bounds.northeast.lng
     });
-
-    // Construct the polygon.
-    this.polygon = new goR2d6ogle.maps.Polygon({
-      paths: this.barnTemplate,
-      strokeColor: '#FF0000',
-      strokeOpacity: 0.8,
-      strokeWeight: 2,
-      fillColor: '#FF0000',
-      fillOpacity: 0.35,
-      editable: true,
-      draggable: true
-    });
-
-    this.polygon.setMap(this.map);
-
-    this.barns.push({
-      color: MapsTestComponent.getRandomColor(),
-      location: this.barnTemplate
-    });
-
-    console.log({paths: this.barns});
   }
 
   addBarn() {
