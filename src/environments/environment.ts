@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   maps: {
-    key: 'AIzaSyBqofuieTVKQhCAYPLLC1u8OxBb9rZrt6E',
+    key: '',
     url: 'https://maps.googleapis.com/maps/api/geocode/json'
   }
 };
